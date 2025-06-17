@@ -23,16 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
             body: dataToPost,
         })
             .then(() => {
-            formResult.innerHTML = '<div class="success-message">¡Gracias! Tu mensaje ha sido enviado correctamente.</div>';
-            contactForm.reset();
-        })
+                formResult.innerHTML = '<div class="success-message">¡Gracias! Tu mensaje ha sido enviado correctamente.</div>';
+                contactForm.reset();
+            })
             .catch((error) => {
-            formResult.innerHTML = `<div class="error-message">Hubo un error de red al enviar el formulario. Error: ${error.message}</div>`;
-        })
+                formResult.innerHTML = `<div class="error-message">Hubo un error de red al enviar el formulario. Error: ${error.message}</div>`;
+            })
             .finally(() => {
-            setTimeout(() => {
-                formResult.innerHTML = '';
-            }, 5000);
-        });
+                setTimeout(() => {
+                    formResult.innerHTML = '';
+                }, 5000);
+            });
     });
 });
