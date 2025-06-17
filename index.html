@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juan Lorenzo Suárez | Desarrollador Web Full-Stack</title>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
 
     <link
       rel="stylesheet"
@@ -199,15 +199,15 @@
       <section id="contacto" class="section">
         <h2 class="section__title">Hablemos</h2>
         <div class="contact__container container">
+
+          <div id="form-result"></div>
+
           <p class="contact__description">
             ¿Interesado en colaborar o tienes alguna pregunta? Envíame un
             mensaje.
           </p>
-          <form
-            action="https://formspree.io/f/YOUR_UNIQUE_ID"
-            method="POST"
-            class="contact__form"
-          >
+
+          <form id="contact-form" class="contact__form">
             <input
               type="text"
               name="name"
@@ -252,5 +252,6 @@
         </div>
       </div>
     </footer>
+    <script defer src="/js/app.js"></script>
   </body>
 </html>
