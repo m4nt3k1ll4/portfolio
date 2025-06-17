@@ -1,18 +1,13 @@
 /* ==================== VARIABLES Y ESTILOS GENERALES ==================== */
 :root {
     --color-primary: #3772FF;
-    /* Un azul vibrante */
     --color-secondary: #DF2935;
-    /* Un rojo para acentos */
     --color-dark: #080708;
-    /* Casi negro */
     --color-light: #F4F4F9;
-    /* Casi blanco */
     --color-gray: #A1A1A1;
     --font-family-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Reseteo básico y configuración global */
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +16,6 @@
 
 html {
     scroll-behavior: smooth;
-    /* Para el scroll suave al hacer clic en los links del nav */
 }
 
 body {
@@ -95,7 +89,6 @@ img {
     left: 0;
     width: 100%;
     background-color: rgba(244, 244, 249, 0.8);
-    /* Fondo semi-transparente */
     backdrop-filter: blur(10px);
     z-index: 100;
 }
@@ -121,6 +114,26 @@ img {
 .nav__link {
     color: var(--color-dark);
     font-weight: bold;
+    position: relative; 
+    padding-bottom: 5px; 
+}
+
+
+.nav__link::after {
+    content: ''; 
+    position: absolute;
+    height: 2px; 
+    width: 100%; 
+    background-color: var(--color-primary);
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0); 
+    transform-origin: left; 
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav__link:hover::after {
+    transform: scaleX(1);
 }
 
 /* ==================== HERO SECTION ==================== */
@@ -154,41 +167,52 @@ img {
 }
 
 /* ==================== SOBRE MÍ ==================== */
-.about__content {
-    max-width: 850px;
-    max-height: auto;
-    margin: 0 auto;
-    text-align: center;
+.about__container.grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; 
+    align-items: start;
+    gap: 4rem;
+}
+
+.about__subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+    display: inline-block;
 }
 
 .about__text {
-    text-align: center;
-    margin-bottom: 3rem;
+    text-align: left;
 }
 
 .about__text p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     line-height: 1.7;
     color: #454545;
+}
+
+.about__text p:not(:last-child) {
+    margin-bottom: 1.5rem;
 }
 
 .skills__grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
+    justify-content: flex-start;
+    gap: 1rem;
 }
 
 .skill__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem;
+    gap: 1.3rem;
+    padding: 1rem;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    width: 120px;
+    width: 100px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -198,12 +222,29 @@ img {
 }
 
 .skill__item i {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
 }
 
 .skill__item span {
+    font-size: 0.8rem;
     font-weight: 500;
     color: #333;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 992px) {
+    .about__container.grid {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+    }
+
+    .about__info, .about__skills {
+        text-align: center;
+    }
+
+    .skills__grid {
+        justify-content: center;
+    }
 }
 
 /* ==================== PROYECTOS ==================== */
@@ -313,7 +354,6 @@ img {
 @media (max-width: 768px) {
     .nav__list {
         display: none;
-        /* En un paso futuro, aquí haríamos un menú de hamburguesa sip tengo hambre con JS */
     }
 
     .hero__title {
