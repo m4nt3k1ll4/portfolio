@@ -462,22 +462,55 @@ main {
 
 /* ==================== FOOTER ==================== */
 .footer {
-    background-color: var(--color-dark);
-    color: var(--color-light);
-    padding: 2rem 0;
+    background-color: #1a1a1a; 
+    color: var(--color-gray);
+    padding: 0 0 2rem; 
     text-align: center;
+    border-top: 2px solid var(--color-primary);
 }
 
+.footer__container {
+    align-items: center;
+}
+
+.footer__item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 1rem;
+    padding-top: 2rem;
+}
+
+.footer__copyright {
+    font-size: 0.9rem;
+}
+
+
 .footer__social {
-    margin-top: 0.5rem;
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem; 
 }
 
 .footer__social-link {
-    color: var(--color-light);
-    font-size: 1.5rem;
+    color: var(--color-gray);
+    font-size: 1.8rem; 
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer__social-link:hover {
+    color: var(--color-primary); 
+    transform: translateY(-3px); 
+}
+
+@media (max-width: 768px) {
+    .footer__bottom {
+        flex-direction: column; 
+        justify-content: center; 
+        gap: 1.5rem;
+    }
 }
 
 /* ==================== RESPONSIVE DESIGN para los que tiene celuco :V ==================== */
