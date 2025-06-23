@@ -65,7 +65,7 @@ img {
     display: block;
 }
 main {
-    padding-top: 3rem; 
+    padding-top: 1rem; 
 }
 
 .container {
@@ -290,27 +290,34 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.skills__grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-.skill-category {
-    margin-bottom: 1.5rem; 
-}
+/* ==================== HABILIDADES ==================== */
 .skills-wrapper {
     max-width: 900px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    align-items: start;
+}
+
+.skill-category {
+    margin-bottom: 1rem;
 }
 
 .skill-category__title {
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
     font-weight: bold;
     color: var(--color-dark);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    text-align: center;
+    text-align: left;
+}
+
+.skills__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
 }
 
 .skill__item {
@@ -342,6 +349,21 @@ main {
     font-weight: 500;
     color: #333;
     text-align: center;
+}
+
+/* Reglas responsivas específicas para las habilidades */
+@media (max-width: 768px) {
+    .skills-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-category__title {
+        text-align: center;
+    }
+
+    .skills__grid {
+        justify-content: center;
+    }
 }
 
 
