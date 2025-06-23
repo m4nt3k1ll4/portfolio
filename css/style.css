@@ -197,7 +197,23 @@ img {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     align-items: start;
-    gap: 4rem;
+    gap: 2.5rem;
+}
+
+.about__text-container {
+    max-width: 800px;
+    margin: 0 auto; 
+    text-align: left;
+}
+
+.about__text-container p {
+    font-size: var(--fs-body);
+    color: #454545;
+    line-height: 1.7;
+}
+
+.about__text-container p:not(:last-child) {
+    margin-bottom: 1.5rem;
 }
 
 .about__subtitle {
@@ -211,6 +227,8 @@ img {
 
 .about__text p {
     color: #454545;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 .about__text p:not(:last-child) {
@@ -220,8 +238,24 @@ img {
 .skills__grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 1rem;
+}
+.skill-category {
+    margin-bottom: 1.5rem; 
+}
+.skills-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-category__title {
+    font-size: 1.1rem; 
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
 }
 
 .skill__item {
@@ -254,6 +288,7 @@ img {
     color: #333;
     text-align: center;
 }
+
 
 /* ==================== PROYECTOS ==================== */
 .projects__container {
