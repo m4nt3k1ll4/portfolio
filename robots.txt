@@ -1,0 +1,37 @@
+# Robots.txt for M4nt3k1ll4 Portfolio
+# https://www.robotstxt.org
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+
+Disallow: /node_modules/
+Disallow: /*.json
+Disallow: /.git/
+Disallow: /.github/
+
+# Crawl delay to be friendly to servers
+Crawl-delay: 1
+
+# XML Sitemap
+Sitemap: https://m4nt3k1lla.com/sitemap.xml
+
+# Specific rules for popular crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1

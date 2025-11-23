@@ -2,25 +2,118 @@
 <html lang="es">
 
 <head>
+  <!-- Charset & Viewport -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M4nt3k1ll4 - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- Title & Primary SEO -->
+  <title>Juan Lorenzo Suárez | Full-Stack Developer | Angular & Laravel Specialist</title>
+  <meta name="description"
+    content="Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP. Explore my interactive terminal portfolio showcasing projects, skills, and experience in web development." />
+  <meta name="keywords"
+    content="Full-Stack Developer, Angular, Laravel, TypeScript, PHP, JavaScript, Web Development, Frontend, Backend, Portfolio, Developer" />
+  <meta name="author" content="Juan Lorenzo Suárez Jiménez" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!-- Canonical & Alternate URLs -->
+  <link rel="canonical" href="https://m4nt3k1lla.com" />
+  <link rel="alternate" hreflang="es" href="https://m4nt3k1lla.com/es" />
+  <link rel="alternate" hreflang="en" href="https://m4nt3k1lla.com/en" />
+  <link rel="alternate" hreflang="x-default" href="https://m4nt3k1lla.com" />
+
+  <!-- Open Graph (Social Media) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://m4nt3k1lla.com" />
+  <meta property="og:title" content="Juan Lorenzo Suárez | Full-Stack Developer" />
+  <meta property="og:description"
+    content="Explore my interactive terminal portfolio. Full-Stack Developer specializing in Angular, Laravel, and modern web technologies." />
+  <meta property="og:image" content="https://m4nt3k1lla.com/assets/media/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Juan Lorenzo Suárez - Full-Stack Developer Portfolio" />
+  <meta property="og:site_name" content="M4nt3k1ll4 Portfolio" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://m4nt3k1lla.com" />
+  <meta name="twitter:title" content="Juan Lorenzo Suárez | Full-Stack Developer" />
+  <meta name="twitter:description"
+    content="Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP. Check out my interactive terminal portfolio." />
+  <meta name="twitter:image" content="https://m4nt3k1lla.com/assets/media/twitter-image.png" />
+  <meta name="twitter:creator" content="@m4nt3k1ll4" />
+  <meta name="twitter:site" content="@m4nt3k1ll4" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Juan Lorenzo Suárez Jiménez",
+      "url": "https://m4nt3k1lla.com",
+      "image": "https://m4nt3k1lla.com/assets/media/profile-image.png",
+      "description": "Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP",
+      "jobTitle": "Full-Stack Developer",
+      "knowsLanguage": ["es", "en"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "sameAs": [
+        "https://github.com/m4nt3k1ll4",
+        "https://linkedin.com/in/m4nt3k1ll4",
+        "https://twitter.com/m4nt3k1ll4"
+      ],
+      "skills": ["Angular", "Laravel", "TypeScript", "PHP", "JavaScript", "Web Development", "Frontend", "Backend"]
+    }
+  </script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "M4nt3k1ll4 Portfolio",
+      "url": "https://m4nt3k1lla.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://m4nt3k1lla.com?q={search_term_string}"
+        }
+      }
+    }
+  </script>
+
+  <!-- Additional Meta Tags -->
+  <meta name="theme-color" content="#1e1e1e" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="M4nt3k1ll4" />
+  <meta name="msapplication-TileColor" content="#1e1e1e" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+  <!-- Preconnect to External Resources -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="./css/terminal.css" />
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./assets/media/favicon.ico">
-
-  <!-- SEO -->
-  <meta name="description"
-    content="Juan Lorenzo Suárez - Full-Stack Developer specializing in Angular and Laravel. Interactive terminal portfolio.">
-  <meta name="keywords" content="Full-Stack Developer, Angular, Laravel, TypeScript, PHP, Web Development">
-  <meta name="author" content="Juan Lorenzo Suárez Jiménez">
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/png" href="./assets/media/favicon.ico" />
+  <link rel="apple-touch-icon" href="./assets/media/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="./assets/media/favicon.ico" />
+  <link rel="manifest" href="./manifest.json" />
 </head>
 
 <body>
