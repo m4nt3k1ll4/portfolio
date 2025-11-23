@@ -2054,3 +2054,65 @@ body {
     padding: 0 15px;
   }
 }
+
+/* ============================================
+   Interactive Elements in Terminal
+   ============================================ */
+
+/* Allow text selection in console output */
+.terminal-output {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+/* Ensure inputs and textareas are fully interactive */
+.terminal-output input,
+.terminal-output textarea,
+.terminal-output button,
+.terminal-output a {
+  pointer-events: auto !important;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+}
+
+/* Style overrides for form inputs in terminal */
+.terminal-output input[type="text"],
+.terminal-output input[type="email"],
+.terminal-output textarea {
+  pointer-events: auto !important;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+  cursor: text !important;
+}
+
+/* Buttons clickable */
+.terminal-output button {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Links clickable */
+.terminal-output a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Preserve user-select on output lines for copy functionality */
+.output-line {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+}
+
+/* Allow selection on text content */
+.terminal-output span,
+.terminal-output div,
+.terminal-output p {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+}

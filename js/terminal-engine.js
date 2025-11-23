@@ -84,9 +84,15 @@ function setupEventListeners() {
     terminalInput.addEventListener("keydown", handleKeyDown);
     terminalInput.addEventListener("input", handleInput);
 
-    // Click anywhere to focus input
+    // Click anywhere to focus input - BUT NOT on inputs, textareas, buttons, or links
+    // Also don't focus if user is trying to select text
     document.addEventListener("click", (e) => {
-        if (!e.target.closest(".theme-menu") && !e.target.closest(".theme-btn")) {
+        const excludedElements = e.target.closest("input, textarea, button, a, .theme-menu, .theme-btn, .helper-btn");
+        
+        // Check if user has text selected - if so, don't steal focus
+        const hasSelection = window.getSelection && window.getSelection().toString().length > 0;
+        
+        if (!excludedElements && !hasSelection) {
             terminalInput.focus();
         }
     });
