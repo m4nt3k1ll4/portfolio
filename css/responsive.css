@@ -99,8 +99,11 @@
 
     /* Terminal content with better spacing */
     .terminal-content {
-        padding: 15px 12px;
-        padding-bottom: 70px;
+        padding: 12px 10px;
+        padding-bottom: 68px;
+        box-sizing: border-box;
+        overflow-x: hidden !important;
+        max-width: 100% !important;
     }
 
     /* Mobile keyboard helper */
@@ -116,6 +119,8 @@
         left: 0;
         right: 0;
         z-index: 100;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .mobile-btn {

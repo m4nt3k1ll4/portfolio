@@ -223,6 +223,7 @@ body {
   overflow: hidden;
   padding: 16px;
   background: var(--bg-primary);
+  box-sizing: border-box;
 }
 
 .terminal-output {
@@ -338,6 +339,9 @@ body {
   caret-color: var(--text-primary);
   caret-width: 10px;
   padding-left: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .terminal-input::selection {

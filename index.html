@@ -110,17 +110,25 @@
 
   <!-- INLINE STYLE - AUTOCOMPLETE FIX -->
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     .autocomplete-container {
       display: grid !important;
       grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)) !important;
       gap: 3px !important;
       padding: 4px !important;
-      margin: 0px 20px 8px 20px !important;
+      margin: 12px 0 0 0 !important;
       background: var(--bg-secondary) !important;
       border: 1px solid var(--border-color) !important;
       border-radius: 6px !important;
-      max-height: 130px !important;
+      max-height: 100px !important;
       overflow-y: auto !important;
+      overflow-x: hidden !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      flex-shrink: 0 !important;
     }
     
     .autocomplete-container:not(.active) {
@@ -148,6 +156,44 @@
     .autocomplete-item:hover {
       background: var(--color-info) !important;
       color: var(--bg-primary) !important;
+    }
+
+    /* Mobile ONLY - fix overflow issues */
+    @media (max-width: 1023px) {
+      html, body {
+        overflow-x: hidden !important;
+      }
+
+      .terminal-window {
+        overflow-x: hidden !important;
+      }
+
+      .terminal-content {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .terminal-input-line {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        gap: 4px !important;
+      }
+
+      .prompt {
+        flex-shrink: 0 !important;
+        font-size: 11px !important;
+      }
+
+      .terminal-input {
+        font-size: 13px !important;
+      }
+
+      .autocomplete-container {
+        max-height: 65px !important;
+      }
     }
   </style>
 
@@ -216,14 +262,14 @@
 
         <!-- Input Line -->
         <div class="terminal-input-line">
-          <span class="prompt" id="prompt">PS C:\Users\Guest\portfolio&gt;</span>
+          <span class="prompt" id="prompt">C:\portfolio&gt;</span>
           <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false"
             autofocus />
         </div>
-      </div>
 
-      <!-- Autocomplete Suggestions -->
-      <div class="autocomplete-container" id="autocompleteContainer"></div>
+        <!-- Autocomplete Suggestions -->
+        <div class="autocomplete-container" id="autocompleteContainer"></div>
+      </div>
     </div>
 
     <!-- Mobile Keyboard Helper -->

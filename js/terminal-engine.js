@@ -289,9 +289,7 @@ function printPrompt() {
 
 // Get prompt text
 function getPromptText() {
-    const path = getCurrentPath();
-    const windowsPath = path === "/" ? "\\portfolio" : "\\portfolio" + path.replace(/\//g, "\\");
-    return `<span class="prompt">PS C:\\Users\\Guest${windowsPath}&gt;</span>`;
+    return `<span class="prompt">C:\\portfolio&gt;</span>`;
 }
 
 // Update prompt

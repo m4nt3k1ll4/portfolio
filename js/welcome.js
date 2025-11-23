@@ -114,7 +114,7 @@ function initWelcomeScreen() {
                 <!-- Input Section -->
                 <div class="welcome-input-section">
                     <div class="welcome-prompt">
-                        <span class="prompt-prefix">PS C:\Users\Guest\portfolio></span>
+                        <span class="prompt-prefix">PS C:></span>
                         <input type="text" id="welcomeInput" class="welcome-input" placeholder="${getWelcomeT('welcome.main.cmdHint')}" autofocus autocomplete="off" spellcheck="false">
                         <span class="input-cursor"></span>
                     </div>
