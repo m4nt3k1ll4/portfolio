@@ -4,312 +4,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juan Lorenzo Suárez | Desarrollador Web Full-Stack</title>
+  <title>M4nt3k1ll4 - PowerShell Portfolio</title>
 
-  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/terminal.css" />
 
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
- 
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="./assets/media/favicon.ico">
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Juan Lorenzo Suárez - Full-Stack Developer specializing in Angular and Laravel. Interactive terminal portfolio.">
+  <meta name="keywords" content="Full-Stack Developer, Angular, Laravel, TypeScript, PHP, Web Development">
+  <meta name="author" content="Juan Lorenzo Suárez Jiménez">
 </head>
 
 <body>
-  <header class="header">
-    <nav class="nav container">
-      <a href="#" class="nav__logo">M4nt3k1ll4</a>
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="#sobre-mi" class="nav__link">Sobre Mí</a>
-        </li>
-        <li class="nav__item">
-          <a href="#proyectos" class="nav__link">Proyectos</a>
-        </li>
-        <li class="nav__item">
-          <a href="#contacto" class="nav__link">Contacto</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="inicio" class="hero">
-      <div class="hero__container container">
-
-        <div class="hero__photo-wrapper">
-          <img src="./assets/media/juan-min.png" alt="Foto de Juan Lorenzo Suárez" class="hero__photo">
-        </div>
-
-        <div class="hero__content">
-          <h1 class="hero__title">Juan Lorenzo Suárez Jiménez</h1>
-          <h2 class="hero__subtitle">Desarrollador Web Full-Stack Jr</h2>
-          <p class="hero__description">
-            Creo aplicaciones web atractivas, seguras y eficientes, desde la
-            idea hasta el despliegue.
-          </p>
-          <div class="hero__buttons">
-            <a href="#contacto" class="btn btn--primary">Contactame</a>
-            <a href="./assets/media/CV-ENG-JUAN.pdf" download class="btn btn--secondary">Descargar CV</a>
+  <div class="terminal-container" id="terminalContainer">
+    <!-- Terminal Window -->
+    <div class="terminal-window">
+      <!-- Header Bar -->
+      <div class="terminal-header">
+        <div class="header-left">
+          <div class="window-controls">
+            <span class="control-btn close"></span>
+            <span class="control-btn minimize"></span>
+            <span class="control-btn maximize"></span>
           </div>
+          <span class="terminal-title">
+            <i class="fas fa-terminal"></i>
+            PowerShell - m4nt3k1ll4@portfolio
+          </span>
         </div>
-
-      </div>
-    </section>
-
-    <section id="proyectos" class="section">
-      <h2 class="section__title">Mis Proyectos</h2>
-      <div class="projects__container container">
-        <div class="project__card">
-          <img src="./assets/screenshots/loginScreenCTM.png" alt="Imagen del proyecto CrossTaskManager"
-            class="project__img" />
-          <h3 class="project__title">CrossTaskManager</h3>
-          <p class="project__description">
-            Cross Task Manager: Un SaaS de gestión de tareas con API RESTful
-            (Laravel) y frontend (Angular). Asegura la gestión de usuarios,
-            sedes y asignaciones con autenticación JWT y 3 roles definidos
-            (CEO, Manager, Adviser) para una supervisión eficiente y organizada
-            en distintas sedes.
-          </p>
-          <div class="project__tech">
-            <span class="tech__pill">Angular 18</span>
-            <span class="tech__pill">Laravel 7</span>
-            <span class="tech__pill">JWT</span>
-            <span class="tech__pill">MySQL</span>
-          </div>
-          <div class="project__links">
-            <a href="https://github.com/m4nt3k1ll4/CrossTaskManager_frontend" class="project__link"><i
-                class="fab fa-github"></i> Frontend</a>
-            <a href="https://github.com/m4nt3k1ll4/CrossTaskManager_backend" class="project__link"><i
-                class="fab fa-github"></i> Backend</a>
-          </div>
-        </div>
-        <!-- <div class="project__card">
-            <img
-              src="https://via.placeholder.com/400x250"
-              alt="Imagen del proyecto URLYFY"
-              class="project__img"
-            />
-            <h3 class="project__title">URLYFY</h3>
-            <p class="project__description">
-              Acortador de URLs funcional y eficiente, desarrollado como una
-              aplicación monolítica con PHP y Laravel.
-            </p>
-            <div class="project__tech">
-              <span class="tech__pill">PHP</span>
-              <span class="tech__pill">Laravel</span>
-            </div>
-            <div class="project__links">
-              <a href="#" class="project__link"
-                ><i class="fas fa-link"></i> Demo</a
-              >
-              <a href="#" class="project__link"
-                ><i class="fab fa-github"></i> Código</a
-              >
-            </div>
-          </div> -->
-        <!-- <div class="project__card">
-            <img
-              src="https://via.placeholder.com/400x250"
-              alt="Imagen del Palo e' Cafe SaaS"
-              class="project__img"
-            />
-            <h3 class="project__title">Palo e' Cafe SaaS</h3>
-            <p class="project__description">
-              Plataforma SaaS para la gestión de pedidos y reservas para mi
-              restaurante, con una interfaz intuitiva y fácil de usar.
-            </p>
-            <div class="project__tech">
-              <span class="tech__pill">Angular</span>
-              <span class="tech__pill">Laravel</span>
-            </div>
-            <div class="project__links">
-              <a href="#" class="project__link"
-                ><i class="fas fa-link"></i> Demo</a
-              >
-              <a href="#" class="project__link"
-                ><i class="fab fa-github"></i> Código</a
-              >
-            </div>
-          </div> -->
-        <!-- <div class="project__card">
-            <img
-              src="https://via.placeholder.com/400x250"
-              alt="Imagen del proyecto URLYFY"
-              class="project__img"
-            />
-            <h3 class="project__title">Tool For Ux</h3>
-            <p class="project__description">
-              Herramienta para mejorar la experiencia del usuario en aplicaciones
-              web, con un enfoque en la usabilidad y el diseño centrado en el
-              usuario.
-            </p>
-            <div class="project__tech">
-              <span class="tech__pill">html</span>
-              <span class="tech__pill">css</span>
-              <span class="tech__pill">js</span>
-            </div>
-            <div class="project__links">
-              <a href="#" class="project__link"
-                ><i class="fas fa-link"></i> Demo</a
-              >
-              <a href="#" class="project__link"
-                ><i class="fab fa-github"></i> Código</a
-              >
-            </div>
-          </div> -->
-      </div>
-    </section>
-    <section id="Published_Projects" class="section">
-      <h2 class="section__title">Trabajos Publicados</h2>
-      <div class="projects__container container">
-        <div class="project__card">
-          <img src="./assets/screenshots/variedadeshumbertosss.jpeg" alt="Imagen de Variedades Humbertoss"
-            class="project__img" />
-          <h3 class="project__title">Landing Page Variedades
-            humbertosss.com</h3>
-          <p class="project__description">
-            Una landing page atractiva y funcional para el negocio de
-            variedades Humbertoss, optimizada para conversiones, contacto
-            y presencia web.
-          </p>
-          <div class="project__tech">
-            <span class="tech__pill">HTML5</span>
-            <span class="tech__pill">CSS3</span>
-          </div>
-          <div class="project__links">
-            <a href="https://www.variedadeshumbertosss.com" class="project__link"><i class="fas fa-link"></i>Link</a>
-          </div>
-        </div>
-
-        <div class="project__card">
-          <img src="./assets/screenshots/ofmedicalsas.png" alt="Imagen de OF Medical"
-            class="project__img" />
-          <h3 class="project__title">Pagina Semi-Estatica OF Medical</h3>
-          <p class="project__description">
-            Una pagina semi-estatica para la organización OF Medical, que
-            presenta información sobre sus servicios y productos con un carrito
-            de compras que almacena localmente los productos y exporta a un
-            mensaje directo a whatsapp para una mejor atención al cliente.
-          </p>
-          <div class="project__tech">
-            <span class="tech__pill">HTML5</span>
-            <span class="tech__pill">CSS3</span>
-            <span class="tech__pill">JavaScript</span>
-          </div>
-          <div class="project__links">
-            <a href="https://www.ofmedicalsas.com" class="project__link"><i class="fas fa-link"></i>Link</a>
-          </div>
-        </div>
-    </section>
-    <section id="sobre-mi" class="section">
-      <div class="container">
-        <h2 class="section__title">Sobre Mí</h2>
-        <div class="about__text-container">
-          <p>
-            Como desarrollador web, mi pasión es transformar ideas en soluciones digitales funcionales y atractivas.
-            Encontré en el código una herramienta infinita para crear, y elegí la web por su increíble alcance y
-            versatilidad. Cada línea de código es una oportunidad para construir algo útil y eficiente.
-          </p>
-          <p>
-            Actualmente, como desarrollador junior, estoy inmerso en un proceso de crecimiento continuo,
-            <strong>construyendo proyectos activamente</strong> para perfeccionar mis habilidades y mantenerme al día
-            con las mejores prácticas. Lo que más me impulsa es enfrentarme a desafíos lógicos complejos, desentrañar
-            sus mecanismos y entregar un producto final robusto y bien diseñado.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="habilidades" class="section section--light-bg">
-      <div class="container">
-        <h2 class="section__title">Habilidades</h2>
-<div class="skills-wrapper">
-            
-    <div class="skill-category">
-        <h3 class="skill-category__title">Lenguajes y Frameworks</h3>
-        <div class="skills__grid">
-            <div class="skill__item"><i class="devicon-html5-plain-wordmark colored"></i><span>HTML5</span></div>
-            <div class="skill__item"><i class="devicon-css3-plain-wordmark colored"></i><span>CSS3</span></div>
-            <div class="skill__item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
-            <div class="skill__item"><i class="devicon-typescript-plain colored"></i><span>TypeScript</span></div>
-            <div class="skill__item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
-            <div class="skill__item"><i class="devicon-python-plain-wordmark colored"></i><span>Python</span></div>
-            <div class="skill__item"><i class="devicon-angularjs-plain colored"></i><span>Angular</span></div>
-            <div class="skill__item"><i class="devicon-laravel-original colored"></i><span>Laravel</span></div>
-        </div>
-    </div>
-
-    <div class="skill-category">
-        <h3 class="skill-category__title">Herramientas y Entorno</h3>
-        <div class="skills__grid">
-            <div class="skill__item"><i class="devicon-git-plain-wordmark colored"></i><span>Git</span></div>
-            <div class="skill__item"><i class="devicon-linux-plain colored"></i><span>Linux</span></div>
-            <div class="skill__item"><i class="devicon-apache-plain-wordmark colored"></i><span>XAMPP</span></div>
-            <div class="skill__item"><img src="./assets/media/inteligencia-artificial.png" alt="chatgptico"><span>AI</span></div>
-            <div class="skill__item"><i class="devicon-npm-original-wordmark colored"></i><span>NPM</span></div>
-            <div class="skill__item"><i class="devicon-composer-line colored"></i><span>Composer</span></div>
-            <div class="skill__item"><i class="devicon-vscode-plain colored"></i></i><span>VS Code</span></div>
-            <div class="skill__item"><i class="devicon-firebase-plain-wordmark colored"></i><span>Firebase</span></div>
-        </div>
-    </div>
-
-    <div class="skill-category">
-        <h3 class="skill-category__title">Bases de Datos</h3>
-        <div class="skills__grid">
-            <div class="skill__item"><i class="devicon-mysql-plain-wordmark colored"></i><span>MySQL</span></div>
-            <div class="skill__item"><i class="fas fa-database" style="color: #6C7EB8;"></i><span>phpMyAdmin</span></div>
-        </div>
-    </div>
-
-    <div class="skill-category">
-        <h3 class="skill-category__title">Pruebas (Testing)</h3>
-        <div class="skills__grid">
-            <div class="skill__item"><i class="devicon-insomnia-plain colored"></i><span>Insomnia</span></div>
-        </div>
-    </div>
-
-</div>
-      </div>
-    </section>
-
-    <section id="contacto" class="section">
-      <h2 class="section__title">Hablemos</h2>
-      <div class="contact__container container">
-        <div id="form-result"></div>
-
-        <p class="contact__description">
-          ¿Interesado en colaborar o tienes alguna pregunta? Envíame un
-          mensaje.
-        </p>
-
-        <form id="contact-form" class="contact__form">
-          <input type="text" name="name" placeholder="Tu Nombre" class="form__input" required />
-          <input type="email" name="email" placeholder="Tu Email" class="form__input" required />
-          <textarea name="message" placeholder="Tu Mensaje" class="form__input" rows="5" required></textarea>
-          <button type="submit" class="btn btn--primary">
-            Enviar Mensaje
+        <div class="header-right">
+          <!-- Language Toggle -->
+          <button class="lang-btn" id="langToggle" title="Change language / Cambiar idioma">
+            <i class="fas fa-globe"></i>
+            <span id="currentLang">ES</span>
           </button>
-        </form>
+
+          <!-- Theme Toggle -->
+          <button class="theme-btn" id="themeToggle" title="Change theme">
+            <i class="fas fa-palette"></i>
+          </button>
+          <div class="theme-menu" id="themeMenu">
+            <div class="theme-option" data-theme="powershell">PowerShell</div>
+            <div class="theme-option" data-theme="vscode">VS Code</div>
+            <div class="theme-option" data-theme="matrix">Matrix</div>
+            <div class="theme-option" data-theme="dracula">Dracula</div>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
 
-<footer class="footer">
-    <div class="footer__container container">
-        <div class="footer__item">
-            <p class="footer__copyright">
-                &copy; <span id="current-year">2025</span> - Hecho con ❤️ por Juan Lorenzo Suárez
-            </p>
-            <div class="footer__social">
-                <a href="https://github.com/m4nt3k1ll4" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/juan-su%C3%A1rez-98ba7924b" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            </div>
+      <!-- Terminal Content -->
+      <div class="terminal-content">
+        <!-- Output Area -->
+        <div class="terminal-output" id="terminalOutput">
+          <!-- Welcome message will be injected here -->
+        </div>
 
+        <!-- Input Line -->
+        <div class="terminal-input-line">
+          <span class="prompt" id="prompt">PS C:\Users\Guest\portfolio&gt;</span>
+          <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false"
+            autofocus />
+        </div>
 
+        <!-- Autocomplete Suggestions -->
+        <div class="autocomplete-container" id="autocompleteContainer"></div>
+      </div>
     </div>
-</footer>
-  <script defer src="./js/app.js"></script>
+
+    <!-- Mobile Keyboard Helper -->
+    <div class="mobile-keyboard-helper">
+      <button class="mobile-btn" id="mobileTab">TAB</button>
+      <button class="mobile-btn" id="mobileUp">↑</button>
+      <button class="mobile-btn" id="mobileDown">↓</button>
+      <button class="mobile-btn" id="mobileClear">CLEAR</button>
+    </div>
+  </div>
+
+  <!-- Helper Panel for Non-Technical Users -->
+  <div class="helper-panel" id="helperPanel">
+    <div class="helper-header">
+      <h3>
+        <i class="fas fa-lightbulb"></i>
+        <span data-i18n="helper.title">Quick Actions</span>
+      </h3>
+      <button class="helper-toggle" id="helperToggle" title="Toggle helper panel">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <div class="helper-content">
+      <p class="helper-intro" data-i18n="helper.intro">
+        Not familiar with terminals? Click these buttons to explore:
+      </p>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-user"></i> <span data-i18n="helper.aboutMe">About Me</span></h4>
+        <button class="helper-btn" data-command="whoami">
+          <i class="fas fa-id-card"></i> <span data-i18n="helper.viewProfile">View Profile</span>
+        </button>
+        <button class="helper-btn" data-command="cat /about/bio.txt">
+          <i class="fas fa-file-alt"></i> <span data-i18n="helper.readBio">Read Bio</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-code"></i> <span data-i18n="helper.mySkills">My Skills</span></h4>
+        <button class="helper-btn" data-command="skills">
+          <i class="fas fa-chart-bar"></i> <span data-i18n="helper.viewSkills">View Skills</span>
+        </button>
+        <button class="helper-btn" data-command="cd skills">
+          <i class="fas fa-folder"></i> <span data-i18n="helper.browseSkills">Browse Skills</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-folder-open"></i> <span data-i18n="helper.projects">Projects</span></h4>
+        <button class="helper-btn" data-command="projects">
+          <i class="fas fa-rocket"></i> <span data-i18n="helper.viewProjects">View Projects</span>
+        </button>
+        <button class="helper-btn" data-command="cd projects">
+          <i class="fas fa-folder"></i> <span data-i18n="helper.browseProjects">Browse Projects</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-envelope"></i> <span data-i18n="helper.contact">Contact</span></h4>
+        <button class="helper-btn" data-command="contact">
+          <i class="fas fa-address-card"></i> <span data-i18n="helper.contactInfo">Contact Info</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-terminal"></i> <span data-i18n="helper.learnTerminal">Learn Terminal</span></h4>
+        <button class="helper-btn" data-command="help">
+          <i class="fas fa-question-circle"></i> <span data-i18n="helper.showCommands">Show Commands</span>
+        </button>
+        <button class="helper-btn" data-command="ls">
+          <i class="fas fa-list"></i> <span data-i18n="helper.listFiles">List Files</span>
+        </button>
+        <button class="helper-btn" data-command="tree">
+          <i class="fas fa-sitemap"></i> <span data-i18n="helper.showTree">Show Tree</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-magic"></i> <span data-i18n="helper.funStuff">Fun Stuff</span></h4>
+        <button class="helper-btn" data-command="hack">
+          <i class="fas fa-user-secret"></i> <span data-i18n="helper.hackMode">Hack Mode</span>
+        </button>
+        <button class="helper-btn" data-command="matrix">
+          <i class="fas fa-code"></i> <span data-i18n="helper.matrix">Matrix</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/portfolio-data.js"></script>
+  <script src="./js/themes.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script src="./js/typewriter.js"></script>
+  <script src="./js/commands.js"></script>
+  <script src="./js/terminal-engine.js"></script>
 </body>
 
 </html>

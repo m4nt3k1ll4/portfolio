@@ -1,0 +1,12 @@
+// Add initialization calls to initTerminal
+// Insert after line 32: loadCommandHistory();
+
+    // Initialize language system
+    if (typeof initLanguageSystem === 'function') {
+        initLanguageSystem();
+    }
+    
+    // Initialize helper panel
+    if (typeof initHelperPanel === 'function') {
+        initHelperPanel();
+    }
