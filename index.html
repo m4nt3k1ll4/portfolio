@@ -104,9 +104,52 @@
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./css/terminal.css" />
+  <link rel="stylesheet" href="./css/terminal.css?v=4" />
   <link rel="stylesheet" href="./css/hamburger-styles.css" />
   <link rel="stylesheet" href="./css/responsive.css" />
+
+  <!-- INLINE STYLE - AUTOCOMPLETE FIX -->
+  <style>
+    .autocomplete-container {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)) !important;
+      gap: 3px !important;
+      padding: 4px !important;
+      margin: 0px 20px 8px 20px !important;
+      background: var(--bg-secondary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 6px !important;
+      max-height: 130px !important;
+      overflow-y: auto !important;
+    }
+    
+    .autocomplete-container:not(.active) {
+      display: none !important;
+    }
+    
+    .autocomplete-item {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 4px 6px !important;
+      background: var(--bg-primary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 3px !important;
+      color: var(--color-info) !important;
+      cursor: pointer !important;
+      font-size: 10px !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      min-height: 24px !important;
+    }
+    
+    .autocomplete-item:hover {
+      background: var(--color-info) !important;
+      color: var(--bg-primary) !important;
+    }
+  </style>
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -177,10 +220,10 @@
           <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false"
             autofocus />
         </div>
-
-        <!-- Autocomplete Suggestions -->
-        <div class="autocomplete-container" id="autocompleteContainer"></div>
       </div>
+
+      <!-- Autocomplete Suggestions -->
+      <div class="autocomplete-container" id="autocompleteContainer"></div>
     </div>
 
     <!-- Mobile Keyboard Helper -->
