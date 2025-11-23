@@ -135,6 +135,95 @@ const translations = {
         'cmd.sudo.msg': 'sudo: No estás en el archivo sudoers. Este incidente será reportado.',
         'cmd.sudo.joking': 'Solo bromeaba, no puedes romper nada aquí 😄',
         'cmd.matrix.wake': 'Despierta, Neo...',
+
+        // ========== ERROR MESSAGES FOR COMMANDS (SPANISH) ==========
+        'error.noSuchFile': 'No existe el archivo o directorio',
+        'error.changedTo': 'Cambiado a',
+
+        // ========== CONTENT TRANSLATIONS (SPANISH) ==========
+        'content.changedTo': 'Cambiado a',
+        'content.noSuchFile': 'No existe el archivo o directorio',
+        'content.notDirectory': 'No es un directorio',
+
+        // ========== BIO AND PERSONAL DATA (SPANISH) ==========
+        'bio.header': 'Juan Lorenzo Suárez Jiménez',
+        'bio.title': 'Desarrollador Web Full-Stack Jr',
+        'bio.intro': `Soy un desarrollador apasionado por transformar ideas en soluciones digitales 
+funcionales. Veo en el código la herramienta ideal para crear, y elegí la web 
+por su alcance y versatilidad. Cada proyecto es una oportunidad para aprender 
+y construir algo útil.`,
+        'bio.detail': `Como desarrollador junior, estoy en constante aprendizaje, perfeccionando mis 
+habilidades con cada línea de código. Me motiva enfrentar desafíos lógicos, 
+entender cómo funcionan las cosas y entregar productos bien estructurados. 
+Mi enfoque está en escribir código limpio, escalable y seguir las mejores prácticas.`,
+
+        // ========== PROJECT DESCRIPTIONS (SPANISH) ==========
+        'project.crosstask.name': 'CrossTaskManager',
+        'project.crosstask.type': 'Aplicación SaaS',
+        'project.crosstask.desc': `Cross Task Manager: Un SaaS de gestión de tareas con API RESTful (Laravel) 
+y frontend (Angular). Asegura la gestión de usuarios, sedes y asignaciones con 
+autenticación JWT y 3 roles definidos (CEO, Manager, Adviser) para una supervisión 
+eficiente y organizada en distintas sedes.`,
+
+        'project.variedades.name': 'Variedades Humbertosss',
+        'project.variedades.type': 'Página de Destino',
+        'project.variedades.desc': `Una landing page atractiva y funcional para el negocio de variedades 
+Humbertoss, optimizada para conversiones, contacto y presencia web.`,
+
+        'project.ofmedical.name': 'OF Medical SAS',
+        'project.ofmedical.type': 'Sitio Web Semi-estático',
+        'project.ofmedical.desc': `Una página semi-estática para la organización OF Medical, que presenta 
+información sobre sus servicios y productos con un carrito de compras que almacena 
+localmente los productos y exporta a un mensaje directo a WhatsApp para una mejor 
+atención al cliente.`,
+
+        // ========== PROJECT FILE LABELS (SPANISH) ==========
+        'project.typeLabel': 'Tipo',
+        'project.technologiesLabel': 'Tecnologías',
+        'project.linksLabel': 'Enlaces',
+
+        // ========== SKILLS CATEGORIES (SPANISH) ==========
+        'skill.frontend': 'Habilidades Frontend',
+        'skill.backend': 'Habilidades Backend',
+        'skill.database': 'Habilidades de Base de Datos',
+        'skill.tools': 'Herramientas y Entorno',
+
+        // ========== FILE SYSTEM CONTENT (SPANISH) ==========
+        'file.readme.title': '# Portafolio M4nt3k1ll4',
+        'file.readme.welcome': '¡Bienvenido a mi portafolio de terminal interactivo!',
+        'file.readme.quickStart': '## Inicio Rápido',
+        'file.readme.tip1': '- Escribe \'help\' para ver los comandos disponibles',
+        'file.readme.tip2': '- Escribe \'ls\' para listar el contenido del directorio',
+        'file.readme.tip3': '- Escribe \'cd <directorio>\' para navegar',
+        'file.readme.tip4': '- Escribe \'cat <archivo>\' para ver el contenido del archivo',
+        'file.readme.about': '## Sobre Mí',
+        'file.readme.aboutTip': 'Soy un Desarrollador Full-Stack especializado en Angular y Laravel. Navega a /about para saber más sobre mí.',
+        'file.readme.projects': '## Proyectos',
+        'file.readme.projectsTip': 'Consulta mis proyectos en el directorio /projects.',
+        'file.readme.skills': '## Habilidades',
+        'file.readme.skillsTip': 'Ver mis habilidades técnicas en el directorio /skills.',
+        'file.readme.contact': '## Contacto',
+        'file.readme.contactTip': 'Encuentra mi información de contacto en el directorio /contact.',
+        'file.readme.closing': '¡Que disfrutes explorando! 🚀',
+
+        // ========== EXPERIENCE FILE (SPANISH) ==========
+        'file.experience.title': 'Experiencia Profesional',
+        'file.experience.role': 'Desarrollador Full-Stack Jr (Actual)',
+        'file.experience.duties': '- Construyendo aplicaciones web modernas con Angular y Laravel\n- Implementando APIs RESTful con autenticación JWT\n- Diseño y optimización de bases de datos\n- Control de versiones con Git y GitHub',
+        'file.experience.projects': 'Proyectos Clave:\n- CrossTaskManager: Plataforma SaaS de gestión de tareas\n- Múltiples sitios web de clientes y páginas de destino\n- Soluciones de comercio electrónico con funcionalidad de carrito',
+        'file.experience.skills': 'Desarrollo de Habilidades:\n- Aprendizaje continuo y construcción de proyectos\n- Siguiendo mejores prácticas y patrones de diseño\n- Resolución de problemas y pensamiento lógico\n- Código limpio y documentación',
+
+        // ========== PROJECT SPECIFIC FILES (SPANISH) ==========
+        'file.crosstask.tech': 'Frontend:\n  ⚡ Angular 18\n  ⚡ TypeScript\n  ⚡ RxJS\n  ⚡ Angular Material\n\nBackend:\n  ⚡ Laravel 7\n  ⚡ PHP\n  ⚡ Autenticación JWT\n  ⚡ API RESTful\n\nBase de Datos:\n  ⚡ MySQL',
+        'file.crosstask.features': 'Autenticación y Autorización:\n  ✓ Autenticación basada en JWT\n  ✓ Control de acceso basado en roles (RBAC)\n  ✓ Tres roles de usuario: CEO, Manager, Adviser\n  ✓ Hashing seguro de contraseñas\n\nGestión de Tareas:\n  ✓ Crear, leer, actualizar, eliminar tareas\n  ✓ Asignar tareas a miembros del equipo\n  ✓ Seguimiento del estado de las tareas\n  ✓ Niveles de prioridad\n  ✓ Gestión de fechas de vencimiento\n\nSoporte Multiubicación:\n  ✓ Administrar múltiples ubicaciones comerciales\n  ✓ Asignación de tareas específica por ubicación\n  ✓ Reportes entre ubicaciones\n\nGestión de Usuarios:\n  ✓ Registro de usuarios y perfiles\n  ✓ Asignación de roles\n  ✓ Seguimiento de actividades',
+
+        // ========== CONTACT FILES (SPANISH) ==========
+        'file.contact.info.title': 'Información de Contacto',
+        'file.contact.availability': 'Siéntete libre de comunicarte para:\n  ✓ Oportunidades de empleo\n  ✓ Proyectos freelance\n  ✓ Colaboración\n  ✓ Preguntas sobre mi trabajo',
+        'file.contact.closing': '¡Siempre estoy abierto a discutir nuevos proyectos y oportunidades!',
+        'file.contact.social': 'Redes Sociales y Enlaces',
+        'file.contact.professional': 'Profesional:',
+        'file.contact.downloadCV': 'Usa \'cat /about/cv.pdf\' para obtener el enlace de descarga.',
     },
     en: {
         // ========== HELPER PANEL ==========
@@ -254,41 +343,33 @@ const translations = {
         'error.changedTo': 'Changed to',
 
         // ========== CONTENT TRANSLATIONS ==========
-        'content.changedTo': 'Cambiado a',
-        'content.noSuchFile': 'No existe el archivo o directorio',
-        'content.notDirectory': 'No es un directorio',
+        'content.changedTo': 'Changed to',
+        'content.noSuchFile': 'No such file or directory',
+        'content.notDirectory': 'Not a directory',
 
         // ========== BIO AND PERSONAL DATA ==========
         'bio.header': 'Juan Lorenzo Suárez Jiménez',
-        'bio.title': 'Desarrollador Web Full-Stack Jr',
-        'bio.intro': `Soy un desarrollador apasionado por transformar ideas en soluciones digitales 
-funcionales. Veo en el código la herramienta ideal para crear, y elegí la web 
-por su alcance y versatilidad. Cada proyecto es una oportunidad para aprender 
-y construir algo útil.`,
-        'bio.detail': `Como desarrollador junior, estoy en constante aprendizaje, perfeccionando mis 
-habilidades con cada línea de código. Me motiva enfrentar desafíos lógicos, 
-entender cómo funcionan las cosas y entregar productos bien estructurados. 
-Mi enfoque está en escribir código limpio, escalable y seguir las mejores prácticas.`,
+        'bio.title': 'Full-Stack Web Developer Jr',
+        'bio.intro': `I'm a passionate developer focused on transforming ideas into functional digital solutions. \nI see code as the ideal tool for creating, and I chose web development for its reach and versatility. \nEvery project is an opportunity to learn and build something useful.`,
+        'bio.detail': `As a junior developer, I'm in constant learning, perfecting my skills with every line of code. \nI'm motivated by facing logical challenges, understanding how things work, and delivering well-structured products. \nMy approach is to write clean, scalable code and follow best practices.`,
 
         // ========== PROJECT DESCRIPTIONS ==========
         'project.crosstask.name': 'CrossTaskManager',
         'project.crosstask.type': 'SaaS Application',
-        'project.crosstask.desc': `Cross Task Manager: Un SaaS de gestión de tareas con API RESTful (Laravel) 
-y frontend (Angular). Asegura la gestión de usuarios, sedes y asignaciones con 
-autenticación JWT y 3 roles definidos (CEO, Manager, Adviser) para una supervisión 
-eficiente y organizada en distintas sedes.`,
+        'project.crosstask.desc': `Cross Task Manager: A SaaS task management platform with RESTful API (Laravel) \nand frontend (Angular). Ensures user, location, and assignment management with \nJWT authentication and 3 defined roles (CEO, Manager, Adviser) for efficient \nand organized supervision across multiple locations.`,
 
         'project.variedades.name': 'Variedades Humbertosss',
         'project.variedades.type': 'Landing Page',
-        'project.variedades.desc': `Una landing page atractiva y funcional para el negocio de variedades 
-Humbertoss, optimizada para conversiones, contacto y presencia web.`,
+        'project.variedades.desc': `An attractive and functional landing page for the Variedades Humbertoss business, \noptimized for conversions, contact, and web presence.`,
 
         'project.ofmedical.name': 'OF Medical SAS',
         'project.ofmedical.type': 'Semi-Static Website',
-        'project.ofmedical.desc': `Una página semi-estática para la organización OF Medical, que presenta 
-información sobre sus servicios y productos con un carrito de compras que almacena 
-localmente los productos y exporta a un mensaje directo a WhatsApp para una mejor 
-atención al cliente.`,
+        'project.ofmedical.desc': `A semi-static website for OF Medical organization, presenting information about \nits services and products with a shopping cart that stores products locally \nand exports to a direct WhatsApp message for better customer service.`,
+
+        // ========== PROJECT FILE LABELS ==========
+        'project.typeLabel': 'Type',
+        'project.technologiesLabel': 'Technologies',
+        'project.linksLabel': 'Links',
 
         // ========== SKILLS CATEGORIES ==========
         'skill.frontend': 'Frontend Skills',
@@ -386,6 +467,11 @@ optimized for conversions, contact, and web presence.`,
         'project.ofmedical.desc': `A semi-static website for OF Medical organization, presenting information about their 
 services and products with a shopping cart that stores items locally and exports to a 
 direct WhatsApp message for better customer service.`,
+
+        // ========== PROJECT FILE LABELS ==========
+        'project.typeLabel': 'Type',
+        'project.technologiesLabel': 'Technologies',
+        'project.linksLabel': 'Links',
 
         // ========== SKILLS CATEGORIES ==========
         'skill.frontend': 'Frontend Skills',
@@ -522,18 +608,21 @@ function updateTerminalWelcomeMessage() {
 // Retranslate current command output
 function retranslateCurrentCommand() {
     const terminalOutput = document.getElementById('terminalOutput');
-    const lastCmd = typeof getLastCommand === 'function' ? getLastCommand() : null;
+    const lastInput = typeof getLastCommandInput === 'function' ? getLastCommandInput() : null;
     
-    if (!terminalOutput || !lastCmd) return;
+    if (!terminalOutput || !lastInput) return;
 
-    // Commands that should be retranslated
-    const translatableCommands = ['whoami', 'about', 'skills', 'projects', 'contact'];
+    // Commands that might need retranslation
+    const translatableCommands = ['whoami', 'about', 'skills', 'projects', 'contact', 'cat', 'ls', 'pwd', 'tree', 'help', 'theme'];
     
-    if (!translatableCommands.includes(lastCmd)) {
+    const parts = lastInput.trim().split(/\s+/);
+    const cmd = parts[0].toLowerCase();
+    
+    if (!translatableCommands.includes(cmd)) {
         return; // Only retranslate specific commands
     }
 
-    // Find and remove the command output lines (everything after the command prompt)
+    // Find and remove the command output lines (everything after the last command prompt)
     const lines = Array.from(terminalOutput.querySelectorAll('.output-line'));
     
     // Find the last command prompt line
@@ -553,10 +642,12 @@ function retranslateCurrentCommand() {
         }
     }
 
-    // Re-execute the command to get translated output
-    if (typeof commands !== 'undefined' && commands[lastCmd]) {
+    // Re-execute the full command with the same input to get translated output
+    if (typeof commands !== 'undefined' && commands[cmd]) {
         try {
-            const result = commands[lastCmd]([]);
+            const args = parts.slice(1);
+            const result = commands[cmd](args);
+            
             if (result && result.content) {
                 // Print the new translated output
                 const line = document.createElement("div");

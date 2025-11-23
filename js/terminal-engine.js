@@ -15,6 +15,7 @@ let commandHistory = [];
 let historyIndex = -1;
 let isProcessing = false;
 let lastCommandExecuted = null; // Track last executed command for retranslation
+let lastCommandInput = null; // Track full command input for retranslation
 
 // Initialize terminal
 function initTerminal() {
@@ -221,7 +222,8 @@ async function executeCommand(input) {
     const cmd = parts[0].toLowerCase();
     const args = parts.slice(1);
 
-    // Register last executed command for retranslation on language change
+    // Register last executed command and full input for retranslation on language change
+    lastCommandInput = input.trim();
     if (commands[cmd]) {
         lastCommandExecuted = cmd;
     }
@@ -304,6 +306,11 @@ function scrollToBottom() {
 // Get last executed command (for retranslation)
 function getLastCommand() {
     return lastCommandExecuted;
+}
+
+// Get last command input (full command with arguments)
+function getLastCommandInput() {
+    return lastCommandInput;
 }
 
 // Navigate command history

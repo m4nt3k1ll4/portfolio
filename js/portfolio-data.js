@@ -7,7 +7,7 @@ const portfolioData = {
   personal: {
     name: "Juan Lorenzo Suárez Jiménez",
     username: "m4nt3k1ll4",
-    title: "Desarrollador Web Full-Stack Jr",
+    title: "Full-Stack Web Developer",
     email: "contact@m4nt3k1ll4.dev",
     github: "https://github.com/m4nt3k1ll4",
     linkedin: "https://www.linkedin.com/in/juan-suárez-98ba7924b",
@@ -16,17 +16,15 @@ const portfolioData = {
 
   // About/Bio
   bio: `Juan Lorenzo Suárez Jiménez
-Desarrollador Web Full-Stack Jr
+Full-Stack Web Developer
 
-Soy un desarrollador apasionado por transformar ideas en soluciones digitales 
-funcionales. Veo en el código la herramienta ideal para crear, y elegí la web 
-por su alcance y versatilidad. Cada proyecto es una oportunidad para aprender 
-y construir algo útil.
+I'm a passionate developer focused on transforming ideas into functional digital solutions. 
+I see code as the ideal tool for creating, and I chose web development for its reach and versatility. 
+Every project is an opportunity to learn and build something useful.
 
-Como desarrollador junior, estoy en constante aprendizaje, perfeccionando mis 
-habilidades con cada línea de código. Me motiva enfrentar desafíos lógicos, 
-entender cómo funcionan las cosas y entregar productos bien estructurados. 
-Mi enfoque está en escribir código limpio, escalable y seguir las mejores prácticas.`,
+As a junior developer, I'm in constant learning, perfecting my skills with every line of code. 
+I'm motivated by facing logical challenges, understanding how things work, and delivering well-structured products. 
+My approach is to write clean, scalable code and follow best practices.`,
 
   // Projects
   projects: [
@@ -34,10 +32,10 @@ Mi enfoque está en escribir código limpio, escalable y seguir las mejores prá
       id: "crosstaskmanager",
       name: "CrossTaskManager",
       type: "SaaS Application",
-      description: `Cross Task Manager: Un SaaS de gestión de tareas con API RESTful (Laravel) 
-y frontend (Angular). Asegura la gestión de usuarios, sedes y asignaciones con 
-autenticación JWT y 3 roles definidos (CEO, Manager, Adviser) para una supervisión 
-eficiente y organizada en distintas sedes.`,
+      description: `Cross Task Manager: A SaaS task management platform with RESTful API (Laravel) 
+and frontend (Angular). It ensures user, location, and assignment management with 
+JWT authentication and 3 defined roles (CEO, Manager, Adviser) for efficient 
+and organized supervision across different locations.`,
       tech: ["Angular 18", "Laravel 7", "JWT", "MySQL", "TypeScript", "PHP"],
       links: {
         frontend: "https://github.com/m4nt3k1ll4/CrossTaskManager_frontend",
@@ -49,8 +47,8 @@ eficiente y organizada en distintas sedes.`,
       id: "variedades-humbertoss",
       name: "Variedades Humbertosss",
       type: "Landing Page",
-      description: `Una landing page atractiva y funcional para el negocio de variedades 
-Humbertoss, optimizada para conversiones, contacto y presencia web.`,
+      description: `An attractive and functional landing page for the Variedades Humbertoss business, 
+optimized for conversions, contact, and web presence.`,
       tech: ["HTML5", "CSS3", "JavaScript"],
       links: {
         live: "https://www.variedadeshumbertosss.com"
@@ -61,10 +59,9 @@ Humbertoss, optimizada para conversiones, contacto y presencia web.`,
       id: "ofmedical",
       name: "OF Medical SAS",
       type: "Semi-Static Website",
-      description: `Una página semi-estática para la organización OF Medical, que presenta 
-información sobre sus servicios y productos con un carrito de compras que almacena 
-localmente los productos y exporta a un mensaje directo a WhatsApp para una mejor 
-atención al cliente.`,
+      description: `A semi-static website for OF Medical organization, presenting information about 
+its services and products with a shopping cart that stores products locally 
+and exports to a direct WhatsApp message for better customer service.`,
       tech: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
       links: {
         live: "https://www.ofmedicalsas.com"
@@ -111,30 +108,7 @@ atención al cliente.`,
     },
     "/README.md": {
       type: "file",
-      content: `# M4nt3k1ll4 Portfolio
-
-Welcome to my interactive terminal portfolio!
-
-## Quick Start
-- Type 'help' to see available commands
-- Type 'ls' to list directory contents
-- Type 'cd <directory>' to navigate
-- Type 'cat <file>' to view file contents
-
-## About Me
-I'm a Full-Stack Developer specializing in Angular and Laravel.
-Navigate to /about to learn more about me.
-
-## Projects
-Check out my projects in the /projects directory.
-
-## Skills
-View my technical skills in the /skills directory.
-
-## Contact
-Find my contact information in the /contact directory.
-
-Happy exploring! 🚀`
+      content: null // Will use translations from i18n
     },
     "/about": {
       type: "directory",
@@ -151,25 +125,7 @@ Happy exploring! 🚀`
     },
     "/about/experience.txt": {
       type: "file",
-      content: `Professional Experience
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Full-Stack Developer Jr (Current)
-- Building modern web applications with Angular and Laravel
-- Implementing RESTful APIs with JWT authentication
-- Database design and optimization
-- Version control with Git and GitHub
-
-Key Projects:
-- CrossTaskManager: SaaS task management platform
-- Multiple client websites and landing pages
-- E-commerce solutions with shopping cart functionality
-
-Skills Development:
-- Continuous learning and project building
-- Following best practices and design patterns
-- Problem-solving and logical thinking
-- Clean code and documentation`
+      content: null // Will use translations from i18n
     },
     "/projects": {
       type: "directory",
@@ -177,17 +133,7 @@ Skills Development:
     },
     "/projects/README.md": {
       type: "file",
-      content: `# My Projects
-
-This directory contains information about my main projects.
-
-## Available Projects:
-1. crosstaskmanager - SaaS Task Management Platform
-2. variedades-humbertoss - Business Landing Page
-3. ofmedical - Medical Products E-commerce
-
-Use 'cd <project-name>' to explore each project.
-Use 'ls' to see available files in each project directory.`
+      content: null // Will be generated dynamically with translations
     },
     "/projects/crosstaskmanager": {
       type: "directory",
@@ -199,57 +145,11 @@ Use 'ls' to see available files in each project directory.`
     },
     "/projects/crosstaskmanager/tech-stack.txt": {
       type: "file",
-      content: `CrossTaskManager - Tech Stack
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Frontend:
-  ⚡ Angular 18
-  ⚡ TypeScript
-  ⚡ RxJS
-  ⚡ Angular Material
-
-Backend:
-  ⚡ Laravel 7
-  ⚡ PHP
-  ⚡ JWT Authentication
-  ⚡ RESTful API
-
-Database:
-  ⚡ MySQL
-
-Features:
-  ✓ Multi-role authentication (CEO, Manager, Adviser)
-  ✓ Task management across multiple locations
-  ✓ Real-time updates
-  ✓ Secure API with JWT tokens`
+      content: null // Will use translations from i18n
     },
     "/projects/crosstaskmanager/features.txt": {
       type: "file",
-      content: `CrossTaskManager - Key Features
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Authentication & Authorization:
-  ✓ JWT-based authentication
-  ✓ Role-based access control (RBAC)
-  ✓ Three user roles: CEO, Manager, Adviser
-  ✓ Secure password hashing
-
-Task Management:
-  ✓ Create, read, update, delete tasks
-  ✓ Assign tasks to team members
-  ✓ Task status tracking
-  ✓ Priority levels
-  ✓ Due date management
-
-Multi-Location Support:
-  ✓ Manage multiple business locations
-  ✓ Location-specific task assignment
-  ✓ Cross-location reporting
-
-User Management:
-  ✓ User registration and profiles
-  ✓ Role assignment
-  ✓ Activity tracking`
+      content: null // Will use translations from i18n
     },
     "/projects/crosstaskmanager/links.txt": {
       type: "file",
@@ -388,23 +288,7 @@ detailed skill levels for each category.`
     },
     "/contact/info.txt": {
       type: "file",
-      content: `Contact Information
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Name:     Juan Lorenzo Suárez Jiménez
-Username: m4nt3k1ll4
-Title:    Desarrollador Web Full-Stack Jr
-
-GitHub:   https://github.com/m4nt3k1ll4
-LinkedIn: https://www.linkedin.com/in/juan-suárez-98ba7924b
-
-Feel free to reach out for:
-  ✓ Job opportunities
-  ✓ Freelance projects
-  ✓ Collaboration
-  ✓ Questions about my work
-
-I'm always open to discussing new projects and opportunities!`
+      content: null // Will use translations from i18n
     },
     "/contact/social.txt": {
       type: "file",
@@ -458,6 +342,51 @@ function getFileContent(path) {
         return generateSkillsContent(category, portfolioData.skills[category]);
       }
     }
+
+    // Generate experience file
+    if (path === "/about/experience.txt") {
+      if (typeof t === 'function') {
+        return `${t('file.experience.title')}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${t('file.experience.role')}\n${t('file.experience.duties')}\n\n${t('file.experience.projects')}\n\n${t('file.experience.skills')}`;
+      }
+      // Fallback to hardcoded English
+      return file.content;
+    }
+
+    // Generate README.md
+    if (path === "/README.md") {
+      if (typeof t === 'function') {
+        return `${t('file.readme.title')}\n\n${t('file.readme.welcome')}\n\n${t('file.readme.quickStart')}\n${t('file.readme.tip1')}\n${t('file.readme.tip2')}\n${t('file.readme.tip3')}\n${t('file.readme.tip4')}\n\n${t('file.readme.about')}\n${t('file.readme.aboutTip')}\n\n${t('file.readme.projects')}\n${t('file.readme.projectsTip')}\n\n${t('file.readme.skills')}\n${t('file.readme.skillsTip')}\n\n${t('file.readme.contact')}\n${t('file.readme.contactTip')}\n\n${t('file.readme.closing')}`;
+      }
+      // Fallback to hardcoded English
+      return file.content;
+    }
+
+    // Generate projects README
+    if (path === "/projects/README.md") {
+      if (typeof t === 'function') {
+        // Build projects list dynamically
+        let projectsList = portfolioData.projects.map((p, i) => `${i + 1}. ${p.id} - ${p.name}`).join('\n');
+        return `# ${typeof t === 'function' ? t('cmd.projects.header') : 'My Projects'}\n\n${typeof t === 'function' ? t('file.readme.projectsTip') : 'This directory contains information about my main projects.'}\n\n## Available Projects:\n${projectsList}\n\nUse 'cd <project-name>' to explore each project.\nUse 'ls' to see available files in each project directory.`;
+      }
+      // Return as is if t() not available
+      return file.content;
+    }
+
+    // Generate CrossTaskManager tech-stack file
+    if (path === "/projects/crosstaskmanager/tech-stack.txt") {
+      if (typeof t === 'function') {
+        return `CrossTaskManager - ${t('project.technologiesLabel')}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${t('file.crosstask.tech')}`;
+      }
+      return file.content;
+    }
+
+    // Generate CrossTaskManager features file
+    if (path === "/projects/crosstaskmanager/features.txt") {
+      if (typeof t === 'function') {
+        return `CrossTaskManager - Key Features\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${t('file.crosstask.features')}`;
+      }
+      return file.content;
+    }
   }
 
   return file.content;
@@ -466,13 +395,19 @@ function getFileContent(path) {
 // Generate project README
 function generateProjectReadme(project) {
   let content = `# ${project.name}\n\n`;
-  content += `Type: ${project.type}\n\n`;
+  
+  // Use translations if available
+  const typeLabel = typeof t === 'function' ? t('project.typeLabel') : 'Type';
+  const techLabel = typeof t === 'function' ? t('project.technologiesLabel') : 'Technologies';
+  const linksLabel = typeof t === 'function' ? t('project.linksLabel') : 'Links';
+  
+  content += `${typeLabel}: ${project.type}\n\n`;
   content += `${project.description}\n\n`;
-  content += `Technologies:\n`;
+  content += `${techLabel}:\n`;
   project.tech.forEach(tech => {
     content += `  ⚡ ${tech}\n`;
   });
-  content += `\nLinks:\n`;
+  content += `\n${linksLabel}:\n`;
   Object.entries(project.links).forEach(([key, url]) => {
     content += `  ${key}: ${url}\n`;
   });
