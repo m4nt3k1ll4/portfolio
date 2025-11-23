@@ -76,27 +76,30 @@ atención al cliente.`,
   // Skills
   skills: {
     frontend: [
-      { name: "Angular", level: 75, icon: "devicon-angularjs-plain" },
-      { name: "TypeScript", level: 70, icon: "devicon-typescript-plain" },
-      { name: "JavaScript", level: 75, icon: "devicon-javascript-plain" },
-      { name: "HTML5", level: 85, icon: "devicon-html5-plain" },
-      { name: "CSS3", level: 80, icon: "devicon-css3-plain" }
+      { name: "Angular", level: 70, icon: "devicon-angularjs-plain" },
+      { name: "TypeScript", level: 65, icon: "devicon-typescript-plain" },
+      { name: "JavaScript", level: 70, icon: "devicon-javascript-plain" },
+      { name: "HTML5", level: 75, icon: "devicon-html5-plain" },
+      { name: "CSS3", level: 70, icon: "devicon-css3-plain" }
     ],
     backend: [
-      { name: "Laravel", level: 70, icon: "devicon-laravel-plain" },
-      { name: "PHP", level: 70, icon: "devicon-php-plain" },
-      { name: "Python", level: 50, icon: "devicon-python-plain" }
+      { name: "Laravel", level: 65, icon: "devicon-laravel-plain" },
+      { name: "PHP", level: 65, icon: "devicon-php-plain" },
+      { name: "Cloudflare Workers", level: 60, icon: "devicon-cloudflare-plain" },
+      { name: "Python", level: 45, icon: "devicon-python-plain" }
     ],
     database: [
-      { name: "MySQL", level: 65, icon: "devicon-mysql-plain" },
-      { name: "Firebase", level: 60, icon: "devicon-firebase-plain" }
+      { name: "MySQL", level: 60, icon: "devicon-mysql-plain" },
+      { name: "Firebase", level: 55, icon: "devicon-firebase-plain" }
     ],
     tools: [
-      { name: "Git", level: 70, icon: "devicon-git-plain" },
-      { name: "Linux", level: 60, icon: "devicon-linux-plain" },
-      { name: "VS Code", level: 85, icon: "devicon-vscode-plain" },
-      { name: "NPM", level: 75, icon: "devicon-npm-original-wordmark" },
-      { name: "Composer", level: 70, icon: "devicon-composer-line" }
+      { name: "n8n", level: 65, icon: "fas fa-project-diagram" },
+      { name: "Wrangler", level: 60, icon: "fas fa-terminal" },
+      { name: "Git", level: 65, icon: "devicon-git-plain" },
+      { name: "Linux", level: 55, icon: "devicon-linux-plain" },
+      { name: "VS Code", level: 80, icon: "devicon-vscode-plain" },
+      { name: "NPM", level: 65, icon: "devicon-npm-original-wordmark" },
+      { name: "Composer", level: 60, icon: "devicon-composer-line" }
     ]
   },
 
