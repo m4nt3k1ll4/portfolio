@@ -27,6 +27,10 @@ const translations = {
         'helper.funStuff': 'Diversión',
         'helper.hackMode': 'Modo Hack',
         'helper.matrix': 'Matrix',
+        'helper.utilities': 'Utilidades',
+        'helper.clearConsole': 'Limpiar Consola',
+        'helper.goHome': 'Ir al Inicio',
+        'helper.closeInfo': 'Cerrar Información',
 
         // ========== WELCOME MESSAGE ==========
         'welcome.title': 'Bienvenido a mi Portfolio Interactivo',
@@ -253,6 +257,10 @@ atención al cliente.`,
         'helper.funStuff': 'Fun Stuff',
         'helper.hackMode': 'Hack Mode',
         'helper.matrix': 'Matrix',
+        'helper.utilities': 'Utilities',
+        'helper.clearConsole': 'Clear Console',
+        'helper.goHome': 'Go Home',
+        'helper.closeInfo': 'Close Info',
 
         // ========== WELCOME MESSAGE ==========
         'welcome.title': 'Welcome to my Interactive Portfolio',

@@ -63,8 +63,9 @@ body {
    ============================================ */
 
 .terminal-container {
-  width: 95%;
-  max-width: 1200px;
+  width: calc(100% - 360px);
+  max-width: 1100px;
+  margin-left: 20px;
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -1118,7 +1119,7 @@ body {
   font-size: 12px;
 }
 
-/* Helper Panel */
+/* Helper Panel - Static Sidebar */
 .helper-panel {
   position: fixed;
   right: 0;
@@ -1128,14 +1129,9 @@ body {
   background: var(--bg-secondary);
   border-left: 1px solid var(--border-color);
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
-  transform: translateX(0);
-  transition: transform 0.3s ease;
   z-index: 1000;
   overflow-y: auto;
-}
-
-.helper-panel.collapsed {
-  transform: translateX(calc(100% - 40px));
+  overflow-x: hidden;
 }
 
 .helper-header {
@@ -1148,6 +1144,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  min-height: 50px;
+  flex-shrink: 0;
 }
 
 .helper-header h3 {
@@ -1157,29 +1155,31 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex: 1;
 }
 
 .helper-toggle {
   background: transparent;
-  border: 1px solid var(--border-color);
+  border: none;
   color: var(--text-primary);
   padding: 8px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s;
+  width: 36px;
+  height: 36px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .helper-toggle:hover {
   background: var(--bg-primary);
-  border-color: var(--color-info);
 }
 
 .helper-toggle i {
   transition: transform 0.3s;
-}
-
-.helper-panel.collapsed .helper-toggle i {
-  transform: rotate(180deg);
 }
 
 .helper-content {
@@ -1235,14 +1235,10 @@ body {
   font-size: 16px;
 }
 
-/* Adjust terminal for helper panel */
+/* Adjust terminal for helper panel - Static sidebar */
 .terminal-container {
   margin-right: 340px;
-  transition: margin-right 0.3s ease;
-}
-
-.terminal-container.helper-collapsed {
-  margin-right: 60px;
+  margin-left: 0; /* Already set in main .terminal-container */
 }
 
 .terminal-container.visible {
@@ -1257,29 +1253,24 @@ body {
   }
   
   .terminal-container {
+    width: calc(100% - 320px);
     margin-right: 300px;
-  }
-  
-  .terminal-container.helper-collapsed {
-    margin-right: 50px;
   }
 }
 
 @media (max-width: 768px) {
   .helper-panel {
-    width: 100%;
-    transform: translateX(100%);
-  }
-  
-  .helper-panel.active {
-    transform: translateX(0);
+    display: none;
   }
   
   .terminal-container {
+    width: calc(100% - 40px);
     margin-right: 0;
+    margin-left: 20px;
   }
   
   .helper-toggle {
+    display: flex;
     position: fixed;
     right: 10px;
     top: 10px;

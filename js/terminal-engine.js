@@ -482,18 +482,6 @@ if (document.readyState === "loading") {
 // ============================================
 
 function initHelperPanel() {
-    const helperPanel = document.getElementById('helperPanel');
-    const helperToggle = document.getElementById('helperToggle');
-    const terminalContainer = document.getElementById('terminalContainer');
-
-    if (!helperPanel || !helperToggle) return;
-
-    // Toggle helper panel
-    helperToggle.addEventListener('click', () => {
-        helperPanel.classList.toggle('collapsed');
-        terminalContainer.classList.toggle('helper-collapsed');
-    });
-
     // Setup helper button click handlers
     document.querySelectorAll('.helper-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -507,3 +495,15 @@ function initHelperPanel() {
         });
     });
 }
+
+/**
+ * Close the currently displayed file information
+ * Executes "clear" command to clean the console
+ */
+function closeCurrentFile() {
+    const terminalInput = document.getElementById('terminalInput');
+    terminalInput.value = 'clear';
+    handleCommand();
+    terminalInput.focus();
+}
+
