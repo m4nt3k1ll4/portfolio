@@ -147,27 +147,33 @@ const translations = {
 
         // ========== BIO AND PERSONAL DATA (SPANISH) ==========
         'bio.header': 'Juan Lorenzo Suárez Jiménez',
-        'bio.title': 'Desarrollador Web Full-Stack Jr',
+        'bio.title': 'Desarrollador Web Full-Stack ',
         'bio.intro': `Soy un desarrollador apasionado por transformar ideas en soluciones digitales 
 funcionales. Veo en el código la herramienta ideal para crear, y elegí la web 
 por su alcance y versatilidad. Cada proyecto es una oportunidad para aprender 
 y construir algo útil.`,
-        'bio.detail': `Como desarrollador junior, estoy en constante aprendizaje, perfeccionando mis 
+        'bio.detail': `Como desarrollador, estoy en constante aprendizaje, perfeccionando mis 
 habilidades con cada línea de código. Me motiva enfrentar desafíos lógicos, 
 entender cómo funcionan las cosas y entregar productos bien estructurados. 
 Mi enfoque está en escribir código limpio, escalable y seguir las mejores prácticas.`,
 
+        // ========== PERSONAL DATA (SPANISH) ==========
+        'personal.name': 'Juan Lorenzo Suárez Jiménez',
+        'personal.username': 'm4nt3k1ll4',
+        'personal.title': 'Desarrollador Web Full-Stack',
+        'personal.email': 'contact@m4nt3k1ll4.dev',
+
         // ========== PROJECT DESCRIPTIONS (SPANISH) ==========
-        'project.crosstask.name': 'CrossTaskManager',
-        'project.crosstask.type': 'Aplicación SaaS',
-        'project.crosstask.desc': `Cross Task Manager: Un SaaS de gestión de tareas con API RESTful (Laravel) 
+        'project.crosstaskmanager.name': 'CrossTaskManager',
+        'project.crosstaskmanager.type': 'Aplicación SaaS',
+        'project.crosstaskmanager.desc': `Cross Task Manager: Un SaaS de gestión de tareas con API RESTful (Laravel) 
 y frontend (Angular). Asegura la gestión de usuarios, sedes y asignaciones con 
 autenticación JWT y 3 roles definidos (CEO, Manager, Adviser) para una supervisión 
 eficiente y organizada en distintas sedes.`,
 
-        'project.variedades.name': 'Variedades Humbertosss',
-        'project.variedades.type': 'Página de Destino',
-        'project.variedades.desc': `Una landing page atractiva y funcional para el negocio de variedades 
+        'project.variedades-humbertoss.name': 'Variedades Humbertosss',
+        'project.variedades-humbertoss.type': 'Página de Destino',
+        'project.variedades-humbertoss.desc': `Una landing page atractiva y funcional para el negocio de variedades 
 Humbertoss, optimizada para conversiones, contacto y presencia web.`,
 
         'project.ofmedical.name': 'OF Medical SAS',
@@ -349,18 +355,24 @@ atención al cliente.`,
 
         // ========== BIO AND PERSONAL DATA ==========
         'bio.header': 'Juan Lorenzo Suárez Jiménez',
-        'bio.title': 'Full-Stack Web Developer Jr',
+        'bio.title': 'Full-Stack Web Developer ',
         'bio.intro': `I'm a passionate developer focused on transforming ideas into functional digital solutions. \nI see code as the ideal tool for creating, and I chose web development for its reach and versatility. \nEvery project is an opportunity to learn and build something useful.`,
         'bio.detail': `As a junior developer, I'm in constant learning, perfecting my skills with every line of code. \nI'm motivated by facing logical challenges, understanding how things work, and delivering well-structured products. \nMy approach is to write clean, scalable code and follow best practices.`,
 
-        // ========== PROJECT DESCRIPTIONS ==========
-        'project.crosstask.name': 'CrossTaskManager',
-        'project.crosstask.type': 'SaaS Application',
-        'project.crosstask.desc': `Cross Task Manager: A SaaS task management platform with RESTful API (Laravel) \nand frontend (Angular). Ensures user, location, and assignment management with \nJWT authentication and 3 defined roles (CEO, Manager, Adviser) for efficient \nand organized supervision across multiple locations.`,
+        // ========== PERSONAL DATA ==========
+        'personal.name': 'Juan Lorenzo Suárez Jiménez',
+        'personal.username': 'm4nt3k1ll4',
+        'personal.title': 'Full-Stack Web Developer',
+        'personal.email': 'contact@m4nt3k1ll4.dev',
 
-        'project.variedades.name': 'Variedades Humbertosss',
-        'project.variedades.type': 'Landing Page',
-        'project.variedades.desc': `An attractive and functional landing page for the Variedades Humbertoss business, \noptimized for conversions, contact, and web presence.`,
+        // ========== PROJECT DESCRIPTIONS ==========
+        'project.crosstaskmanager.name': 'CrossTaskManager',
+        'project.crosstaskmanager.type': 'SaaS Application',
+        'project.crosstaskmanager.desc': `Cross Task Manager: A SaaS task management platform with RESTful API (Laravel) \nand frontend (Angular). Ensures user, location, and assignment management with \nJWT authentication and 3 defined roles (CEO, Manager, Adviser) for efficient \nand organized supervision across multiple locations.`,
+
+        'project.variedades-humbertoss.name': 'Variedades Humbertosss',
+        'project.variedades-humbertoss.type': 'Landing Page',
+        'project.variedades-humbertoss.desc': `An attractive and functional landing page for the Variedades Humbertoss business, \noptimized for conversions, contact, and web presence.`,
 
         'project.ofmedical.name': 'OF Medical SAS',
         'project.ofmedical.type': 'Semi-Static Website',
@@ -448,25 +460,7 @@ I see code as the ideal tool for creating, and I chose the web for its reach and
 Each project is an opportunity to learn and build something useful.`,
         'bio.detail': `As a junior developer, I'm constantly learning, perfecting my skills with every line of code. 
 I'm motivated by facing logical challenges, understanding how things work, and delivering 
-well-structured products. My focus is on writing clean, scalable code and following best practices.`,
-
-        // ========== PROJECT DESCRIPTIONS ==========
-        'project.crosstask.name': 'CrossTaskManager',
-        'project.crosstask.type': 'SaaS Application',
-        'project.crosstask.desc': `Cross Task Manager: A SaaS task management platform with RESTful API (Laravel) and frontend (Angular). 
-It ensures user, location, and assignment management with JWT authentication and 3 defined roles 
-(CEO, Manager, Adviser) for efficient and organized supervision across different locations.`,
-
-        'project.variedades.name': 'Variedades Humbertosss',
-        'project.variedades.type': 'Landing Page',
-        'project.variedades.desc': `An attractive and functional landing page for the Variedades Humbertoss store, 
-optimized for conversions, contact, and web presence.`,
-
-        'project.ofmedical.name': 'OF Medical SAS',
-        'project.ofmedical.type': 'Semi-Static Website',
-        'project.ofmedical.desc': `A semi-static website for OF Medical organization, presenting information about their 
-services and products with a shopping cart that stores items locally and exports to a 
-direct WhatsApp message for better customer service.`,
+well-structured products. My approach is to write clean, scalable code and follow best practices.`,
 
         // ========== PROJECT FILE LABELS ==========
         'project.typeLabel': 'Type',
@@ -550,121 +544,98 @@ function switchLanguage(lang) {
 
 // Update terminal welcome message when language changes
 function updateTerminalWelcomeMessage() {
-    // Check if terminal output exists and has the welcome message
     const terminalOutput = document.getElementById('terminalOutput');
     if (!terminalOutput) return;
 
-    // Get all output lines
-    const lines = Array.from(terminalOutput.querySelectorAll('.output-line'));
-    
-    if (lines.length === 0) return;
+    const allLines = Array.from(terminalOutput.querySelectorAll('.output-line'));
+    if (allLines.length === 0) return;
 
-    // Check if the first line contains PowerShell (welcome message indicator)
-    const firstLineText = lines[0].textContent;
-    
-    if (firstLineText.includes('PowerShell')) {
-        if (typeof displayWelcomeMessage === 'function') {
-            // Delete lines until we've removed the entire welcome message
-            let removedCount = 0;
-            let currentLines = Array.from(terminalOutput.querySelectorAll('.output-line'));
-            
-            while (removedCount < 10 && currentLines.length > 0) {
-                const firstLine = currentLines[0];
-                const lineText = firstLine.textContent.trim();
-                
-                // Remove lines that are part of the welcome message
-                if (lineText.includes('PowerShell') || 
-                    lineText.includes('Copyright') ||
-                    lineText.includes('Bienvenido') ||
-                    lineText.includes('Welcome') ||
-                    lineText.includes('Escribe') ||
-                    lineText.includes('Type') ||
-                    lineText.includes('Consejo') ||
-                    lineText.includes('Tip') ||
-                    lineText.includes('help') ||
-                    lineText.includes('ls') ||
-                    lineText === '') {
-                    
-                    firstLine.remove();
-                    removedCount++;
-                    currentLines = Array.from(terminalOutput.querySelectorAll('.output-line'));
-                } else {
-                    // Found a non-welcome line, stop
-                    break;
-                }
-            }
-            
-            // Re-display welcome message in new language
-            displayWelcomeMessage();
-        }
-    }
-    
-    // Retranslate the current command output if one was executed
-    if (typeof lastCommandExecuted !== 'undefined' && lastCommandExecuted) {
-        retranslateCurrentCommand();
-    }
+    // Simply retranslate all commands without touching welcome message
+    retranslateAllCommands(allLines);
 }
 
-// Retranslate current command output
-function retranslateCurrentCommand() {
+// Retranslate all translatable commands generically
+function retranslateAllCommands(allLines) {
     const terminalOutput = document.getElementById('terminalOutput');
-    const lastInput = typeof getLastCommandInput === 'function' ? getLastCommandInput() : null;
-    
-    if (!terminalOutput || !lastInput) return;
+    if (!terminalOutput || !allLines || allLines.length === 0) return;
 
-    // Commands that might need retranslation
     const translatableCommands = ['whoami', 'about', 'skills', 'projects', 'contact', 'cat', 'ls', 'pwd', 'tree', 'help', 'theme'];
-    
-    const parts = lastInput.trim().split(/\s+/);
-    const cmd = parts[0].toLowerCase();
-    
-    if (!translatableCommands.includes(cmd)) {
-        return; // Only retranslate specific commands
-    }
+    if (typeof commands === 'undefined') return;
 
-    // Find and remove the command output lines (everything after the last command prompt)
-    const lines = Array.from(terminalOutput.querySelectorAll('.output-line'));
+    // Find all command-output pairs (look for lines with 'command' class)
+    const commandsToUpdate = [];
     
-    // Find the last command prompt line
-    let lastPromptIndex = -1;
-    for (let i = lines.length - 1; i >= 0; i--) {
-        if (lines[i].classList.contains('command') || lines[i].textContent.includes('PS ')) {
-            lastPromptIndex = i;
-            break;
+    for (let i = 0; i < allLines.length; i++) {
+        const line = allLines[i];
+        
+        // Look for lines marked as 'command' (user input)
+        if (!line.classList.contains('command')) continue;
+        
+        // Parse the command
+        const cmdText = line.textContent.trim();
+        const parts = cmdText.split(/\s+/);
+        const cmdName = parts[0].toLowerCase();
+        const cmdArgs = parts.slice(1);
+        
+        // Only process translatable commands
+        if (!translatableCommands.includes(cmdName)) continue;
+        
+        // Collect all output lines until next command or prompt
+        const outputLines = [];
+        let j = i + 1;
+        while (j < allLines.length) {
+            const nextLine = allLines[j];
+            // Stop at next command line or prompt  
+            if (nextLine.classList.contains('command') || nextLine.textContent.includes('PS ')) {
+                break;
+            }
+            outputLines.push(nextLine);
+            j++;
         }
+        
+        commandsToUpdate.push({
+            cmdName: cmdName,
+            cmdArgs: cmdArgs,
+            outputLines: outputLines,
+            cmdElement: line
+        });
     }
-
-    // Remove output lines after the last command prompt
-    if (lastPromptIndex >= 0 && lastPromptIndex < lines.length - 1) {
-        // Remove lines from the end back to the prompt
-        for (let i = lines.length - 1; i > lastPromptIndex; i--) {
-            lines[i].remove();
-        }
-    }
-
-    // Re-execute the full command with the same input to get translated output
-    if (typeof commands !== 'undefined' && commands[cmd]) {
+    
+    // Execute all commands and regenerate outputs IN REVERSE ORDER
+    // This prevents insertion point issues when removing elements
+    for (let i = commandsToUpdate.length - 1; i >= 0; i--) {
+        const cmd = commandsToUpdate[i];
         try {
-            const args = parts.slice(1);
-            const result = commands[cmd](args);
+            // Remove old outputs first
+            cmd.outputLines.forEach(line => {
+                try {
+                    line.remove();
+                } catch (e) {}
+            });
             
+            // Execute command with new language
+            const result = commands[cmd.cmdName](cmd.cmdArgs);
             if (result && result.content) {
-                // Print the new translated output
-                const line = document.createElement("div");
-                line.className = `output-line ${result.type}`;
-                line.innerHTML = result.content;
-                terminalOutput.appendChild(line);
+                // Create new output element
+                const newOutput = document.createElement("div");
+                newOutput.className = `output-line ${result.type}`;
+                newOutput.innerHTML = result.content;
                 
-                // Scroll to show the new content
-                const termContainer = document.getElementById('terminalOutput');
-                if (termContainer) {
-                    termContainer.scrollTop = termContainer.scrollHeight;
+                // Insert immediately after the command element
+                const nextSibling = cmd.cmdElement.nextSibling;
+                if (nextSibling) {
+                    cmd.cmdElement.parentNode.insertBefore(newOutput, nextSibling);
+                } else {
+                    terminalOutput.appendChild(newOutput);
                 }
             }
-        } catch (error) {
-            console.error('Error retranslating command:', error);
+        } catch (e) {
+            console.error('Error retranslating:', cmd.cmdName, e);
         }
     }
+    
+    // Scroll to bottom
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
 }
 
 // Update all UI text with current language

@@ -245,12 +245,12 @@ const commands = {
     let output = `<div class="profile-card">
   <div class="profile-header">
     <div class="avatar-container">
-      <img src="./assets/media/juan-min.png" alt="${portfolioData.personal.name}">
+      <img src="./assets/media/juan-min.png" alt="${typeof t === 'function' ? t('personal.name') : portfolioData.personal.name}">
     </div>
     <div class="profile-info">
-      <h2>${portfolioData.personal.name}</h2>
-      <p class="title">${portfolioData.personal.title}</p>
-      <p style="color: var(--color-success); margin-top: 8px;"><i class="fas fa-user"></i> ${portfolioData.personal.username}</p>
+      <h2>${typeof t === 'function' ? t('personal.name') : portfolioData.personal.name}</h2>
+      <p class="title">${typeof t === 'function' ? t('personal.title') : portfolioData.personal.title}</p>
+      <p style="color: var(--color-success); margin-top: 8px;"><i class="fas fa-user"></i> ${typeof t === 'function' ? t('personal.username') : portfolioData.personal.username}</p>
     </div>
   </div>
   
@@ -293,7 +293,7 @@ const commands = {
     <h3>${project.name}</h3>
     <span class="badge">${project.type}</span>
   </div>
-  <p class="project-description">${project.description}</p>
+  <p class="project-description">${typeof t === 'function' ? t(`project.${project.id}.desc`) : project.description}</p>
   
   <div class="tech-stack-visual">`;
 
@@ -424,9 +424,10 @@ const commands = {
       content: `<span class="highlight">${getCmdT('cmd.contact.header')}</span>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-<span class="success">${getCmdT('cmd.contact.name')}</span>     ${portfolioData.personal.name}
-<span class="success">${getCmdT('cmd.contact.username')}</span> ${portfolioData.personal.username}
-<span class="success">${getCmdT('cmd.contact.title')}</span>    ${portfolioData.personal.title}
+<span class="success">${getCmdT('cmd.contact.name')}</span>     ${typeof t === 'function' ? t('personal.name') : portfolioData.personal.name}
+<span class="success">${getCmdT('cmd.contact.username')}</span> ${typeof t === 'function' ? t('personal.username') : portfolioData.personal.username}
+<span class="success">${getCmdT('cmd.contact.title')}</span>    ${typeof t === 'function' ? t('personal.title') : portfolioData.personal.title}
+<span class="success">Email:</span>         ${typeof t === 'function' ? t('personal.email') : portfolioData.personal.email}
 
 <span class="info">${getCmdT('cmd.contact.github')}</span>   <a href="${portfolioData.personal.github}" target="_blank" class="project-link">${portfolioData.personal.github}</a>
 <span class="info">${getCmdT('cmd.contact.linkedin')}</span> <a href="${portfolioData.personal.linkedin}" target="_blank" class="project-link">${portfolioData.personal.linkedin}</a>

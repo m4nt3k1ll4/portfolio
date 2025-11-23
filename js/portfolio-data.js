@@ -73,21 +73,22 @@ and exports to a direct WhatsApp message for better customer service.`,
   // Skills
   skills: {
     frontend: [
-      { name: "Angular", level: 70, icon: "devicon-angularjs-plain" },
-      { name: "TypeScript", level: 65, icon: "devicon-typescript-plain" },
-      { name: "JavaScript", level: 70, icon: "devicon-javascript-plain" },
-      { name: "HTML5", level: 75, icon: "devicon-html5-plain" },
-      { name: "CSS3", level: 70, icon: "devicon-css3-plain" }
+      { name: "Angular", level: 60, icon: "devicon-angularjs-plain" },
+      { name: "TypeScript", level: 50, icon: "devicon-typescript-plain" },
+      { name: "JavaScript", level: 65, icon: "devicon-javascript-plain" },
+      { name: "HTML5", level: 70, icon: "devicon-html5-plain" },
+      { name: "CSS3", level: 65, icon: "devicon-css3-plain" }
     ],
     backend: [
-      { name: "Laravel", level: 65, icon: "devicon-laravel-plain" },
+      { name: "Laravel", level: 60, icon: "devicon-laravel-plain" },
       { name: "PHP", level: 65, icon: "devicon-php-plain" },
       { name: "Cloudflare Workers", level: 60, icon: "devicon-cloudflare-plain" },
       { name: "Python", level: 45, icon: "devicon-python-plain" }
     ],
     database: [
       { name: "MySQL", level: 60, icon: "devicon-mysql-plain" },
-      { name: "Firebase", level: 55, icon: "devicon-firebase-plain" }
+      { name: "Firebase", level: 55, icon: "devicon-firebase-plain" },
+      { name: "supabase", level: 50, icon: "devicon-supabase-plain" }
     ],
     tools: [
       { name: "n8n", level: 65, icon: "fas fa-project-diagram" },
@@ -387,6 +388,14 @@ function getFileContent(path) {
       }
       return file.content;
     }
+
+    // Generate contact info file
+    if (path === "/contact/info.txt") {
+      if (typeof t === 'function') {
+        return `${t('file.contact.info.title')}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${t('personal.name')}\n${t('personal.title')}\n\nEmail: ${t('personal.email')}\nGitHub: ${portfolioData.personal.github}\nLinkedIn: ${portfolioData.personal.linkedin}\n\n${t('file.contact.availability')}\n\n${t('file.contact.professional')}:\n  GitHub: ${portfolioData.personal.github}\n  LinkedIn: ${portfolioData.personal.linkedin}\n\n${t('file.contact.downloadCV')}\n\n${t('file.contact.closing')}`;
+      }
+      return file.content;
+    }
   }
 
   return file.content;
@@ -402,7 +411,8 @@ function generateProjectReadme(project) {
   const linksLabel = typeof t === 'function' ? t('project.linksLabel') : 'Links';
   
   content += `${typeLabel}: ${project.type}\n\n`;
-  content += `${project.description}\n\n`;
+  const description = typeof t === 'function' ? t(`project.${project.id}.desc`) : project.description;
+  content += `${description}\n\n`;
   content += `${techLabel}:\n`;
   project.tech.forEach(tech => {
     content += `  ⚡ ${tech}\n`;
