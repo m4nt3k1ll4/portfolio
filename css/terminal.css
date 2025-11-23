@@ -81,6 +81,7 @@ body {
   height: 100%;
   border: 1px solid var(--border-color);
   backdrop-filter: blur(10px);
+  
 }
 
 /* ============================================
@@ -114,6 +115,9 @@ body {
   border-radius: 50%;
   cursor: pointer;
   transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .control-btn:hover {
@@ -146,10 +150,16 @@ body {
 
 .header-right {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .theme-btn {
   background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   padding: 6px 12px;
