@@ -1,0 +1,176 @@
+/* ============================================
+   RESPONSIVE DESIGN - Mobile & Tablet
+   ============================================ */
+
+/* Tablet - iPad Mini and similar (768px - 1023px) */
+@media (max-width: 1023px) {
+
+    /* Full screen - no margins */
+    body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .terminal-container {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .terminal-window {
+        border-radius: 0;
+        height: 100vh;
+        border: none;
+    }
+
+    /* Header improvements - optimized for mobile */
+    .terminal-header {
+        padding: 8px 10px;
+        flex-wrap: nowrap;
+        min-height: 48px;
+        gap: 6px;
+    }
+
+    .header-left {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .header-right {
+        gap: 4px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Window controls - smaller */
+    .window-controls {
+        gap: 3px;
+    }
+
+    .control-btn {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Simplify terminal title for mobile */
+    .terminal-title {
+        font-size: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        gap: 4px;
+    }
+
+    /* Hide terminal icon on very small screens */
+    .terminal-title i {
+        display: none;
+    }
+
+    /* Adjust button sizes for mobile - match hamburger size */
+    .lang-btn,
+    .theme-btn {
+        padding: 6px 8px;
+        font-size: 10px;
+        min-width: 32px;
+        min-height: 32px;
+        border-radius: 4px;
+    }
+
+    .lang-btn i,
+    .theme-btn i {
+        font-size: 12px;
+    }
+
+    /* Hide language text, show only flag icon */
+    .lang-btn span {
+        display: none;
+    }
+
+    /* Theme menu adjustments */
+    .theme-menu {
+        right: 0;
+        left: auto;
+        min-width: 130px;
+        font-size: 11px;
+    }
+
+    /* Terminal content with better spacing */
+    .terminal-content {
+        padding: 15px 12px;
+        padding-bottom: 70px;
+    }
+
+    /* Mobile keyboard helper */
+    .mobile-keyboard-helper {
+        display: flex !important;
+        justify-content: space-around;
+        gap: 6px;
+        padding: 8px 10px;
+        background: var(--bg-secondary);
+        border-top: 2px solid var(--border-color);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+
+    .mobile-btn {
+        flex: 1;
+        padding: 10px 8px;
+        background: var(--bg-primary);
+        color: var(--color-info);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        min-height: 44px;
+        max-width: 80px;
+    }
+
+    .mobile-btn:active {
+        background: var(--color-info);
+        color: var(--bg-primary);
+        transform: scale(0.95);
+    }
+
+    /* Helper panel - mobile overlay */
+    .helper-panel {
+        display: block !important;
+        position: fixed !important;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        right: 0;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        border-radius: 0;
+        border-left: 2px solid var(--color-info);
+        z-index: 2500;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+    }
+
+    .helper-panel.active {
+        transform: translateX(0);
+    }
+
+    /* Helper content scrollable */
+    .helper-content {
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    /* Hide original toggle */
+    .helper-toggle {
+        display: none;
+    }
+}

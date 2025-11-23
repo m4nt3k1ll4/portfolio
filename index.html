@@ -90,6 +90,7 @@
   <!-- Additional Meta Tags -->
   <meta name="theme-color" content="#1e1e1e" />
   <meta name="color-scheme" content="dark light" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="M4nt3k1ll4" />
@@ -104,14 +105,17 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="./css/terminal.css" />
+  <link rel="stylesheet" href="./css/hamburger-styles.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
   <!-- Favicon & App Icons -->
   <link rel="icon" type="image/png" href="./assets/media/favicon.ico" />
-  <link rel="apple-touch-icon" href="./assets/media/apple-touch-icon.png" />
+  <!-- <link rel="apple-touch-icon" href="./assets/media/apple-touch-icon.png" /> -->
   <link rel="shortcut icon" href="./assets/media/favicon.ico" />
   <link rel="manifest" href="./manifest.json" />
 </head>
@@ -130,7 +134,7 @@
           </div>
           <span class="terminal-title">
             <i class="fas fa-terminal"></i>
-            PowerShell - m4nt3k1ll4@portfolio
+            m4nt3k1ll4@portfolio
           </span>
         </div>
         <div class="header-right">
@@ -150,6 +154,13 @@
             <div class="theme-option" data-theme="matrix">Matrix</div>
             <div class="theme-option" data-theme="dracula">Dracula</div>
           </div>
+
+          <!-- Hamburger Menu Button (Mobile Only) -->
+          <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
 
@@ -285,6 +296,7 @@
   <script src="./js/welcome.js"></script>
   <script src="./js/commands.js"></script>
   <script src="./js/terminal-engine.js"></script>
+  <script src="./js/hamburger-menu.js"></script>
 </body>
 
 </html>
