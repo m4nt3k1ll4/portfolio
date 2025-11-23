@@ -436,6 +436,9 @@ function getFileContent(path) {
   // If content is null, generate it dynamically
   if (file.content === null) {
     if (path === "/about/bio.txt") {
+      if (typeof t === 'function') {
+        return `${t('bio.header')}\n${t('bio.title')}\n\n${t('bio.intro')}\n\n${t('bio.detail')}`;
+      }
       return portfolioData.bio;
     }
 
@@ -478,14 +481,15 @@ function generateProjectReadme(project) {
 
 // Generate skills content
 function generateSkillsContent(category, skills) {
-  const categoryNames = {
-    frontend: "Frontend Skills",
-    backend: "Backend Skills",
-    database: "Database Skills",
-    tools: "Tools & Environment"
+  const categoryNameKeys = {
+    frontend: 'skill.frontend',
+    backend: 'skill.backend',
+    database: 'skill.database',
+    tools: 'skill.tools'
   };
 
-  let content = `${categoryNames[category]}\n`;
+  const categoryTitle = typeof t === 'function' ? t(categoryNameKeys[category]) : categoryNameKeys[category];
+  let content = `${categoryTitle}\n`;
   content += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
 
   skills.forEach(skill => {

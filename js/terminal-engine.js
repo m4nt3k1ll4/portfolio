@@ -14,6 +14,7 @@ let themeMenu;
 let commandHistory = [];
 let historyIndex = -1;
 let isProcessing = false;
+let lastCommandExecuted = null; // Track last executed command for retranslation
 
 // Initialize terminal
 function initTerminal() {
@@ -24,6 +25,9 @@ function initTerminal() {
     autocompleteContainer = document.getElementById("autocompleteContainer");
     themeToggle = document.getElementById("themeToggle");
     themeMenu = document.getElementById("themeMenu");
+
+    // Hide terminal container initially
+    document.getElementById("terminalContainer").classList.remove("visible");
 
     // Load saved theme
     loadSavedTheme();
@@ -44,11 +48,33 @@ function initTerminal() {
     // Setup event listeners
     setupEventListeners();
 
-    // Display welcome message
-    displayWelcomeMessage();
+    // Check if welcome should be shown based on session
+    const shouldShowWelcome = isWelcomePhase && !hasSeenWelcomeInSession();
 
-    // Focus input
-    terminalInput.focus();
+    // Initialize welcome screen if in welcome phase and not seen in session
+    if (shouldShowWelcome) {
+        if (typeof initWelcomeScreen === 'function') {
+            initWelcomeScreen();
+            if (typeof startHelloWorldRotation === 'function') {
+                startHelloWorldRotation();
+            }
+        }
+        // Set welcome session timestamp
+        if (typeof setWelcomeSession === 'function') {
+            setWelcomeSession();
+        }
+    } else if (!isWelcomePhase) {
+        // If not in welcome phase, show terminal and display message
+        document.getElementById("terminalContainer").classList.add("visible");
+        displayWelcomeMessage();
+        terminalInput.focus();
+    } else {
+        // Session hasn't expired, skip welcome and show terminal
+        isWelcomePhase = false;
+        document.getElementById("terminalContainer").classList.add("visible");
+        displayWelcomeMessage();
+        terminalInput.focus();
+    }
 }
 
 // Setup event listeners
@@ -76,7 +102,8 @@ function setupEventListeners() {
             const theme = option.dataset.theme;
             applyTheme(theme);
             themeMenu.classList.remove("active");
-            printOutput(`Theme changed to: ${theme}`, "success");
+            const themeChangeMsg = `${t('success.themeChanged')}: ${theme}`;
+            printOutput(themeChangeMsg, "success");
         });
     });
 
@@ -161,7 +188,7 @@ function handleInput() {
 }
 
 // Handle command execution
-function handleCommand() {
+async function handleCommand() {
     const input = terminalInput.value.trim();
 
     if (!input) {
@@ -194,6 +221,11 @@ async function executeCommand(input) {
     const cmd = parts[0].toLowerCase();
     const args = parts.slice(1);
 
+    // Register last executed command for retranslation on language change
+    if (commands[cmd]) {
+        lastCommandExecuted = cmd;
+    }
+
     // Check if command exists
     if (commands[cmd]) {
         try {
@@ -215,7 +247,7 @@ async function executeCommand(input) {
             console.error(error);
         }
     } else {
-        printOutput(`Command not found: ${cmd}. Type 'help' for available commands.`, "error");
+        printOutput(`${getCmdT('error.commandNotFound')}: ${cmd}. ${t('error.tryHelp')}`, "error");
     }
 
     // Update prompt with current path
@@ -267,6 +299,11 @@ function clearTerminal() {
 // Scroll to bottom
 function scrollToBottom() {
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
+}
+
+// Get last executed command (for retranslation)
+function getLastCommand() {
+    return lastCommandExecuted;
 }
 
 // Navigate command history
@@ -415,13 +452,11 @@ function displayWelcomeMessage() {
     const welcome = `<span class="highlight">PowerShell 7.4.0</span>
 <span class="muted">Copyright (c) M4nt3k1ll4. All rights reserved.</span>
 
-<span class="info">Welcome to my interactive terminal portfolio!</span>
+<span class="info">${t('welcome.intro')}</span>
 
-Type '<span class="success">help</span>' to see available commands.
-Type '<span class="success">ls</span>' to list directory contents.
-Type '<span class="success">cat README.md</span>' to get started.
+${t('welcome.intro') ? `${t('welcome.helpCmd')} '<span class="success">help</span>' ${t('welcome.helpText')}<br>${t('welcome.helpCmd')} '<span class="success">ls</span>' ${t('welcome.lsCmd')}` : ''}
 
-<span class="muted">Tip: Use TAB for autocomplete and arrow keys for command history.</span>
+<span class="muted">${t('welcome.tip')}</span>
 `;
 
     printOutput(welcome, "info");

@@ -5,94 +5,99 @@
 // Current working directory
 let currentPath = "/";
 
+// Command translations helper
+function getCmdT(key) {
+  return t(key) || key;
+}
+
 // Command implementations
 const commands = {
   // Help command - Modern categorized version
   help: () => {
     let output = `<div class="section-header">
   <i class="fas fa-question-circle"></i>
-  <h2>Available Commands</h2>
+  <h2>${getCmdT('cmd.help.title')}</h2>
 </div>
 
 <div class="help-section">
   <div class="help-category">
     <i class="fas fa-folder-tree"></i>
-    <h3>Navigation</h3>
+    <h3>${getCmdT('cmd.help.navigation')}</h3>
   </div>
   <div class="command-list">
     <div class="command-item">
       <span class="cmd">cd &lt;path&gt;</span>
-      <span class="desc">Change directory</span>
+      <span class="desc">${getCmdT('cmd.help.cd')}</span>
     </div>
     <div class="command-item">
       <span class="cmd">ls, dir</span>
-      <span class="desc">List directory contents</span>
+      <span class="desc">${getCmdT('cmd.help.ls')}</span>
     </div>
     <div class="command-item">
       <span class="cmd">pwd</span>
-      <span class="desc">Print working directory</span>
+      <span class="desc">${getCmdT('cmd.help.pwd')}</span>
     </div>
     <div class="command-item">
       <span class="cmd">tree</span>
-      <span class="desc">Show directory tree</span>
+      <span class="desc">${getCmdT('cmd.help.tree')}</span>
     </div>
   </div>
 
   <div class="help-category">
     <i class="fas fa-file-alt"></i>
-    <h3>File Operations</h3>
+    <h3>${getCmdT('cmd.help.fileOps')}</h3>
   </div>
   <div class="command-list">
     <div class="command-item">
       <span class="cmd">cat &lt;file&gt;</span>
-      <span class="desc">Display file contents</span>
+      <span class="desc">${getCmdT('cmd.help.cat')}</span>
     </div>
   </div>
 
   <div class="help-category">
     <i class="fas fa-info-circle"></i>
-    <h3>Information</h3>
+    <h3>${getCmdT('cmd.help.info')}</h3>
   </div>
   <div class="command-list">
     <div class="command-item">
       <span class="cmd">whoami, about</span>
-      <span class="desc">About me</span>
+      <span class="desc">${getCmdT('cmd.help.whoami')}</span>
     </div>
     <div class="command-item">
       <span class="cmd">projects</span>
-      <span class="desc">View my projects</span>
+      <span class="desc">${getCmdT('cmd.help.projects')}</span>
     </div>
     <div class="command-item">
       <span class="cmd">skills</span>
-      <span class="desc">View my skills</span>
+      <span class="desc">${getCmdT('cmd.help.skills')}</span>
     </div>
     <div class="command-item">
       <span class="cmd">contact</span>
-      <span class="desc">Contact information</span>
+      <span class="desc">${getCmdT('cmd.help.contact')}</span>
     </div>
   </div>
 
   <div class="help-category">
     <i class="fas fa-tools"></i>
-    <h3>Utility</h3>
+    <h3>${getCmdT('cmd.help.utility')}</h3>
   </div>
   <div class="command-list">
     <div class="command-item">
       <span class="cmd">clear, cls</span>
-      <span class="desc">Clear terminal</span>
+      <span class="desc">${getCmdT('cmd.help.clear')}</span>
     </div>
     <div class="command-item">
       <span class="cmd">theme &lt;name&gt;</span>
-      <span class="desc">Change color theme</span>
+      <span class="desc">${getCmdT('cmd.help.theme')}</span>
     </div>
     <div class="command-item">
       <span class="cmd">help</span>
-      <span class="desc">Show this help message</span>
+      <span class="desc">${getCmdT('cmd.help.help')}</span>
     </div>
   </div>
 </div>
 
-<span class="success">💡 Tip:</span> Try <span class="cmd">skills</span> or <span class="cmd">projects</span> to see visual cards!`;
+<span class="success">${getCmdT('cmd.help.tip')}</span> ${getCmdT('cmd.help.trySkills')}`;
 
     return {
       type: "info",
@@ -117,7 +122,7 @@ const commands = {
     if (!contents) {
       return {
         type: "error",
-        content: `ls: cannot access '${path}': No such file or directory`
+        content: `ls: ${t('error.cannotAccess')} '${path}': ${t('error.noSuchFile')}`
       };
     }
 
@@ -145,7 +150,7 @@ const commands = {
       currentPath = "/";
       return {
         type: "success",
-        content: `Changed to ${currentPath}`
+        content: `${t('content.changedTo')} ${currentPath}`
       };
     }
 
@@ -155,21 +160,21 @@ const commands = {
     if (!dir) {
       return {
         type: "error",
-        content: `cd: ${args[0]}: No such file or directory`
+        content: `cd: ${args[0]}: ${t('error.noSuchFile')}`
       };
     }
 
     if (dir.type !== "directory") {
       return {
         type: "error",
-        content: `cd: ${args[0]}: Not a directory`
+        content: `cd: ${args[0]}: ${t('error.notDirectory')}`
       };
     }
 
     currentPath = newPath;
     return {
       type: "success",
-      content: `Changed to ${currentPath}`
+      content: `${t('content.changedTo')} ${currentPath}`
     };
   },
 
@@ -196,7 +201,7 @@ const commands = {
     if (content === null) {
       return {
         type: "error",
-        content: `cat: ${args[0]}: No such file or directory`
+        content: `cat: ${args[0]}: ${t('error.noSuchFile')}`
       };
     }
 
@@ -223,7 +228,7 @@ const commands = {
     if (!portfolioData.fileSystem[startPath]) {
       return {
         type: "error",
-        content: `tree: ${args[0]}: No such file or directory`
+        content: `tree: ${args[0]}: ${t('error.noSuchFile')}`
       };
     }
 
@@ -251,18 +256,18 @@ const commands = {
   
   <div class="social-links">
     <a href="${portfolioData.personal.github}" target="_blank">
-      <i class="fab fa-github"></i> GitHub
+      <i class="fab fa-github"></i> ${getCmdT('cmd.whoami.header')}
     </a>
     <a href="${portfolioData.personal.linkedin}" target="_blank">
-      <i class="fab fa-linkedin"></i> LinkedIn
+      <i class="fab fa-linkedin"></i> ${getCmdT('cmd.whoami.linkedin')}
     </a>
     <a href="${portfolioData.personal.cv}" download>
-      <i class="fas fa-file-pdf"></i> Download CV
+      <i class="fas fa-file-pdf"></i> ${getCmdT('cmd.whoami.downloadCV')}
     </a>
   </div>
 </div>
 
-<span class="muted">💡 Type 'cat /about/bio.txt' for my full bio</span>`;
+<span class="muted">${getCmdT('cmd.whoami.bio')}</span>`;
 
     return {
       type: "info",
@@ -278,7 +283,7 @@ const commands = {
   projects: () => {
     let output = `<div class="section-header">
   <i class="fas fa-folder-open"></i>
-  <h2>My Projects</h2>
+  <h2>${getCmdT('cmd.projects.header')}</h2>
 </div>\n`;
 
     portfolioData.projects.forEach((project) => {
@@ -313,7 +318,7 @@ const commands = {
 </div>\n`;
     });
 
-    output += `\n<span class="muted">💡 Navigate to /projects/&lt;project-id&gt; for more details</span>`;
+    output += `\n<span class="muted">${getCmdT('cmd.projects.navTip')}</span>`;
 
     return {
       type: "success",
@@ -325,12 +330,12 @@ const commands = {
   skills: () => {
     let output = `<div class="section-header">
   <i class="fas fa-code"></i>
-  <h2>Technical Skills</h2>
+  <h2>${getCmdT('cmd.skills.header')}</h2>
 </div>\n`;
 
     // Frontend
     output += `<div class="skill-category-section">
-  <h3><i class="fas fa-laptop-code"></i> Frontend</h3>\n`;
+  <h3><i class="fas fa-laptop-code"></i> ${getCmdT('cmd.skills.frontend')}</h3>\n`;
 
     portfolioData.skills.frontend.forEach(skill => {
       output += `  <div class="skill-card">
@@ -349,7 +354,7 @@ const commands = {
 
     // Backend
     output += `<div class="skill-category-section">
-  <h3><i class="fas fa-server"></i> Backend</h3>\n`;
+  <h3><i class="fas fa-server"></i> ${getCmdT('cmd.skills.backend')}</h3>\n`;
 
     portfolioData.skills.backend.forEach(skill => {
       output += `  <div class="skill-card">
@@ -368,7 +373,7 @@ const commands = {
 
     // Database
     output += `<div class="skill-category-section">
-  <h3><i class="fas fa-database"></i> Database</h3>\n`;
+  <h3><i class="fas fa-database"></i> ${getCmdT('cmd.skills.database')}</h3>\n`;
 
     portfolioData.skills.database.forEach(skill => {
       output += `  <div class="skill-card">
@@ -387,7 +392,7 @@ const commands = {
 
     // Tools
     output += `<div class="skill-category-section">
-  <h3><i class="fas fa-tools"></i> Tools & Environment</h3>\n`;
+  <h3><i class="fas fa-tools"></i> ${getCmdT('cmd.skills.tools')}</h3>\n`;
 
     portfolioData.skills.tools.forEach(skill => {
       output += `  <div class="skill-card">
@@ -404,7 +409,7 @@ const commands = {
 
     output += `</div>\n`;
 
-    output += `\n<span class="muted">💡 Navigate to /skills for detailed information files</span>`;
+    output += `\n<span class="muted">${getCmdT('cmd.skills.navTip')}</span>`;
 
     return {
       type: "success",
@@ -416,17 +421,17 @@ const commands = {
   contact: () => {
     return {
       type: "info",
-      content: `<span class="highlight">Contact Information</span>
+      content: `<span class="highlight">${getCmdT('cmd.contact.header')}</span>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-<span class="success">Name:</span>     ${portfolioData.personal.name}
-<span class="success">Username:</span> ${portfolioData.personal.username}
-<span class="success">Title:</span>    ${portfolioData.personal.title}
+<span class="success">${getCmdT('cmd.contact.name')}</span>     ${portfolioData.personal.name}
+<span class="success">${getCmdT('cmd.contact.username')}</span> ${portfolioData.personal.username}
+<span class="success">${getCmdT('cmd.contact.title')}</span>    ${portfolioData.personal.title}
 
-<span class="info">GitHub:</span>   <a href="${portfolioData.personal.github}" target="_blank" class="project-link">${portfolioData.personal.github}</a>
-<span class="info">LinkedIn:</span> <a href="${portfolioData.personal.linkedin}" target="_blank" class="project-link">${portfolioData.personal.linkedin}</a>
+<span class="info">${getCmdT('cmd.contact.github')}</span>   <a href="${portfolioData.personal.github}" target="_blank" class="project-link">${portfolioData.personal.github}</a>
+<span class="info">${getCmdT('cmd.contact.linkedin')}</span> <a href="${portfolioData.personal.linkedin}" target="_blank" class="project-link">${portfolioData.personal.linkedin}</a>
 
-<span class="muted">Use 'cat /contact/info.txt' for more details</span>`
+<span class="muted">${getCmdT('cmd.contact.more')}</span>`
     };
   },
 
@@ -434,12 +439,12 @@ const commands = {
   theme: (args) => {
     if (!args[0]) {
       const availableThemes = getAvailableThemes();
-      let output = `<span class="info">Available themes:</span>\n`;
+      let output = `<span class="info">${getCmdT('cmd.theme.availableThemes')}</span>\n`;
       availableThemes.forEach(theme => {
-        const current = theme.id === getCurrentTheme() ? " <span class='success'>(current)</span>" : "";
+        const current = theme.id === getCurrentTheme() ? ` <span class='success'>(${getCmdT('cmd.theme.current')})</span>` : "";
         output += `  • ${theme.name} (${theme.id})${current}\n`;
       });
-      output += `\n<span class="muted">Usage: theme &lt;name&gt;</span>`;
+      output += `\n<span class="muted">${getCmdT('cmd.theme.usage')}: theme &lt;name&gt;</span>`;
       return {
         type: "info",
         content: output
@@ -450,12 +455,12 @@ const commands = {
     if (applyTheme(themeName)) {
       return {
         type: "success",
-        content: `Theme changed to: ${themeName}`
+        content: `${getCmdT('success.themeChanged')}: ${themeName}`
       };
     } else {
       return {
         type: "error",
-        content: `Theme '${themeName}' not found. Use 'theme' to see available themes.`
+        content: getCmdT('cmd.theme.notFound')
       };
     }
   },
@@ -464,14 +469,14 @@ const commands = {
   "sudo rm -rf /": () => {
     return {
       type: "error",
-      content: `[ERROR] Permission denied: Nice try! 😏
-This portfolio is protected by plot armor.
-The Matrix has you...
-Follow the white rabbit.
+      content: `${getCmdT('cmd.sudorm.permissionDenied')}
+${getCmdT('cmd.sudorm.protected')}
+${getCmdT('cmd.sudorm.matrix')}
+${getCmdT('cmd.sudorm.rabbit')}
 
-Knock, knock, Neo.
+${getCmdT('cmd.sudorm.knock')}
 
-<span class="muted">Try 'theme matrix' for the full experience</span>`
+<span class="muted">${getCmdT('cmd.sudorm.tip')}</span>`
     };
   },
 
@@ -566,7 +571,7 @@ Knock, knock, Neo.
   matrix: () => {
     return {
       type: "success",
-      content: `<span class="success">Wake up, Neo...</span>
+      content: `<span class="success">${getCmdT('cmd.matrix.wake')}</span>
 The Matrix has you...
 Follow the white rabbit.
 
@@ -580,12 +585,12 @@ Knock, knock, Neo.
   coffee: () => {
     return {
       type: "warning",
-      content: `☕ <span class="warning">Brewing coffee...</span>
+      content: `${getCmdT('cmd.coffee.brewing')}<span class="warning"></span>
 <span class="success">[████████████]</span> 100%
 
-<span class="success">Your coffee is ready!</span> ☕
+<span class="success">${getCmdT('cmd.coffee.done')}</span>
 
-<span class="muted">(This developer runs on coffee and code)</span>`,
+<span class="muted">${getCmdT('cmd.coffee.msg')}</span>`,
       animate: true
     };
   },
@@ -596,9 +601,9 @@ Knock, knock, Neo.
     }
     return {
       type: "warning",
-      content: `sudo: You are not in the sudoers file. This incident will be reported.
+      content: `${getCmdT('cmd.sudo.msg')}
 
-<span class="muted">Just kidding, you can't break anything here 😄</span>`,
+<span class="muted">${getCmdT('cmd.sudo.joking')}</span>`,
       animate: true
     };
   }
