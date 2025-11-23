@@ -10,6 +10,154 @@ function getCmdT(key) {
   return t(key) || key;
 }
 
+// ============================================
+// Contact Form Handler
+// ============================================
+
+/**
+ * Handle contact form submission
+ * Single responsibility: manages the entire contact form flow
+ * @param {object} context - {terminalOutput, scrollToBottom, terminalInput}
+ */
+async function handleContactForm({ terminalOutput, scrollToBottom, terminalInput }) {
+  const container = createContactFormContainer();
+  terminalOutput.appendChild(container);
+  scrollToBottom();
+  
+  const elements = getContactFormElements();
+  setupContactFormEvents(elements, container, scrollToBottom);
+  
+  elements.nameInput.focus();
+}
+
+/**
+ * Create contact form HTML container
+ * @returns {HTMLElement} Form container
+ */
+function createContactFormContainer() {
+  const container = document.createElement('div');
+  container.className = 'output-line info';
+  container.id = 'contact-form-container';
+  container.innerHTML = `
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 15px; background: rgba(0,255,0,0.05); border-left: 3px solid #00ff00; border-radius: 4px; pointer-events: auto;">
+      <div style="font-weight: bold; margin-bottom: 10px; pointer-events: auto;">${getCmdT('cmd.sendContact.prompt')}</div>
+      
+      <div style="pointer-events: auto;">
+        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.name')}</label>
+        <input type="text" id="contact-name" placeholder="e.g., John Doe" style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; pointer-events: auto; cursor: text;">
+      </div>
+      
+      <div style="pointer-events: auto;">
+        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.email')}</label>
+        <input type="email" id="contact-email" placeholder="e.g., john@example.com" style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; pointer-events: auto; cursor: text;">
+      </div>
+      
+      <div style="pointer-events: auto;">
+        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.message')}</label>
+        <textarea id="contact-message" placeholder="Your message here..." style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; min-height: 80px; resize: vertical; pointer-events: auto; cursor: text;"></textarea>
+      </div>
+      
+      <div style="display: flex; gap: 10px; margin-top: 10px; pointer-events: auto;">
+        <button id="contact-send-btn" style="flex: 1; padding: 8px; background: #00ff00; color: #000; border: none; border-radius: 3px; cursor: pointer; font-weight: bold; font-family: 'Courier New', monospace; pointer-events: auto;">Send</button>
+        <button id="contact-cancel-btn" style="flex: 1; padding: 8px; background: #555; color: #fff; border: none; border-radius: 3px; cursor: pointer; font-family: 'Courier New', monospace; pointer-events: auto;">Cancel</button>
+      </div>
+      
+      <div id="contact-status" style="min-height: 20px; pointer-events: auto;"></div>
+    </div>
+  `;
+  return container;
+}
+
+/**
+ * Get references to all form elements
+ * @returns {object} Element references
+ */
+function getContactFormElements() {
+  return {
+    nameInput: getElement('contact-name'),
+    emailInput: getElement('contact-email'),
+    messageInput: getElement('contact-message'),
+    sendBtn: getElement('contact-send-btn'),
+    cancelBtn: getElement('contact-cancel-btn'),
+    statusDiv: getElement('contact-status'),
+    container: getElement('contact-form-container')
+  };
+}
+
+/**
+ * Setup event listeners for contact form
+ * @param {object} elements - Form elements
+ * @param {HTMLElement} container - Form container
+ * @param {function} scrollToBottom - Scroll callback
+ */
+function setupContactFormEvents(elements, container, scrollToBottom) {
+  const { nameInput, emailInput, messageInput, sendBtn, cancelBtn, statusDiv } = elements;
+  
+  stopPropagationOn([nameInput, emailInput, messageInput, sendBtn, cancelBtn]);
+  
+  sendBtn.addEventListener('click', () => handleContactSubmit(elements));
+  cancelBtn.addEventListener('click', () => handleContactCancel(container, statusDiv));
+}
+
+/**
+ * Handle contact form submission
+ * @param {object} elements - Form elements
+ */
+async function handleContactSubmit(elements) {
+  const { nameInput, emailInput, messageInput, sendBtn, cancelBtn, statusDiv, container } = elements;
+  
+  const formData = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    message: messageInput.value.trim()
+  };
+  
+  const validation = validateContactForm(formData);
+  if (!validation.valid) {
+    statusDiv.innerHTML = `<span style="color: #ff6b6b;">${validation.errors[0]}</span>`;
+    return;
+  }
+  
+  statusDiv.innerHTML = `<span style="color: #ffff00;">⏳ ${getCmdT('cmd.sendContact.sending')}</span>`;
+  disableContactForm(true, { nameInput, emailInput, messageInput, sendBtn, cancelBtn });
+  
+  try {
+    await sendToGoogleForms(formData);
+    
+    statusDiv.innerHTML = `<span style="color: #00ff00;">${getCmdT('cmd.sendContact.success')}</span>`;
+    
+    setTimeout(() => {
+      container.style.opacity = '0.5';
+      disableContactForm(true, { nameInput, emailInput, messageInput, sendBtn, cancelBtn });
+    }, 2000);
+    
+  } catch (error) {
+    statusDiv.innerHTML = `<span style="color: #ff6b6b;">${getCmdT('cmd.sendContact.error')} ${error.message}</span>`;
+    disableContactForm(false, { nameInput, emailInput, messageInput, sendBtn, cancelBtn });
+  }
+}
+
+/**
+ * Handle contact form cancellation
+ * @param {HTMLElement} container - Form container
+ * @param {HTMLElement} statusDiv - Status div
+ */
+function handleContactCancel(container, statusDiv) {
+  statusDiv.innerHTML = `<span style="color: #888;">${getCmdT('cmd.sendContact.cancel')}</span>`;
+  setTimeout(() => container.remove(), 500);
+}
+
+/**
+ * Enable/disable contact form elements
+ * @param {boolean} disabled - Disabled state
+ * @param {object} elements - Form elements
+ */
+function disableContactForm(disabled, elements) {
+  Object.values(elements).forEach(el => {
+    if (el) el.disabled = disabled;
+  });
+}
+
 // Command implementations
 const commands = {
   // Help command - Modern categorized version
@@ -440,138 +588,7 @@ const commands = {
   'send-contact': () => {
     return {
       type: "callback",
-      callback: async ({ terminalOutput, scrollToBottom, terminalInput }) => {
-        const outputContainer = document.createElement('div');
-        outputContainer.className = 'output-line info';
-        outputContainer.id = 'contact-form-container';
-        outputContainer.innerHTML = `
-          <div style="display: flex; flex-direction: column; gap: 12px; padding: 15px; background: rgba(0,255,0,0.05); border-left: 3px solid #00ff00; border-radius: 4px; pointer-events: auto;">
-            <div style="font-weight: bold; margin-bottom: 10px; pointer-events: auto;">${getCmdT('cmd.sendContact.prompt')}</div>
-            
-            <div style="pointer-events: auto;">
-              <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.name')}</label>
-              <input type="text" id="contact-name" placeholder="e.g., John Doe" style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; pointer-events: auto; cursor: text;">
-            </div>
-            
-            <div style="pointer-events: auto;">
-              <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.email')}</label>
-              <input type="email" id="contact-email" placeholder="e.g., john@example.com" style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; pointer-events: auto; cursor: text;">
-            </div>
-            
-            <div style="pointer-events: auto;">
-              <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.message')}</label>
-              <textarea id="contact-message" placeholder="Your message here..." style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; min-height: 80px; resize: vertical; pointer-events: auto; cursor: text;"></textarea>
-            </div>
-            
-            <div style="display: flex; gap: 10px; margin-top: 10px; pointer-events: auto;">
-              <button id="contact-send-btn" style="flex: 1; padding: 8px; background: #00ff00; color: #000; border: none; border-radius: 3px; cursor: pointer; font-weight: bold; font-family: 'Courier New', monospace; pointer-events: auto;">Send</button>
-              <button id="contact-cancel-btn" style="flex: 1; padding: 8px; background: #555; color: #fff; border: none; border-radius: 3px; cursor: pointer; font-family: 'Courier New', monospace; pointer-events: auto;">Cancel</button>
-            </div>
-            
-            <div id="contact-status" style="min-height: 20px; pointer-events: auto;"></div>
-          </div>
-        `;
-        
-        terminalOutput.appendChild(outputContainer);
-        scrollToBottom();
-        
-        const nameInput = document.getElementById('contact-name');
-        const emailInput = document.getElementById('contact-email');
-        const messageInput = document.getElementById('contact-message');
-        const sendBtn = document.getElementById('contact-send-btn');
-        const cancelBtn = document.getElementById('contact-cancel-btn');
-        const statusDiv = document.getElementById('contact-status');
-        
-        // Prevent click propagation on inputs
-        [nameInput, emailInput, messageInput, sendBtn, cancelBtn].forEach(el => {
-          el.addEventListener('click', (e) => e.stopPropagation());
-          el.addEventListener('mousedown', (e) => e.stopPropagation());
-          el.addEventListener('mouseup', (e) => e.stopPropagation());
-        });
-        
-        nameInput.focus();
-        
-        sendBtn.addEventListener('click', async () => {
-          const name = nameInput.value.trim();
-          const email = emailInput.value.trim();
-          const message = messageInput.value.trim();
-          
-          // Validation
-          if (!name) {
-            statusDiv.innerHTML = '<span style="color: #ff6b6b;">❌ ' + getCmdT('cmd.sendContact.invalidEmail').replace('email', 'name') + '</span>';
-            nameInput.focus();
-            return;
-          }
-          
-          if (!email || !email.includes('@') || !email.includes('.')) {
-            statusDiv.innerHTML = '<span style="color: #ff6b6b;">❌ ' + getCmdT('cmd.sendContact.invalidEmail') + '</span>';
-            emailInput.focus();
-            return;
-          }
-          
-          if (!message) {
-            statusDiv.innerHTML = '<span style="color: #ff6b6b;">❌ ' + getCmdT('cmd.sendContact.invalidEmail').replace('email', 'message') + '</span>';
-            messageInput.focus();
-            return;
-          }
-          
-          // Disable buttons and show sending status
-          statusDiv.innerHTML = '<span style="color: #ffff00;">⏳ ' + getCmdT('cmd.sendContact.sending') + '</span>';
-          sendBtn.disabled = true;
-          cancelBtn.disabled = true;
-          nameInput.disabled = true;
-          emailInput.disabled = true;
-          messageInput.disabled = true;
-          
-          try {
-            // Use Google Forms API
-            const GOOGLE_FORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScBzd01tfoUaV8RsqRFLXeg0UP-r-uI3ZT7N4q5kiLopsmAIQ/formResponse';
-            const NAME_ID = 'entry.135050974';
-            const EMAIL_ID = 'entry.976128578';
-            const MESSAGE_ID = 'entry.1391685641';
-            
-            const dataToPost = new URLSearchParams();
-            dataToPost.append(NAME_ID, name);
-            dataToPost.append(EMAIL_ID, email);
-            dataToPost.append(MESSAGE_ID, message);
-            
-            const response = await fetch(GOOGLE_FORM_URL, {
-              method: 'POST',
-              mode: 'no-cors',
-              body: dataToPost,
-            });
-            
-            // Show success message
-            statusDiv.innerHTML = '<span style="color: #00ff00;">' + getCmdT('cmd.sendContact.success') + '</span>';
-            
-            // Clear the form after 2 seconds
-            setTimeout(() => {
-              outputContainer.style.opacity = '0.5';
-              nameInput.disabled = true;
-              emailInput.disabled = true;
-              messageInput.disabled = true;
-              sendBtn.disabled = true;
-              cancelBtn.disabled = true;
-            }, 2000);
-            
-          } catch (error) {
-            statusDiv.innerHTML = '<span style="color: #ff6b6b;">' + getCmdT('cmd.sendContact.error') + ' ' + error.message + '</span>';
-            sendBtn.disabled = false;
-            cancelBtn.disabled = false;
-            nameInput.disabled = false;
-            emailInput.disabled = false;
-            messageInput.disabled = false;
-          }
-        });
-        
-        cancelBtn.addEventListener('click', () => {
-          outputContainer.remove();
-          statusDiv.innerHTML = '<span style="color: #888;">' + getCmdT('cmd.sendContact.cancel') + '</span>';
-          setTimeout(() => {
-            outputContainer.remove();
-          }, 500);
-        });
-      }
+      callback: handleContactForm
     };
   },
 
