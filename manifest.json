@@ -1,11 +1,11 @@
 {
   "name": "M4nt3k1ll4 - Full-Stack Developer Portfolio",
   "short_name": "M4nt3k1ll4",
-  "description": "Interactive terminal portfolio showcasing full-stack development skills, projects, and experience",
+  "description": "Portfolio profesional de Juan Lorenzo Suárez - Full-Stack Developer especializado en Angular, Laravel, TypeScript y PHP",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1e1e1e",
-  "theme_color": "#1e1e1e",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "orientation": "portrait-primary",
   "scope": "/",
   "icons": [
@@ -41,13 +41,16 @@
       "form_factor": "wide"
     }
   ],
-  "categories": ["productivity", "developer"],
+  "categories": [
+    "productivity",
+    "developer"
+  ],
   "shortcuts": [
     {
       "name": "View Projects",
       "short_name": "Projects",
       "description": "Quick access to my projects",
-      "url": "/?cmd=projects",
+      "url": "/#projects",
       "icons": [
         {
           "src": "./assets/media/favicon.ico",
@@ -59,7 +62,7 @@
       "name": "View Skills",
       "short_name": "Skills",
       "description": "Quick access to my skills",
-      "url": "/?cmd=skills",
+      "url": "/#skills",
       "icons": [
         {
           "src": "./assets/media/favicon.ico",
@@ -71,7 +74,7 @@
       "name": "Contact Me",
       "short_name": "Contact",
       "description": "Get in touch with me",
-      "url": "/?cmd=contact",
+      "url": "/#contact",
       "icons": [
         {
           "src": "./assets/media/favicon.ico",
