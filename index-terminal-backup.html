@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Charset & Viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- Title & Primary SEO -->
+  <title>Juan Lorenzo Suárez | Full-Stack Developer | Angular & Laravel Specialist</title>
+  <meta name="description"
+    content="Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP. Explore my interactive terminal portfolio showcasing projects, skills, and experience in web development." />
+  <meta name="keywords"
+    content="Full-Stack Developer, Angular, Laravel, TypeScript, PHP, JavaScript, Web Development, Frontend, Backend, Portfolio, Developer" />
+  <meta name="author" content="Juan Lorenzo Suárez Jiménez" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!-- Canonical & Alternate URLs -->
+  <link rel="canonical" href="https://m4nt3k1lla.com" />
+  <link rel="alternate" hreflang="es" href="https://m4nt3k1lla.com/es" />
+  <link rel="alternate" hreflang="en" href="https://m4nt3k1lla.com/en" />
+  <link rel="alternate" hreflang="x-default" href="https://m4nt3k1lla.com" />
+
+  <!-- Open Graph (Social Media) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://m4nt3k1lla.com" />
+  <meta property="og:title" content="Juan Lorenzo Suárez | Full-Stack Developer" />
+  <meta property="og:description"
+    content="Explore my interactive terminal portfolio. Full-Stack Developer specializing in Angular, Laravel, and modern web technologies." />
+  <meta property="og:image" content="https://m4nt3k1lla.com/assets/media/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Juan Lorenzo Suárez - Full-Stack Developer Portfolio" />
+  <meta property="og:site_name" content="M4nt3k1ll4 Portfolio" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://m4nt3k1lla.com" />
+  <meta name="twitter:title" content="Juan Lorenzo Suárez | Full-Stack Developer" />
+  <meta name="twitter:description"
+    content="Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP. Check out my interactive terminal portfolio." />
+  <meta name="twitter:image" content="https://m4nt3k1lla.com/assets/media/twitter-image.png" />
+  <meta name="twitter:creator" content="@m4nt3k1ll4" />
+  <meta name="twitter:site" content="@m4nt3k1ll4" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Juan Lorenzo Suárez Jiménez",
+      "url": "https://m4nt3k1lla.com",
+      "image": "https://m4nt3k1lla.com/assets/media/profile-image.png",
+      "description": "Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP",
+      "jobTitle": "Full-Stack Developer",
+      "knowsLanguage": ["es", "en"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "sameAs": [
+        "https://github.com/m4nt3k1ll4",
+        "https://linkedin.com/in/m4nt3k1ll4",
+        "https://twitter.com/m4nt3k1ll4"
+      ],
+      "skills": ["Angular", "Laravel", "TypeScript", "PHP", "JavaScript", "Web Development", "Frontend", "Backend"]
+    }
+  </script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "M4nt3k1ll4 Portfolio",
+      "url": "https://m4nt3k1lla.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://m4nt3k1lla.com?q={search_term_string}"
+        }
+      }
+    }
+  </script>
+
+  <!-- Additional Meta Tags -->
+  <meta name="theme-color" content="#1e1e1e" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="M4nt3k1ll4" />
+  <meta name="msapplication-TileColor" content="#1e1e1e" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+  <!-- Preconnect to External Resources -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/terminal.css?v=4" />
+  <link rel="stylesheet" href="./css/hamburger-styles.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+
+  <!-- INLINE STYLE - AUTOCOMPLETE FIX -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .autocomplete-container {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)) !important;
+      gap: 3px !important;
+      padding: 4px !important;
+      margin: 12px 0 0 0 !important;
+      background: var(--bg-secondary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 6px !important;
+      max-height: 100px !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      flex-shrink: 0 !important;
+    }
+    
+    .autocomplete-container:not(.active) {
+      display: none !important;
+    }
+    
+    .autocomplete-item {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 4px 6px !important;
+      background: var(--bg-primary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 3px !important;
+      color: var(--color-info) !important;
+      cursor: pointer !important;
+      font-size: 10px !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      min-height: 24px !important;
+    }
+    
+    .autocomplete-item:hover {
+      background: var(--color-info) !important;
+      color: var(--bg-primary) !important;
+    }
+
+    /* Mobile ONLY - fix overflow issues */
+    @media (max-width: 1023px) {
+      html, body {
+        overflow-x: hidden !important;
+      }
+
+      .terminal-window {
+        overflow-x: hidden !important;
+      }
+
+      .terminal-content {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .terminal-input-line {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        gap: 4px !important;
+      }
+
+      .prompt {
+        flex-shrink: 0 !important;
+        font-size: 11px !important;
+      }
+
+      .terminal-input {
+        font-size: 13px !important;
+      }
+
+      .autocomplete-container {
+        max-height: 65px !important;
+      }
+    }
+  </style>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/png" href="./assets/media/favicon.ico" />
+  <!-- <link rel="apple-touch-icon" href="./assets/media/apple-touch-icon.png" /> -->
+  <link rel="shortcut icon" href="./assets/media/favicon.ico" />
+  <link rel="manifest" href="./manifest.json" />
+</head>
+
+<body>
+  <div class="terminal-container" id="terminalContainer">
+    <!-- Terminal Window -->
+    <div class="terminal-window">
+      <!-- Header Bar -->
+      <div class="terminal-header">
+        <div class="header-left">
+          <div class="window-controls">
+            <span class="control-btn close"></span>
+            <span class="control-btn minimize"></span>
+            <span class="control-btn maximize"></span>
+          </div>
+          <span class="terminal-title">
+            <i class="fas fa-terminal"></i>
+            m4nt3k1ll4@portfolio
+          </span>
+        </div>
+        <div class="header-right">
+          <!-- Language Toggle -->
+          <button class="lang-btn" id="langToggle" title="Change language / Cambiar idioma">
+            <i class="fas fa-globe"></i>
+            <span id="currentLang">ES</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button class="theme-btn" id="themeToggle" title="Change theme">
+            <i class="fas fa-palette"></i>
+          </button>
+          <div class="theme-menu" id="themeMenu">
+            <div class="theme-option" data-theme="powershell">PowerShell</div>
+            <div class="theme-option" data-theme="vscode">VS Code</div>
+            <div class="theme-option" data-theme="matrix">Matrix</div>
+            <div class="theme-option" data-theme="dracula">Dracula</div>
+          </div>
+
+          <!-- Hamburger Menu Button (Mobile Only) -->
+          <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Terminal Content -->
+      <div class="terminal-content">
+        <!-- Output Area -->
+        <div class="terminal-output" id="terminalOutput">
+          <!-- Welcome message will be injected here -->
+        </div>
+
+        <!-- Input Line -->
+        <div class="terminal-input-line">
+          <span class="prompt" id="prompt">C:\portfolio&gt;</span>
+          <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false"
+            autofocus />
+        </div>
+
+        <!-- Autocomplete Suggestions -->
+        <div class="autocomplete-container" id="autocompleteContainer"></div>
+      </div>
+    </div>
+
+    <!-- Mobile Keyboard Helper -->
+    <div class="mobile-keyboard-helper">
+      <button class="mobile-btn" id="mobileTab">TAB</button>
+      <button class="mobile-btn" id="mobileUp">↑</button>
+      <button class="mobile-btn" id="mobileDown">↓</button>
+      <button class="mobile-btn" id="mobileClear">CLEAR</button>
+    </div>
+  </div>
+
+  <!-- Helper Panel for Non-Technical Users -->
+  <div class="helper-panel" id="helperPanel">
+    <div class="helper-header">
+      <h3>
+        <i class="fas fa-lightbulb"></i>
+        <span data-i18n="helper.title">Quick Actions</span>
+      </h3>
+      <button class="helper-toggle" id="helperToggle" title="Toggle helper panel">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <div class="helper-content">
+      <p class="helper-intro" data-i18n="helper.intro">
+        Not familiar with terminals? Click these buttons to explore:
+      </p>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-user"></i> <span data-i18n="helper.aboutMe">About Me</span></h4>
+        <button class="helper-btn" data-command="whoami">
+          <i class="fas fa-id-card"></i> <span data-i18n="helper.viewProfile">View Profile</span>
+        </button>
+        <button class="helper-btn" data-command="cat /about/bio.txt">
+          <i class="fas fa-file-alt"></i> <span data-i18n="helper.readBio">Read Bio</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-code"></i> <span data-i18n="helper.mySkills">My Skills</span></h4>
+        <button class="helper-btn" data-command="skills">
+          <i class="fas fa-chart-bar"></i> <span data-i18n="helper.viewSkills">View Skills</span>
+        </button>
+        <button class="helper-btn" data-command="cd skills">
+          <i class="fas fa-folder"></i> <span data-i18n="helper.browseSkills">Browse Skills</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-folder-open"></i> <span data-i18n="helper.projects">Projects</span></h4>
+        <button class="helper-btn" data-command="projects">
+          <i class="fas fa-rocket"></i> <span data-i18n="helper.viewProjects">View Projects</span>
+        </button>
+        <button class="helper-btn" data-command="cd projects">
+          <i class="fas fa-folder"></i> <span data-i18n="helper.browseProjects">Browse Projects</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-envelope"></i> <span data-i18n="helper.contact">Contact</span></h4>
+        <button class="helper-btn" data-command="contact">
+          <i class="fas fa-address-card"></i> <span data-i18n="helper.contactInfo">Contact Info</span>
+        </button>
+        <button class="helper-btn" data-command="send-contact">
+          <i class="fas fa-paper-plane"></i> <span data-i18n="helper.sendMessage">Send Message</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-terminal"></i> <span data-i18n="helper.learnTerminal">Learn Terminal</span></h4>
+        <button class="helper-btn" data-command="help">
+          <i class="fas fa-question-circle"></i> <span data-i18n="helper.showCommands">Show Commands</span>
+        </button>
+        <button class="helper-btn" data-command="ls">
+          <i class="fas fa-list"></i> <span data-i18n="helper.listFiles">List Files</span>
+        </button>
+        <button class="helper-btn" data-command="tree">
+          <i class="fas fa-sitemap"></i> <span data-i18n="helper.showTree">Show Tree</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-magic"></i> <span data-i18n="helper.funStuff">Fun Stuff</span></h4>
+        <button class="helper-btn" data-command="hack">
+          <i class="fas fa-user-secret"></i> <span data-i18n="helper.hackMode">Hack Mode</span>
+        </button>
+        <button class="helper-btn" data-command="matrix">
+          <i class="fas fa-code"></i> <span data-i18n="helper.matrix">Matrix</span>
+        </button>
+      </div>
+
+      <div class="helper-section">
+        <h4><i class="fas fa-sliders-h"></i> <span data-i18n="helper.utilities">Utilities</span></h4>
+        <button class="helper-btn" data-command="clear">
+          <i class="fas fa-broom"></i> <span data-i18n="helper.clearConsole">Clear Console</span>
+        </button>
+        <button class="helper-btn" data-command="cd ..">
+          <i class="fas fa-home"></i> <span data-i18n="helper.goHome">Go Home</span>
+        </button>
+        <button class="helper-btn" onclick="closeCurrentFile()">
+          <i class="fas fa-times-circle"></i> <span data-i18n="helper.closeInfo">Close Info</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/utils.js"></script>
+  <script src="./js/portfolio-data.js"></script>
+  <script src="./js/themes.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script src="./js/typewriter.js"></script>
+  <script src="./js/welcome.js"></script>
+  <script src="./js/commands.js"></script>
+  <script src="./js/terminal-engine.js"></script>
+  <script src="./js/hamburger-menu.js"></script>
+</body>
+
+</html>

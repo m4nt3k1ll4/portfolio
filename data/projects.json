@@ -1,0 +1,271 @@
+{
+    "projects": [
+        {
+            "id": "crosstaskmanager",
+            "title": "CrossTaskManager",
+            "category": "Full-Stack",
+            "description": "Sistema completo de gestión de tareas con frontend y backend integrados. Permite crear, asignar y dar seguimiento a tareas de manera eficiente.",
+            "longDescription": "Aplicación full-stack desarrollada con tecnologías modernas para la gestión de tareas y proyectos. Incluye autenticación de usuarios, asignación de tareas, seguimiento de progreso y panel de administración.",
+            "technologies": [
+                "Angular",
+                "Laravel",
+                "TypeScript",
+                "PHP",
+                "MySQL"
+            ],
+            "features": [
+                "Gestión completa de tareas y proyectos",
+                "Asignación de tareas a usuarios",
+                "Seguimiento de progreso en tiempo real",
+                "Panel de administración",
+                "Autenticación y autorización",
+                "API RESTful robusta"
+            ],
+            "image": "./assets/screenshots/loginScreenCTM.png",
+            "demoUrl": null,
+            "githubUrl": "https://github.com/m4nt3k1ll4/crosstaskmanager",
+            "tags": [
+                "Angular",
+                "Laravel",
+                "Full-Stack",
+                "TypeScript",
+                "PHP",
+                "MySQL"
+            ],
+            "featured": true,
+            "year": "2024"
+        },
+        {
+            "id": "quiroga-abogados",
+            "title": "Quiroga Abogados Asociados",
+            "category": "Frontend",
+            "description": "Sitio web profesional para firma de abogados con diseño elegante y moderno. Incluye información de servicios, equipo legal y formulario de contacto.",
+            "longDescription": "Desarrollo completo de sitio web corporativo para firma de abogados. Diseño profesional y elegante con enfoque en UX/UI, optimización SEO, y despliegue con dominio personalizado.",
+            "technologies": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ],
+            "features": [
+                "Diseño corporativo profesional",
+                "Sección de servicios legales",
+                "Presentación del equipo",
+                "Formulario de contacto",
+                "Optimización SEO",
+                "Diseño responsive",
+                "Dominio personalizado"
+            ],
+            "image": "./assets/screenshots/quiroga-abogados.png",
+            "demoUrl": "https://www.quirogaabogadosasociados.com",
+            "githubUrl": null,
+            "tags": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "Responsive Design",
+                "SEO"
+            ],
+            "featured": true,
+            "year": "2024"
+        },
+        {
+            "id": "variedades-humberto",
+            "title": "Variedades Humberto SSS",
+            "category": "Frontend",
+            "description": "Sitio web comercial para tienda de variedades. Catálogo de productos, información de contacto y ubicación.",
+            "longDescription": "Desarrollo de sitio web para negocio local de variedades. Incluye catálogo de productos, información de la tienda, ubicación y medios de contacto.",
+            "technologies": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ],
+            "features": [
+                "Catálogo de productos",
+                "Información de la tienda",
+                "Ubicación con mapa",
+                "Formulario de contacto",
+                "Diseño responsive",
+                "Optimización para móviles"
+            ],
+            "image": "./assets/screenshots/variedades-humberto.png",
+            "demoUrl": "https://variedadeshumbertosss.com",
+            "githubUrl": null,
+            "tags": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "Responsive Design"
+            ],
+            "featured": true,
+            "year": "2024"
+        },
+        {
+            "id": "ofmedical",
+            "title": "OF Medical SAS",
+            "category": "Frontend",
+            "description": "Sitio web corporativo para empresa del sector salud. Información de servicios médicos, equipo profesional y contacto.",
+            "longDescription": "Desarrollo de sitio web profesional para empresa del sector salud. Diseño limpio y confiable con información de servicios, equipo médico y formularios de contacto.",
+            "technologies": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ],
+            "features": [
+                "Información de servicios médicos",
+                "Presentación del equipo",
+                "Formulario de contacto",
+                "Diseño profesional y confiable",
+                "Optimización SEO",
+                "Responsive design"
+            ],
+            "image": "./assets/screenshots/ofmedical.png",
+            "demoUrl": "https://ofmedicalsas.com",
+            "githubUrl": null,
+            "tags": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "Healthcare",
+                "SEO"
+            ],
+            "featured": true,
+            "year": "2024"
+        },
+        {
+            "id": "terminal-portfolio",
+            "title": "Interactive Terminal Portfolio",
+            "category": "Frontend",
+            "description": "Portfolio interactivo con interfaz de terminal que simula una experiencia de línea de comandos. Incluye sistema de archivos virtual, comandos personalizados y múltiples temas.",
+            "longDescription": "Proyecto creativo que demuestra habilidades avanzadas de JavaScript vanilla. Incluye sistema de archivos virtual, comandos Unix-like, autocompletado, múltiples temas visuales e internacionalización.",
+            "technologies": [
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "TypeScript"
+            ],
+            "features": [
+                "Sistema de archivos virtual",
+                "Comandos Unix-like (ls, cd, cat, tree)",
+                "Múltiples temas visuales",
+                "Soporte multiidioma (ES/EN)",
+                "Autocompletado inteligente",
+                "Animaciones y efectos",
+                "Diseño responsive"
+            ],
+            "image": "./assets/screenshots/terminal-portfolio.png",
+            "demoUrl": "./projects/terminal-portfolio/",
+            "githubUrl": "https://github.com/m4nt3k1ll4/portfolio",
+            "tags": [
+                "JavaScript",
+                "TypeScript",
+                "CSS3",
+                "Interactive UI"
+            ],
+            "featured": false,
+            "year": "2024"
+        },
+        {
+            "id": "api-crosstaskmanager",
+            "title": "API CrossTaskManager",
+            "category": "Backend",
+            "description": "API RESTful para el sistema de gestión de tareas CrossTaskManager. Backend robusto con autenticación JWT y control de acceso basado en roles.",
+            "longDescription": "API desarrollada con Laravel siguiendo mejores prácticas. Incluye autenticación JWT, sistema de roles y permisos, validación de datos y documentación completa.",
+            "technologies": [
+                "Laravel",
+                "PHP",
+                "MySQL",
+                "JWT"
+            ],
+            "features": [
+                "Autenticación JWT",
+                "Sistema de roles y permisos",
+                "CRUD completo de tareas",
+                "Validación de datos",
+                "Manejo de errores robusto",
+                "API RESTful bien estructurada"
+            ],
+            "image": "./assets/screenshots/api-placeholder.png",
+            "demoUrl": null,
+            "githubUrl": "https://github.com/m4nt3k1ll4/CrossTaskManager_backend",
+            "tags": [
+                "Laravel",
+                "PHP",
+                "REST API",
+                "JWT",
+                "MySQL"
+            ],
+            "featured": false,
+            "year": "2024"
+        },
+        {
+            "id": "api-escuela-idiomas",
+            "title": "API Gestión Escuela de Idiomas",
+            "category": "Backend",
+            "description": "API para gestión de escuela de idiomas con autenticación JWT, Passport y control de acceso basado en roles.",
+            "longDescription": "Sistema backend completo para gestión de escuela de idiomas. Incluye autenticación con JWT y Passport, sistema de roles (estudiantes, profesores, administradores), gestión de cursos y matrículas.",
+            "technologies": [
+                "Laravel",
+                "PHP",
+                "MySQL",
+                "JWT",
+                "Passport"
+            ],
+            "features": [
+                "Autenticación JWT con Passport",
+                "Role-based access control",
+                "Gestión de estudiantes y profesores",
+                "Administración de cursos",
+                "Sistema de matrículas",
+                "API RESTful documentada"
+            ],
+            "image": "./assets/screenshots/api-placeholder.png",
+            "demoUrl": null,
+            "githubUrl": "https://github.com/m4nt3k1ll4/Escuela_de_Idiomas_Backend",
+            "tags": [
+                "Laravel",
+                "PHP",
+                "JWT",
+                "Passport",
+                "Role-based Access"
+            ],
+            "featured": false,
+            "year": "2024"
+        },
+        {
+            "id": "serverless-daitech",
+            "title": "Serverless Functions - DaitechSAS",
+            "category": "Backend",
+            "description": "Funciones serverless desarrolladas para DaitechSAS. Arquitectura sin servidor para procesamiento eficiente y escalable.",
+            "longDescription": "Implementación de funciones serverless para optimizar procesos empresariales. Arquitectura escalable y eficiente en costos utilizando tecnologías cloud modernas.",
+            "technologies": [
+
+                "TypeScript",
+                "Node.js",
+                "Serverless",
+                "Cloudflare - workers",
+                "Cloud Functions",
+                "Supabase"
+            ],
+            "features": [
+                "Arquitectura serverless",
+                "Procesamiento eficiente",
+                "Escalabilidad automática",
+                "Optimización de costos",
+                "Integración con servicios cloud"
+            ],
+            "image": "./assets/screenshots/worrker.png",
+            "demoUrl": null,
+            "githubUrl": null,
+            "tags": [
+                "Serverless",
+                "Node.js",
+                "TypeScript",
+                "Cloudflare - workers",
+                "Supabase",
+                "Cloud"
+            ],
+            "featured": false,
+            "year": "2024"
+        }
+    ]
+}

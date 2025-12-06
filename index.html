@@ -10,7 +10,7 @@
   <!-- Title & Primary SEO -->
   <title>Juan Lorenzo Suárez | Full-Stack Developer | Angular & Laravel Specialist</title>
   <meta name="description"
-    content="Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP. Explore my interactive terminal portfolio showcasing projects, skills, and experience in web development." />
+    content="Full-Stack Developer especializado en Angular, Laravel, TypeScript y PHP. Portfolio profesional con proyectos destacados, habilidades técnicas y experiencia en desarrollo web." />
   <meta name="keywords"
     content="Full-Stack Developer, Angular, Laravel, TypeScript, PHP, JavaScript, Web Development, Frontend, Backend, Portfolio, Developer" />
   <meta name="author" content="Juan Lorenzo Suárez Jiménez" />
@@ -27,7 +27,7 @@
   <meta property="og:url" content="https://m4nt3k1lla.com" />
   <meta property="og:title" content="Juan Lorenzo Suárez | Full-Stack Developer" />
   <meta property="og:description"
-    content="Explore my interactive terminal portfolio. Full-Stack Developer specializing in Angular, Laravel, and modern web technologies." />
+    content="Full-Stack Developer especializado en Angular, Laravel y tecnologías web modernas. Explora mi portfolio profesional." />
   <meta property="og:image" content="https://m4nt3k1lla.com/assets/media/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -41,7 +41,7 @@
   <meta name="twitter:url" content="https://m4nt3k1lla.com" />
   <meta name="twitter:title" content="Juan Lorenzo Suárez | Full-Stack Developer" />
   <meta name="twitter:description"
-    content="Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP. Check out my interactive terminal portfolio." />
+    content="Full-Stack Developer especializado en Angular, Laravel, TypeScript y PHP. Portfolio profesional." />
   <meta name="twitter:image" content="https://m4nt3k1lla.com/assets/media/twitter-image.png" />
   <meta name="twitter:creator" content="@m4nt3k1ll4" />
   <meta name="twitter:site" content="@m4nt3k1ll4" />
@@ -54,7 +54,7 @@
       "name": "Juan Lorenzo Suárez Jiménez",
       "url": "https://m4nt3k1lla.com",
       "image": "https://m4nt3k1lla.com/assets/media/profile-image.png",
-      "description": "Full-Stack Developer specializing in Angular, Laravel, TypeScript, and PHP",
+      "description": "Full-Stack Developer especializado en Angular, Laravel, TypeScript y PHP",
       "jobTitle": "Full-Stack Developer",
       "knowsLanguage": ["es", "en"],
       "worksFor": {
@@ -70,132 +70,27 @@
     }
   </script>
 
-  <!-- Organization Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "M4nt3k1ll4 Portfolio",
-      "url": "https://m4nt3k1lla.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://m4nt3k1lla.com?q={search_term_string}"
-        }
-      }
-    }
-  </script>
-
   <!-- Additional Meta Tags -->
-  <meta name="theme-color" content="#1e1e1e" />
+  <meta name="theme-color" content="#0a0a0a" />
   <meta name="color-scheme" content="dark light" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="M4nt3k1ll4" />
-  <meta name="msapplication-TileColor" content="#1e1e1e" />
-  <meta name="msapplication-config" content="/browserconfig.xml" />
 
   <!-- Preconnect to External Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./css/terminal.css?v=4" />
-  <link rel="stylesheet" href="./css/hamburger-styles.css" />
-  <link rel="stylesheet" href="./css/responsive.css" />
-
-  <!-- INLINE STYLE - AUTOCOMPLETE FIX -->
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    .autocomplete-container {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)) !important;
-      gap: 3px !important;
-      padding: 4px !important;
-      margin: 12px 0 0 0 !important;
-      background: var(--bg-secondary) !important;
-      border: 1px solid var(--border-color) !important;
-      border-radius: 6px !important;
-      max-height: 100px !important;
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-      box-sizing: border-box !important;
-      width: 100% !important;
-      flex-shrink: 0 !important;
-    }
-    
-    .autocomplete-container:not(.active) {
-      display: none !important;
-    }
-    
-    .autocomplete-item {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 4px 6px !important;
-      background: var(--bg-primary) !important;
-      border: 1px solid var(--border-color) !important;
-      border-radius: 3px !important;
-      color: var(--color-info) !important;
-      cursor: pointer !important;
-      font-size: 10px !important;
-      text-align: center !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      min-height: 24px !important;
-    }
-    
-    .autocomplete-item:hover {
-      background: var(--color-info) !important;
-      color: var(--bg-primary) !important;
-    }
-
-    /* Mobile ONLY - fix overflow issues */
-    @media (max-width: 1023px) {
-      html, body {
-        overflow-x: hidden !important;
-      }
-
-      .terminal-window {
-        overflow-x: hidden !important;
-      }
-
-      .terminal-content {
-        overflow-x: hidden !important;
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-      }
-
-      .terminal-input-line {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-        gap: 4px !important;
-      }
-
-      .prompt {
-        flex-shrink: 0 !important;
-        font-size: 11px !important;
-      }
-
-      .terminal-input {
-        font-size: 13px !important;
-      }
-
-      .autocomplete-container {
-        max-height: 65px !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/animations.css" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -204,188 +99,382 @@
 
   <!-- Favicon & App Icons -->
   <link rel="icon" type="image/png" href="./assets/media/favicon.ico" />
-  <!-- <link rel="apple-touch-icon" href="./assets/media/apple-touch-icon.png" /> -->
   <link rel="shortcut icon" href="./assets/media/favicon.ico" />
   <link rel="manifest" href="./manifest.json" />
 </head>
 
 <body>
-  <div class="terminal-container" id="terminalContainer">
-    <!-- Terminal Window -->
-    <div class="terminal-window">
-      <!-- Header Bar -->
-      <div class="terminal-header">
-        <div class="header-left">
-          <div class="window-controls">
-            <span class="control-btn close"></span>
-            <span class="control-btn minimize"></span>
-            <span class="control-btn maximize"></span>
-          </div>
-          <span class="terminal-title">
-            <i class="fas fa-terminal"></i>
-            m4nt3k1ll4@portfolio
-          </span>
-        </div>
-        <div class="header-right">
-          <!-- Language Toggle -->
-          <button class="lang-btn" id="langToggle" title="Change language / Cambiar idioma">
-            <i class="fas fa-globe"></i>
-            <span id="currentLang">ES</span>
-          </button>
+  <!-- ============================================
+       HEADER & NAVIGATION
+       ============================================ -->
+  <header class="header">
+    <div class="container">
+      <a href="#home" class="logo">M4nt3k1ll4</a>
 
-          <!-- Theme Toggle -->
-          <button class="theme-btn" id="themeToggle" title="Change theme">
-            <i class="fas fa-palette"></i>
-          </button>
-          <div class="theme-menu" id="themeMenu">
-            <div class="theme-option" data-theme="powershell">PowerShell</div>
-            <div class="theme-option" data-theme="vscode">VS Code</div>
-            <div class="theme-option" data-theme="matrix">Matrix</div>
-            <div class="theme-option" data-theme="dracula">Dracula</div>
-          </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active">Inicio</a></li>
+          <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+          <li><a href="#skills" class="nav-link">Habilidades</a></li>
+          <li><a href="#projects" class="nav-link">Proyectos</a></li>
+          <li><a href="#experience" class="nav-link">Experiencia</a></li>
+          <li><a href="#contact" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
 
-          <!-- Hamburger Menu Button (Mobile Only) -->
-          <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Terminal Content -->
-      <div class="terminal-content">
-        <!-- Output Area -->
-        <div class="terminal-output" id="terminalOutput">
-          <!-- Welcome message will be injected here -->
-        </div>
-
-        <!-- Input Line -->
-        <div class="terminal-input-line">
-          <span class="prompt" id="prompt">C:\portfolio&gt;</span>
-          <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false"
-            autofocus />
-        </div>
-
-        <!-- Autocomplete Suggestions -->
-        <div class="autocomplete-container" id="autocompleteContainer"></div>
-      </div>
-    </div>
-
-    <!-- Mobile Keyboard Helper -->
-    <div class="mobile-keyboard-helper">
-      <button class="mobile-btn" id="mobileTab">TAB</button>
-      <button class="mobile-btn" id="mobileUp">↑</button>
-      <button class="mobile-btn" id="mobileDown">↓</button>
-      <button class="mobile-btn" id="mobileClear">CLEAR</button>
-    </div>
-  </div>
-
-  <!-- Helper Panel for Non-Technical Users -->
-  <div class="helper-panel" id="helperPanel">
-    <div class="helper-header">
-      <h3>
-        <i class="fas fa-lightbulb"></i>
-        <span data-i18n="helper.title">Quick Actions</span>
-      </h3>
-      <button class="helper-toggle" id="helperToggle" title="Toggle helper panel">
-        <i class="fas fa-chevron-left"></i>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
+  </header>
 
-    <div class="helper-content">
-      <p class="helper-intro" data-i18n="helper.intro">
-        Not familiar with terminals? Click these buttons to explore:
-      </p>
-
-      <div class="helper-section">
-        <h4><i class="fas fa-user"></i> <span data-i18n="helper.aboutMe">About Me</span></h4>
-        <button class="helper-btn" data-command="whoami">
-          <i class="fas fa-id-card"></i> <span data-i18n="helper.viewProfile">View Profile</span>
-        </button>
-        <button class="helper-btn" data-command="cat /about/bio.txt">
-          <i class="fas fa-file-alt"></i> <span data-i18n="helper.readBio">Read Bio</span>
-        </button>
-      </div>
-
-      <div class="helper-section">
-        <h4><i class="fas fa-code"></i> <span data-i18n="helper.mySkills">My Skills</span></h4>
-        <button class="helper-btn" data-command="skills">
-          <i class="fas fa-chart-bar"></i> <span data-i18n="helper.viewSkills">View Skills</span>
-        </button>
-        <button class="helper-btn" data-command="cd skills">
-          <i class="fas fa-folder"></i> <span data-i18n="helper.browseSkills">Browse Skills</span>
-        </button>
-      </div>
-
-      <div class="helper-section">
-        <h4><i class="fas fa-folder-open"></i> <span data-i18n="helper.projects">Projects</span></h4>
-        <button class="helper-btn" data-command="projects">
-          <i class="fas fa-rocket"></i> <span data-i18n="helper.viewProjects">View Projects</span>
-        </button>
-        <button class="helper-btn" data-command="cd projects">
-          <i class="fas fa-folder"></i> <span data-i18n="helper.browseProjects">Browse Projects</span>
-        </button>
-      </div>
-
-      <div class="helper-section">
-        <h4><i class="fas fa-envelope"></i> <span data-i18n="helper.contact">Contact</span></h4>
-        <button class="helper-btn" data-command="contact">
-          <i class="fas fa-address-card"></i> <span data-i18n="helper.contactInfo">Contact Info</span>
-        </button>
-        <button class="helper-btn" data-command="send-contact">
-          <i class="fas fa-paper-plane"></i> <span data-i18n="helper.sendMessage">Send Message</span>
-        </button>
-      </div>
-
-      <div class="helper-section">
-        <h4><i class="fas fa-terminal"></i> <span data-i18n="helper.learnTerminal">Learn Terminal</span></h4>
-        <button class="helper-btn" data-command="help">
-          <i class="fas fa-question-circle"></i> <span data-i18n="helper.showCommands">Show Commands</span>
-        </button>
-        <button class="helper-btn" data-command="ls">
-          <i class="fas fa-list"></i> <span data-i18n="helper.listFiles">List Files</span>
-        </button>
-        <button class="helper-btn" data-command="tree">
-          <i class="fas fa-sitemap"></i> <span data-i18n="helper.showTree">Show Tree</span>
-        </button>
-      </div>
-
-      <div class="helper-section">
-        <h4><i class="fas fa-magic"></i> <span data-i18n="helper.funStuff">Fun Stuff</span></h4>
-        <button class="helper-btn" data-command="hack">
-          <i class="fas fa-user-secret"></i> <span data-i18n="helper.hackMode">Hack Mode</span>
-        </button>
-        <button class="helper-btn" data-command="matrix">
-          <i class="fas fa-code"></i> <span data-i18n="helper.matrix">Matrix</span>
-        </button>
-      </div>
-
-      <div class="helper-section">
-        <h4><i class="fas fa-sliders-h"></i> <span data-i18n="helper.utilities">Utilities</span></h4>
-        <button class="helper-btn" data-command="clear">
-          <i class="fas fa-broom"></i> <span data-i18n="helper.clearConsole">Clear Console</span>
-        </button>
-        <button class="helper-btn" data-command="cd ..">
-          <i class="fas fa-home"></i> <span data-i18n="helper.goHome">Go Home</span>
-        </button>
-        <button class="helper-btn" onclick="closeCurrentFile()">
-          <i class="fas fa-times-circle"></i> <span data-i18n="helper.closeInfo">Close Info</span>
-        </button>
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section id="home" class="hero">
+    <div class="hero-background"></div>
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-greeting">👋 Hola, soy</p>
+        <h1 class="hero-title">Juan Lorenzo Suárez</h1>
+        <h2 class="hero-subtitle text-gradient">Full-Stack Developer</h2>
+        <p class="hero-description">
+          Especializado en Angular, Laravel, TypeScript y PHP. Transformo ideas en soluciones web robustas y escalables.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> Ver Proyectos
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fas fa-envelope"></i> Contactar
+          </a>
+          <button onclick="downloadCV()" class="btn btn-outline">
+            <i class="fas fa-download"></i> Descargar CV
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT SECTION
+       ============================================ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sobre Mí</h2>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="fade-in-left">
+          <div class="about-image-container" style="text-align: center;">
+            <img src="./assets/images/profile.jpg" alt="Juan Lorenzo Suárez"
+              style="max-width: 400px; width: 100%; border-radius: var(--border-radius-md); border: 2px solid var(--glass-border);"
+              onerror="this.src='./assets/media/favicon.ico'; this.style.maxWidth='200px';">
+          </div>
+        </div>
+
+        <div class="fade-in-right">
+          <h3 class="mb-md">Full-Stack Developer apasionado por la tecnología</h3>
+          <p>
+            Soy un desarrollador full-stack con 1 año de experiencia en el desarrollo de aplicaciones web
+            modernas y escalables. Mi enfoque se centra en crear soluciones eficientes que combinen un diseño
+            atractivo con una arquitectura sólida y funcional.
+          </p>
+          <p>
+            Especializado en el ecosistema Angular para frontend y Laravel para backend, he trabajado en proyectos
+            que van desde sitios web corporativos hasta sistemas de gestión empresarial. También tengo experiencia
+            en desarrollo de APIs RESTful, autenticación JWT y arquitecturas serverless.
+          </p>
+          <p>
+            Me apasiona aprender nuevas tecnologías, resolver problemas complejos y crear aplicaciones que generen
+            valor real. Siempre busco escribir código limpio, mantenible y bien documentado, siguiendo las mejores
+            prácticas de la industria.
+          </p>
+
+          <div class="mt-md">
+            <h4 class="mb-sm">¿Qué me destaca?</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 0.5rem;">
+                <i class="fas fa-check-circle" style="color: var(--color-accent-green); margin-right: 0.5rem;"></i>
+                Técnico en Programación de Software (SENA)
+              </li>
+              <li style="margin-bottom: 0.5rem;">
+                <i class="fas fa-check-circle" style="color: var(--color-accent-green); margin-right: 0.5rem;"></i>
+                Certificación PCAP - Cisco Python Essentials
+              </li>
+              <li style="margin-bottom: 0.5rem;">
+                <i class="fas fa-check-circle" style="color: var(--color-accent-green); margin-right: 0.5rem;"></i>
+                Experiencia en desarrollo full-stack con Angular y Laravel
+              </li>
+              <li style="margin-bottom: 0.5rem;">
+                <i class="fas fa-check-circle" style="color: var(--color-accent-green); margin-right: 0.5rem;"></i>
+                Desarrollo de APIs RESTful con autenticación JWT
+              </li>
+              <li style="margin-bottom: 0.5rem;">
+                <i class="fas fa-check-circle" style="color: var(--color-accent-green); margin-right: 0.5rem;"></i>
+                Proyectos web desplegados y en producción
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SKILLS SECTION
+       ============================================ -->
+  <section id="skills" class="section" style="background: var(--color-bg-secondary);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Habilidades Técnicas</h2>
+      </div>
+
+      <div id="skillsContainer">
+        <!-- Skills will be dynamically loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROJECTS SECTION
+       ============================================ -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Proyectos Destacados</h2>
+      </div>
+
+      <!-- Project Filters -->
+      <div class="text-center mb-lg">
+        <button class="btn btn-outline filter-btn active" data-filter="all" onclick="filterProjects('all')">
+          Todos
+        </button>
+        <button class="btn btn-outline filter-btn" data-filter="Frontend" onclick="filterProjects('Frontend')">
+          Frontend
+        </button>
+        <button class="btn btn-outline filter-btn" data-filter="Full-Stack" onclick="filterProjects('Full-Stack')">
+          Full-Stack
+        </button>
+        <button class="btn btn-outline filter-btn" data-filter="Backend" onclick="filterProjects('Backend')">
+          Backend
+        </button>
+      </div>
+
+      <div id="projectsContainer" class="grid grid-3">
+        <!-- Projects will be dynamically loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       EXPERIENCE SECTION
+       ============================================ -->
+  <section id="experience" class="section" style="background: var(--color-bg-secondary);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experiencia & Educación</h2>
+      </div>
+
+      <div class="grid grid-2">
+        <!-- Experience Timeline -->
+        <div class="fade-in-left">
+          <h3 class="mb-md">
+            <i class="fas fa-briefcase" style="color: var(--color-accent-blue);"></i>
+            Experiencia Profesional
+          </h3>
+
+          <div class="timeline">
+            <div class="card mb-md">
+              <h4>Full-Stack Developer</h4>
+              <p style="color: var(--color-accent-blue); margin-bottom: 0.5rem;">
+                <i class="fas fa-building"></i> Freelance
+              </p>
+              <p style="color: var(--color-text-muted); margin-bottom: 0.5rem;">
+                <i class="fas fa-calendar"></i> 2024 - Presente
+              </p>
+              <p>
+                Desarrollo de aplicaciones web completas y sitios corporativos utilizando Angular, Laravel y tecnologías
+                modernas.
+                Implementación de APIs RESTful con autenticación JWT, desarrollo de interfaces responsive y despliegue
+                de proyectos
+                en producción.
+              </p>
+              <div class="project-tags mt-sm">
+                <span class="tag">Angular</span>
+                <span class="tag">Laravel</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="fade-in-right">
+          <h3 class="mb-md">
+            <i class="fas fa-graduation-cap" style="color: var(--color-accent-green);"></i>
+            Educación & Certificaciones
+          </h3>
+
+          <div class="timeline">
+            <div class="card mb-md">
+              <h4>Técnico en Programación de Software</h4>
+              <p style="color: var(--color-accent-green); margin-bottom: 0.5rem;">
+                <i class="fas fa-university"></i> SENA (Servicio Nacional de Aprendizaje)
+              </p>
+              <p style="color: var(--color-text-muted); margin-bottom: 0.5rem;">
+                <i class="fas fa-calendar"></i> Graduado
+              </p>
+              <p>
+                Formación técnica completa en desarrollo de software, incluyendo programación orientada a objetos,
+                bases de datos, desarrollo web y metodologías de desarrollo.
+              </p>
+            </div>
+
+            <div class="card mb-md">
+              <h4>Certificaciones & Cursos</h4>
+              <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                <li style="margin-bottom: 0.75rem;">
+                  <i class="fas fa-certificate" style="color: var(--color-accent-blue); margin-right: 0.5rem;"></i>
+                  <strong>PCAP - Cisco Python Essentials</strong>
+                  <br>
+                  <span style="color: var(--color-text-muted); font-size: 0.875rem; margin-left: 1.5rem;">
+                    Certificación oficial de Cisco en fundamentos de Python
+                  </span>
+                </li>
+                <li style="margin-bottom: 0.75rem;">
+                  <i class="fas fa-certificate" style="color: var(--color-accent-blue); margin-right: 0.5rem;"></i>
+                  <strong>Programación Básica - Platzi</strong>
+                  <br>
+                  <span style="color: var(--color-text-muted); font-size: 0.875rem; margin-left: 1.5rem;">
+                    Fundamentos de programación y lógica computacional
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CONTACT SECTION
+       ============================================ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contacto</h2>
+        <p style="color: var(--color-text-secondary); margin-top: 1rem;">
+          ¿Tienes un proyecto en mente? ¡Hablemos!
+        </p>
+      </div>
+
+      <div class="contact-container">
+        <!-- Contact Info -->
+        <div class="contact-info fade-in-left">
+          <h3 class="mb-md">Información de Contacto</h3>
+
+          <div class="contact-item">
+            <i class="fas fa-envelope contact-icon"></i>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:juanchin23ad@gmail.com">contact@m4nt3k1lla.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fab fa-github contact-icon"></i>
+            <div>
+              <h4>GitHub</h4>
+              <a href="https://github.com/m4nt3k1ll4" target="_blank" rel="noopener">github.com/m4nt3k1ll4</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fab fa-linkedin contact-icon"></i>
+            <div>
+              <h4>LinkedIn</h4>
+              <a href="https://linkedin.com/in/m4nt3k1ll4" target="_blank" rel="noopener">linkedin.com/in/m4nt3k1ll4</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="fade-in-right">
+          <h3 class="mb-md">Envíame un Mensaje</h3>
+
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" id="name" name="name" class="form-input" required placeholder="Tu nombre">
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" required placeholder="tu@email.com">
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Asunto</label>
+              <input type="text" id="subject" name="subject" class="form-input" required
+                placeholder="Asunto del mensaje">
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea id="message" name="message" class="form-textarea" required
+                placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i> Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/m4nt3k1ll4" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/m4nt3k1ll4" class="social-link" target="_blank" rel="noopener"
+          aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:juanchin23ad@gmail.com" class="social-link" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <p style="color: var(--color-text-muted); margin-bottom: 0.5rem;">
+        &copy; 2025 M4nt3k1ll4. Todos los derechos reservados.
+      </p>
+      <p style="color: var(--color-text-muted); font-size: 0.875rem;">
+        Hecho con <i class="fas fa-heart" style="color: var(--color-accent-red);"></i> usando HTML, CSS y JavaScript
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <!-- Scripts -->
-  <script src="./js/utils.js"></script>
-  <script src="./js/portfolio-data.js"></script>
-  <script src="./js/themes.js"></script>
-  <script src="./js/i18n.js"></script>
-  <script src="./js/typewriter.js"></script>
-  <script src="./js/welcome.js"></script>
-  <script src="./js/commands.js"></script>
-  <script src="./js/terminal-engine.js"></script>
-  <script src="./js/hamburger-menu.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,500 @@
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   Smooth, Professional Micro-interactions
+   ============================================ */
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger animations for lists */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add delays for stagger effect */
+.stagger-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.stagger-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.stagger-item:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.stagger-item:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.stagger-item:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.stagger-item:nth-child(6) {
+    transition-delay: 0.6s;
+}
+
+/* ============================================
+   HOVER ANIMATIONS
+   ============================================ */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+.hover-glow {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hover-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    opacity: 0;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.hover-glow:hover::after {
+    opacity: 1;
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   LOADING ANIMATIONS
+   ============================================ */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* ============================================
+   GRADIENT ANIMATIONS
+   ============================================ */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-gradient {
+    background-size: 200% 200%;
+    animation: gradientFlow 5s ease infinite;
+}
+
+/* ============================================
+   TEXT ANIMATIONS
+   ============================================ */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: 3px solid var(--color-accent-blue);
+    white-space: nowrap;
+    animation: typewriter 3s steps(40) 1s forwards, blink 0.75s step-end infinite;
+}
+
+/* ============================================
+   PARTICLE EFFECTS
+   ============================================ */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ============================================
+   BUTTON ANIMATIONS
+   ============================================ */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-ripple:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ============================================
+   PROGRESS BARS
+   ============================================ */
+@keyframes progressFill {
+    from {
+        width: 0%;
+    }
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--color-bg-tertiary);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    animation: progressFill 1.5s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ============================================
+   CARD FLIP ANIMATION
+   ============================================ */
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* ============================================
+   GLITCH EFFECT
+   ============================================ */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch:hover {
+    animation: glitch 0.3s ease;
+}
+
+/* ============================================
+   SMOOTH REVEAL
+   ============================================ */
+@keyframes reveal {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.reveal {
+    animation: reveal 1s ease-out forwards;
+}
+
+/* ============================================
+   NEON GLOW EFFECT
+   ============================================ */
+@keyframes neonGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 5px var(--color-accent-blue),
+            0 0 10px var(--color-accent-blue),
+            0 0 20px var(--color-accent-blue);
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px var(--color-accent-blue),
+            0 0 20px var(--color-accent-blue),
+            0 0 40px var(--color-accent-blue);
+    }
+}
+
+.neon-text {
+    animation: neonGlow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
+@keyframes scrollDown {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+.scroll-indicator {
+    animation: scrollDown 2s ease-in-out infinite;
+}
+
+/* ============================================
+   SKELETON LOADING
+   ============================================ */
+@keyframes skeleton {
+    0% {
+        background-position: -200px 0;
+    }
+
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg,
+            var(--color-bg-secondary) 0px,
+            var(--color-bg-tertiary) 40px,
+            var(--color-bg-secondary) 80px);
+    background-size: 200px 100%;
+    animation: skeleton 1.5s infinite;
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

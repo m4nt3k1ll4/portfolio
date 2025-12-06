@@ -1,0 +1,218 @@
+{
+    "skillCategories": [
+        {
+            "name": "Frontend",
+            "icon": "fa-laptop-code",
+            "color": "#00d4ff",
+            "skills": [
+                {
+                    "name": "React",
+                    "icon": "devicon-react-original colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "Next.js",
+                    "icon": "devicon-nextjs-plain",
+                    "level": 80,
+                    "years": 1
+                },
+                {
+                    "name": "Angular",
+                    "icon": "devicon-angular-plain colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "TypeScript",
+                    "icon": "devicon-typescript-plain colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "JavaScript",
+                    "icon": "devicon-javascript-plain colored",
+                    "level": 90,
+                    "years": 1
+                },
+                {
+                    "name": "HTML5",
+                    "icon": "devicon-html5-plain colored",
+                    "level": 95,
+                    "years": 1
+                },
+                {
+                    "name": "CSS3",
+                    "icon": "devicon-css3-plain colored",
+                    "level": 90,
+                    "years": 1
+                },
+                {
+                    "name": "Bootstrap",
+                    "icon": "devicon-bootstrap-plain colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "Tailwind",
+                    "icon": "devicon-tailwindcss-plain colored",
+                    "level": 75,
+                    "years": 1
+                }
+            ]
+        },
+        {
+            "name": "Backend",
+            "icon": "fa-server",
+            "color": "#ff3366",
+            "skills": [
+                {
+                    "name": "Laravel",
+                    "icon": "devicon-laravel-plain colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "PHP",
+                    "icon": "devicon-php-plain colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "Python",
+                    "icon": "devicon-python-plain colored",
+                    "level": 80,
+                    "years": 1
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "devicon-nodejs-plain colored",
+                    "level": 75,
+                    "years": 1
+                },
+                {
+                    "name": "MySQL",
+                    "icon": "devicon-mysql-plain colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "PostgreSQL",
+                    "icon": "devicon-postgresql-plain colored",
+                    "level": 75,
+                    "years": 1
+                },
+                {
+                    "name": "MongoDB",
+                    "icon": "devicon-mongodb-plain colored",
+                    "level": 70,
+                    "years": 1
+                }
+            ]
+        },
+        {
+            "name": "Herramientas & DevOps",
+            "icon": "fa-tools",
+            "color": "#00ff88",
+            "skills": [
+                {
+                    "name": "Git",
+                    "icon": "devicon-git-plain colored",
+                    "level": 90,
+                    "years": 1
+                },
+                {
+                    "name": "GitHub",
+                    "icon": "devicon-github-original",
+                    "level": 90,
+                    "years": 1
+                },
+                {
+                    "name": "Docker",
+                    "icon": "devicon-docker-plain colored",
+                    "level": 70,
+                    "years": 1
+                },
+                {
+                    "name": "VS Code",
+                    "icon": "devicon-vscode-plain colored",
+                    "level": 95,
+                    "years": 1
+                },
+                {
+                    "name": "Postman",
+                    "icon": "devicon-postman-plain colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "Insomnia",
+                    "icon": "fa-solid fa-moon",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "NPM",
+                    "icon": "devicon-npm-original-wordmark colored",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "Linux",
+                    "icon": "devicon-linux-plain",
+                    "level": 75,
+                    "years": 1
+                },
+                {
+                    "name": "Cloudflare Workers",
+                    "icon": "devicon-cloudflare-plain colored",
+                    "level": 70,
+                    "years": 0.17
+                }
+            ]
+        },
+        {
+            "name": "Otros",
+            "icon": "fa-code-branch",
+            "color": "#ffffff",
+            "skills": [
+                {
+                    "name": "REST API",
+                    "icon": "fa-solid fa-plug",
+                    "level": 90,
+                    "years": 1
+                },
+                {
+                    "name": "JWT Auth",
+                    "icon": "fa-solid fa-key",
+                    "level": 85,
+                    "years": 1
+                },
+                {
+                    "name": "Responsive Design",
+                    "icon": "fa-solid fa-mobile-screen",
+                    "level": 95,
+                    "years": 1
+                },
+                {
+                    "name": "SEO",
+                    "icon": "fa-solid fa-magnifying-glass",
+                    "level": 80,
+                    "years": 1
+                },
+                {
+                    "name": "Serverless",
+                    "icon": "fa-solid fa-cloud",
+                    "level": 70,
+                    "years": 1
+                },
+                {
+                    "name": "UI/UX Design",
+                    "icon": "fa-solid fa-palette",
+                    "level": 80,
+                    "years": 1
+                }
+            ]
+        }
+    ]
+}
