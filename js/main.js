@@ -357,8 +357,8 @@ function initializeScrollToTop() {
 function downloadCV() {
     // Create a link to download CV
     const link = document.createElement('a');
-    link.href = './assets/cv/Juan_Lorenzo_Suarez_CV.pdf';
-    link.download = 'Juan_Lorenzo_Suarez_CV.pdf';
+    link.href = './assets/cv/CV_FULLSTACK_JUAN_SUAREZ_ES.pdf';
+    link.download = 'CV_FULLSTACK_JUAN_SUAREZ_ES.pdf';
     link.click();
 
     showNotification('Descargando CV...', 'success');
