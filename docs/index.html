@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD API con Laravel 12 - Documentación</title>
+    <meta name="description" content="Guía completa paso a paso para crear una API REST con Laravel 12">
+    
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="docs-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver al Portfolio</span>
+                </a>
+                <h1><i class="fab fa-laravel"></i> Laravel 12 API Documentation</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="docs-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h3>Tabla de Contenidos</h3>
+                <nav class="toc">
+                    <ul>
+                        <li><a href="#requisitos"><i class="fas fa-clipboard-list"></i> Requisitos Previos</a></li>
+                        <li><a href="#paso1"><i class="fas fa-rocket"></i> Paso 1: Crear Proyecto</a></li>
+                        <li><a href="#paso2"><i class="fas fa-database"></i> Paso 2: Configurar BD</a></li>
+                        <li><a href="#paso3"><i class="fas fa-plug"></i> Paso 3: Instalar API</a></li>
+                        <li><a href="#paso4"><i class="fas fa-table"></i> Paso 4: Migración Posts</a></li>
+                        <li><a href="#paso5"><i class="fas fa-cube"></i> Paso 5: Modelo Post</a></li>
+                        <li><a href="#paso6"><i class="fas fa-check-circle"></i> Paso 6: Validación</a></li>
+                        <li><a href="#paso7"><i class="fas fa-layer-group"></i> Paso 7: Service Layer</a></li>
+                        <li><a href="#paso8"><i class="fas fa-gamepad"></i> Paso 8: Controlador</a></li>
+                        <li><a href="#paso9"><i class="fas fa-route"></i> Paso 9: Rutas API</a></li>
+                        <li><a href="#paso10"><i class="fas fa-play-circle"></i> Paso 10: Iniciar Servidor</a></li>
+                        <li><a href="#paso11"><i class="fas fa-vial"></i> Paso 11: Probar Endpoints</a></li>
+                        <li><a href="#arquitectura"><i class="fas fa-sitemap"></i> Arquitectura</a></li>
+                        <li><a href="#caracteristicas"><i class="fas fa-star"></i> Características</a></li>
+                        <li><a href="#comandos"><i class="fas fa-terminal"></i> Comandos Útiles</a></li>
+                        <li><a href="#buenas-practicas"><i class="fas fa-thumbs-up"></i> Mejores Prácticas</a></li>
+                        <li><a href="#problemas"><i class="fas fa-bug"></i> Solución de Problemas</a></li>
+                        <li><a href="#proximos"><i class="fas fa-forward"></i> Próximos Pasos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Documentation -->
+        <main class="docs-content">
+            <article>
+                <!-- Hero Section -->
+                <section class="hero">
+                    <h1 class="title">📘 Guía Completa: CRUD API con Laravel 12</h1>
+                    <p class="subtitle">Esta guía te llevará paso a paso desde cero hasta crear una API REST completa, escalable y mantenible para gestionar Posts usando Laravel 12.</p>
+                </section>
+
+                <!-- Requisitos Previos -->
+                <section id="requisitos" class="doc-section">
+                    <h2><i class="fas fa-clipboard-list"></i> Requisitos Previos</h2>
+                    <ul class="requirements-list">
+                        <li><i class="fab fa-php"></i> <strong>PHP 8.2+</strong></li>
+                        <li><i class="fas fa-box"></i> <strong>Composer</strong></li>
+                        <li><i class="fas fa-database"></i> <strong>SQLite</strong> (incluido por defecto en PHP)</li>
+                        <li><i class="fas fa-paper-plane"></i> <strong>Postman/Insomnia</strong> (para probar los endpoints)</li>
+                        <li><i class="fas fa-server"></i> <strong>Herd/Laravel Valet/Laragon</strong> (opcional, para desarrollo local)</li>
+                    </ul>
+                </section>
+
+                <!-- Paso 1 -->
+                <section id="paso1" class="doc-section">
+                    <h2><i class="fas fa-rocket"></i> Paso 1: Crear el Proyecto Laravel 12</h2>
+                    <pre class="line-numbers"><code class="language-bash">composer create-project laravel/laravel crud
+cd crud</code></pre>
+                </section>
+
+                <!-- Paso 2 -->
+                <section id="paso2" class="doc-section">
+                    <h2><i class="fas fa-database"></i> Paso 2: Configurar la Base de Datos</h2>
+                    <p>Edita el archivo <code>.env</code>:</p>
+                    <pre class="line-numbers"><code class="language-bash">DB_CONNECTION=sqlite
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=laravel
+# DB_USERNAME=root
+# DB_PASSWORD=</code></pre>
+                    
+                    <p>Crea el archivo de base de datos SQLite:</p>
+                    <pre class="line-numbers"><code class="language-bash">touch database/database.sqlite</code></pre>
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <strong>Nota:</strong> En Windows, si <code>touch</code> no funciona, usa:
+                            <pre><code class="language-powershell">New-Item database/database.sqlite</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Paso 3 -->
+                <section id="paso3" class="doc-section">
+                    <h2><i class="fas fa-plug"></i> Paso 3: Instalar la API</h2>
+                    <p>Laravel 12 incluye un comando para configurar la API automáticamente:</p>
+                    <pre class="line-numbers"><code class="language-bash">php artisan install:api</code></pre>
+                    
+                    <div class="info-box">
+                        <h4>Este comando:</h4>
+                        <ul>
+                            <li>Instala y configura Laravel Sanctum</li>
+                            <li>Publica las migraciones necesarias</li>
+                            <li>Ejecuta las migraciones automáticamente</li>
+                            <li>Configura las rutas API</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Paso 4 -->
+                <section id="paso4" class="doc-section">
+                    <h2><i class="fas fa-table"></i> Paso 4: Crear la Migración de Posts</h2>
+                    <pre class="line-numbers"><code class="language-bash">php artisan make:migration create_posts_table</code></pre>
+                    
+                    <p>Edita <code>database/migrations/xxxx_create_posts_table.php</code>:</p>
+                    <pre class="line-numbers"><code class="language-php">&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('content');
+            $table->enum('status', ['draft','published'])->default('draft');
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('posts');
+    }
+};</code></pre>
+                    
+                    <p>Ejecuta la migración:</p>
+                    <pre class="line-numbers"><code class="language-bash">php artisan migrate</code></pre>
+                </section>
+
+                <!-- Paso 5 -->
+                <section id="paso5" class="doc-section">
+                    <h2><i class="fas fa-cube"></i> Paso 5: Crear el Modelo Post</h2>
+                    <pre class="line-numbers"><code class="language-bash">php artisan make:model Post</code></pre>
+                    
+                    <p>Edita <code>app/Models/Post.php</code>:</p>
+                    <pre class="line-numbers"><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    protected $fillable = ['title', 'content', 'status'];
+    
+    public const PAGINATE = 10;
+}</code></pre>
+                </section>
+
+                <!-- Paso 6 -->
+                <section id="paso6" class="doc-section">
+                    <h2><i class="fas fa-check-circle"></i> Paso 6: Crear Form Requests para Validación</h2>
+                    
+                    <h3>Request para Crear Posts</h3>
+                    <pre class="line-numbers"><code class="language-bash">php artisan make:request Post/CreatePostRequest</code></pre>
+                    
+                    <p>Edita <code>app/Http/Requests/Post/CreatePostRequest.php</code>:</p>
+                    <pre class="line-numbers"><code class="language-php">&lt;?php
+
+namespace App\Http\Requests\Post;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class CreatePostRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    public function rules(): array
+    {
+        return [
+            'title'   => 'required|string|max:255',
+            'content' => 'required|string',
+            'status'  => 'required|in:draft,published'
+        ];
+    }
+}</code></pre>
+                    
+                    <h3>Request para Actualizar Posts (Parcial)</h3>
+                    <pre class="line-numbers"><code class="language-bash">php artisan make:request Post/CreateUpdateRequest</code></pre>
+                    
+                    <p>Edita <code>app/Http/Requests/Post/CreateUpdateRequest.php</code>:</p>
+                    <pre class="line-numbers"><code class="language-php">&lt;?php
+
+namespace App\Http\Requests\Post;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class CreateUpdateRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Usa 'sometimes' para permitir actualización parcial (PATCH)
+     */
+    public function rules(): array
+    {
+        return [
+            'title'   => 'sometimes|required|string|max:255',
+            'content' => 'sometimes|required|string',
+            'status'  => 'sometimes|required|in:draft,published'
+        ];
+    }
+}</code></pre>
+                </section>
+
+                <!-- Paso 7 -->
+                <section id="paso7" class="doc-section">
+                    <h2><i class="fas fa-layer-group"></i> Paso 7: Crear el Service Layer (Capa de Servicio)</h2>
+                    
+                    <p>Crea el directorio y el servicio:</p>
+                    <pre class="line-numbers"><code class="language-bash">mkdir -p app/Services/Post</code></pre>
+                    
+                    <p>Crea <code>app/Services/Post/PostService.php</code>:</p>
+                    <pre class="line-numbers"><code class="language-php">&lt;?php
+
+namespace App\Services\Post;
+
+use App\Models\Post;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+
+class PostService
+{
+    /**
+     * Obtener todos los posts con filtros opcionales
+     */
+    public function getAll(array $filters = []): LengthAwarePaginator
+    {
+        $query = Post::latest();
+
+        if (!empty($filters['status'])) {
+            $query->where('status', $filters['status']);
+        }
+
+        return $query->paginate(Post::PAGINATE);
+    }
+
+    /**
+     * Buscar un post por ID
+     */
+    public function find(int $id): Post
+    {
+        return Post::findOrFail($id);
+    }
+
+    /**
+     * Crear un nuevo post
+     */
+    public function create(array $data): Post
+    {
+        return Post::create($data);
+    }
+
+    /**
+     * Actualizar un post existente
+     */
+    public function edit(Post $post, array $data): Post
+    {
+        $post->update($data);
+        return $post;
+    }
+
+    /**
+     * Eliminar un post
+     */
+    public function delete(int $id): bool
+    {
+        return Post::where('id', $id)->delete();
+    }
+}</code></pre>
+                </section>
+
+                <!-- Paso 8 -->
+                <section id="paso8" class="doc-section">
+                    <h2><i class="fas fa-gamepad"></i> Paso 8: Crear el Controlador</h2>
+                    <pre class="line-numbers"><code class="language-bash">php artisan make:controller PostController</code></pre>
+                    
+                    <p>Edita <code>app/Http/Controllers/PostController.php</code>:</p>
+                    <pre class="line-numbers"><code class="language-php">&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\Post\CreatePostRequest;
+use App\Http\Requests\Post\CreateUpdateRequest;
+use App\Services\Post\PostService;
+use Illuminate\Http\Request;
+
+class PostController extends Controller
+{
+    public function __construct(protected PostService $service)
+    {}
+
+    /**
+     * GET /api/posts
+     * Listar todos los posts (con paginación y filtros opcionales)
+     */
+    public function index(Request $request)
+    {
+        $posts = $this->service->getAll($request->only('status'));
+
+        return response()->json([
+            'message' => 'Elementos listados correctamente',
+            'data'    => $posts,
+        ], 200);
+    }
+
+    /**
+     * POST /api/posts
+     * Crear un nuevo post
+     */
+    public function store(CreatePostRequest $request)
+    {
+        $post = $this->service->create($request->validated());
+
+        return response()->json([
+            'message' => 'Post creado exitosamente',
+            'data'    => $post,
+        ], 201);
+    }
+
+    /**
+     * GET /api/posts/{id}
+     * Mostrar un post específico
+     */
+    public function show(string $id)
+    {
+        $post = $this->service->find($id);
+        
+        return response()->json([
+            'message' => 'Post encontrado exitosamente',
+            'data'    => $post,
+        ], 200);
+    }
+
+    /**
+     * PATCH /api/posts/{id}
+     * Actualizar un post (parcial o completo)
+     */
+    public function edit(CreateUpdateRequest $request, string $id)
+    {
+        $updatedPost = $this->service->edit(
+            $this->service->find($id), 
+            $request->validated()
+        );
+
+        return response()->json([
+            'message' => 'Post actualizado exitosamente',
+            'data'    => $updatedPost,
+        ], 200);
+    }
+
+    /**
+     * DELETE /api/posts/{id}
+     * Eliminar un post
+     */
+    public function destroy(string $id)
+    {
+        $this->service->delete($id);
+        
+        return response()->json([
+            'message' => 'Post eliminado exitosamente',
+        ], 204);
+    }
+}</code></pre>
+                </section>
+
+                <!-- Paso 9 -->
+                <section id="paso9" class="doc-section">
+                    <h2><i class="fas fa-route"></i> Paso 9: Configurar las Rutas API</h2>
+                    
+                    <p>Edita <code>routes/api.php</code>:</p>
+                    <pre class="line-numbers"><code class="language-php">&lt;?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
+// API Post Routes
+Route::post('posts', [PostController::class, 'store']);
+Route::get('posts', [PostController::class, 'index']);
+Route::get('posts/{id}', [PostController::class, 'show']);
+Route::patch('posts/{id}', [PostController::class, 'edit']);
+Route::delete('posts/{id}', [PostController::class, 'destroy']);</code></pre>
+                </section>
+
+                <!-- Paso 10 -->
+                <section id="paso10" class="doc-section">
+                    <h2><i class="fas fa-play-circle"></i> Paso 10: Iniciar el Servidor</h2>
+                    <pre class="line-numbers"><code class="language-bash">php artisan serve</code></pre>
+                    
+                    <p>O si usas <strong>Herd/Valet</strong>, accede a <code>http://crud.test</code></p>
+                </section>
+
+                <!-- Paso 11 -->
+                <section id="paso11" class="doc-section">
+                    <h2><i class="fas fa-vial"></i> Paso 11: Probar los Endpoints</h2>
+                    
+                    <h3>1. Crear un Post (POST)</h3>
+                    <div class="endpoint-box">
+                        <span class="method post">POST</span>
+                        <code>http://127.0.0.1:8000/api/posts</code>
+                    </div>
+                    
+                    <p><strong>Headers:</strong></p>
+                    <pre><code class="language-http">Content-Type: application/json
+Accept: application/json</code></pre>
+                    
+                    <p><strong>Body:</strong></p>
+                    <pre class="line-numbers"><code class="language-json">{
+  "title": "Mi Primer Post",
+  "content": "Este es el contenido de mi primer post",
+  "status": "draft"
+}</code></pre>
+                    
+                    <p><strong>Respuesta esperada (201):</strong></p>
+                    <pre class="line-numbers"><code class="language-json">{
+  "message": "Post creado exitosamente",
+  "data": {
+    "id": 1,
+    "title": "Mi Primer Post",
+    "content": "Este es el contenido de mi primer post",
+    "status": "draft",
+    "created_at": "2026-02-04T20:00:00.000000Z",
+    "updated_at": "2026-02-04T20:00:00.000000Z"
+  }
+}</code></pre>
+
+                    <h3>2. Listar Posts (GET)</h3>
+                    <div class="endpoint-box">
+                        <span class="method get">GET</span>
+                        <code>http://127.0.0.1:8000/api/posts</code>
+                    </div>
+                    
+                    <p><strong>Respuesta esperada (200):</strong></p>
+                    <pre class="line-numbers"><code class="language-json">{
+  "message": "Elementos listados correctamente",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 1,
+        "title": "Mi Primer Post",
+        "content": "Este es el contenido de mi primer post",
+        "status": "draft",
+        "created_at": "2026-02-04T20:00:00.000000Z",
+        "updated_at": "2026-02-04T20:00:00.000000Z"
+      }
+    ],
+    "per_page": 10,
+    "total": 1
+  }
+}</code></pre>
+                    
+                    <p><strong>Con filtro por status:</strong></p>
+                    <div class="endpoint-box">
+                        <span class="method get">GET</span>
+                        <code>http://127.0.0.1:8000/api/posts?status=published</code>
+                    </div>
+
+                    <h3>3. Obtener un Post (GET)</h3>
+                    <div class="endpoint-box">
+                        <span class="method get">GET</span>
+                        <code>http://127.0.0.1:8000/api/posts/1</code>
+                    </div>
+
+                    <h3>4. Actualizar un Post - Parcial (PATCH)</h3>
+                    <div class="endpoint-box">
+                        <span class="method patch">PATCH</span>
+                        <code>http://127.0.0.1:8000/api/posts/1</code>
+                    </div>
+                    
+                    <p><strong>Body (solo actualizar el título):</strong></p>
+                    <pre class="line-numbers"><code class="language-json">{
+  "title": "Título Actualizado"
+}</code></pre>
+                    
+                    <p><strong>O actualizar varios campos:</strong></p>
+                    <pre class="line-numbers"><code class="language-json">{
+  "title": "Título Actualizado",
+  "status": "published"
+}</code></pre>
+
+                    <h3>5. Eliminar un Post (DELETE)</h3>
+                    <div class="endpoint-box">
+                        <span class="method delete">DELETE</span>
+                        <code>http://127.0.0.1:8000/api/posts/1</code>
+                    </div>
+                    
+                    <p><strong>Respuesta esperada (204):</strong></p>
+                    <pre class="line-numbers"><code class="language-json">{
+  "message": "Post eliminado exitosamente"
+}</code></pre>
+                </section>
+
+                <!-- Arquitectura -->
+                <section id="arquitectura" class="doc-section">
+                    <h2><i class="fas fa-sitemap"></i> Arquitectura del Proyecto</h2>
+                    <pre class="line-numbers"><code class="language-plaintext">app/
+├── Http/
+│   ├── Controllers/
+│   │   └── PostController.php        # Maneja las peticiones HTTP
+│   └── Requests/
+│       └── Post/
+│           ├── CreatePostRequest.php      # Validación para crear
+│           └── CreateUpdateRequest.php    # Validación para actualizar
+├── Models/
+│   └── Post.php                      # Modelo Eloquent
+└── Services/
+    └── Post/
+        └── PostService.php           # Lógica de negocio
+
+routes/
+└── api.php                           # Rutas de la API
+
+database/
+└── migrations/
+    └── xxxx_create_posts_table.php   # Esquema de la BD</code></pre>
+                </section>
+
+                <!-- Características -->
+                <section id="caracteristicas" class="doc-section">
+                    <h2><i class="fas fa-star"></i> Características Implementadas</h2>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Separación de Responsabilidades</h3>
+                            <ul>
+                                <li><strong>Controller:</strong> Maneja requests/responses HTTP</li>
+                                <li><strong>Service:</strong> Contiene la lógica de negocio</li>
+                                <li><strong>Model:</strong> Representa la entidad de la base de datos</li>
+                                <li><strong>Form Requests:</strong> Valida datos de entrada</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Validación Robusta</h3>
+                            <ul>
+                                <li><strong>CreatePostRequest:</strong> Requiere todos los campos (POST)</li>
+                                <li><strong>CreateUpdateRequest:</strong> Campos opcionales con <code>sometimes</code> (PATCH)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <i class="fas fa-edit"></i>
+                            <h3>Actualización Parcial (PATCH)</h3>
+                            <p>Puedes actualizar solo los campos que necesites sin enviar todos los datos.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <i class="fas fa-list"></i>
+                            <h3>Paginación Automática</h3>
+                            <p>Los listados usan paginación (10 elementos por defecto).</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <i class="fas fa-filter"></i>
+                            <h3>Filtros en el Listado</h3>
+                            <p>Filtra por <code>status</code>: <code>GET /api/posts?status=published</code></p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <i class="fas fa-code"></i>
+                            <h3>Códigos HTTP Correctos</h3>
+                            <ul>
+                                <li><code>200</code> OK (éxito)</li>
+                                <li><code>201</code> Created (recurso creado)</li>
+                                <li><code>204</code> No Content (eliminado)</li>
+                                <li><code>404</code> Not Found (no encontrado)</li>
+                                <li><code>422</code> Unprocessable Entity (error de validación)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comandos Útiles -->
+                <section id="comandos" class="doc-section">
+                    <h2><i class="fas fa-terminal"></i> Comandos Útiles</h2>
+                    <pre class="line-numbers"><code class="language-bash"># Ver todas las rutas
+php artisan route:list
+
+# Limpiar caché
+php artisan cache:clear
+php artisan config:clear
+
+# Crear nueva migración
+php artisan make:migration nombre_migracion
+
+# Ejecutar migraciones
+php artisan migrate
+
+# Revertir última migración
+php artisan migrate:rollback
+
+# Recrear base de datos SQLite (borra todos los datos)
+php artisan migrate:fresh
+
+# Ver logs en tiempo real (Windows PowerShell)
+Get-Content storage/logs/laravel.log -Wait -Tail 50
+
+# Ver logs en tiempo real (Linux/Mac)
+tail -f storage/logs/laravel.log</code></pre>
+                </section>
+
+                <!-- Mejores Prácticas -->
+                <section id="buenas-practicas" class="doc-section">
+                    <h2><i class="fas fa-thumbs-up"></i> Mejores Prácticas Aplicadas</h2>
+                    <ol class="best-practices">
+                        <li><strong>Service Layer Pattern:</strong> Lógica de negocio separada del controlador</li>
+                        <li><strong>Form Request Validation:</strong> Validación centralizada y reutilizable</li>
+                        <li><strong>RESTful API Design:</strong> Endpoints claros y semánticos</li>
+                        <li><strong>Type Hinting:</strong> Código más seguro con PHP 8.2+</li>
+                        <li><strong>Constructor Property Promotion:</strong> Sintaxis moderna de PHP</li>
+                        <li><strong>Paginación:</strong> Evita sobrecarga con grandes datasets</li>
+                        <li><strong>Soft Deletes</strong> (opcional): Considera usar <code>SoftDeletes</code> trait en el modelo</li>
+                    </ol>
+                </section>
+
+                <!-- Solución de Problemas -->
+                <section id="problemas" class="doc-section">
+                    <h2><i class="fas fa-bug"></i> Solución de Problemas Comunes</h2>
+                    
+                    <div class="troubleshooting">
+                        <div class="issue">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Error: "The title field is required"</h3>
+                            <ul>
+                                <li>Verifica que estés usando <strong>comillas dobles</strong> <code>"</code> en JSON, no simples <code>'</code></li>
+                                <li>Asegúrate de tener el header <code>Content-Type: application/json</code></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="issue">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Error 404 en rutas API</h3>
+                            <ul>
+                                <li>Verifica que la URL incluya <code>/api/</code> (ej: <code>http://127.0.0.1:8000/api/posts</code>)</li>
+                                <li>Revisa las rutas con <code>php artisan route:list</code></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="issue">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Error de conexión a BD con SQLite</h3>
+                            <ul>
+                                <li>Verifica que el archivo <code>database/database.sqlite</code> exista</li>
+                                <li>Si no existe, créalo: <code>touch database/database.sqlite</code> (Linux/Mac) o <code>New-Item database/database.sqlite</code> (Windows)</li>
+                                <li>Asegúrate de que <code>.env</code> tenga <code>DB_CONNECTION=sqlite</code></li>
+                                <li>Ejecuta las migraciones: <code>php artisan migrate</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Próximos Pasos -->
+                <section id="proximos" class="doc-section">
+                    <h2><i class="fas fa-forward"></i> Próximos Pasos Sugeridos</h2>
+                    <ol class="next-steps">
+                        <li><i class="fas fa-lock"></i> <strong>Agregar autenticación con Sanctum</strong></li>
+                        <li><i class="fas fa-link"></i> <strong>Implementar relaciones</strong> (Post → User)</li>
+                        <li><i class="fas fa-box"></i> <strong>Agregar API Resources</strong> para formatear respuestas</li>
+                        <li><i class="fas fa-vial"></i> <strong>Implementar tests</strong> (PHPUnit/Pest)</li>
+                        <li><i class="fas fa-tachometer-alt"></i> <strong>Agregar Rate Limiting</strong> para proteger la API</li>
+                        <li><i class="fas fa-book"></i> <strong>Documentar con Swagger/OpenAPI</strong></li>
+                        <li><i class="fas fa-search"></i> <strong>Implementar búsqueda y ordenamiento avanzado</strong></li>
+                    </ol>
+                </section>
+
+                <!-- Footer -->
+                <section class="doc-footer">
+                    <p><strong>¡Felicidades! 🎉</strong> Has creado una API REST completa, escalable y mantenible con Laravel 12.</p>
+                    <div class="license">
+                        <i class="fas fa-balance-scale"></i>
+                        <p>Este proyecto es de código abierto y está disponible bajo la licencia MIT.</p>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-http.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
