@@ -3,6 +3,33 @@
    Modern Portfolio Functionality
    ============================================ */
 
+const portfolioSecurity = window.PortfolioSecurity || {};
+const escapeMainHtml = (value) => typeof portfolioSecurity.escapeHtml === 'function'
+  ? portfolioSecurity.escapeHtml(value)
+  : String(value ?? '');
+const safeMainUrl = (value, fallback = '#') => typeof portfolioSecurity.sanitizeUrl === 'function'
+  ? portfolioSecurity.sanitizeUrl(value, fallback)
+  : (value || fallback);
+const safeMainClasses = (value) => typeof portfolioSecurity.sanitizeClassList === 'function'
+  ? portfolioSecurity.sanitizeClassList(value)
+  : String(value ?? '');
+const safeMainColor = (value, fallback = 'currentColor') => typeof portfolioSecurity.sanitizeCssColor === 'function'
+  ? portfolioSecurity.sanitizeCssColor(value, fallback)
+  : (value || fallback);
+const safeMainPercent = (value) => {
+  if (typeof portfolioSecurity.sanitizePercent === 'function') {
+    return portfolioSecurity.sanitizePercent(value);
+  }
+
+  const numericValue = Number(value);
+  return Number.isFinite(numericValue) ? Math.min(100, Math.max(0, numericValue)) : 0;
+};
+const hardenMainLinks = (root = document) => {
+  if (typeof portfolioSecurity.hardenExternalLinks === 'function') {
+    portfolioSecurity.hardenExternalLinks(root);
+  }
+};
+
 // ============================================
 // GLOBAL STATE
 // ============================================
@@ -19,12 +46,14 @@ const state = {
 document.addEventListener('DOMContentLoaded', async () => {
     await loadData();
     initializeNavigation();
+  initializeUIActions();
     initializeScrollAnimations();
     initializeContactForm();
     renderProjects();
     renderSkills();
     initializeMobileMenu();
     initializeScrollToTop();
+  hardenMainLinks();
 });
 
 // ============================================
@@ -32,18 +61,73 @@ document.addEventListener('DOMContentLoaded', async () => {
 // ============================================
 async function loadData() {
     try {
-        // Load projects
-        const projectsResponse = await fetch('./data/projects.json');
-        const projectsData = await projectsResponse.json();
-        state.projects = projectsData.projects;
+    const [projectsData, skillsData] = await Promise.all([
+      fetchJson('./data/projects.json'),
+      fetchJson('./data/skills.json')
+    ]);
 
-        // Load skills
-        const skillsResponse = await fetch('./data/skills.json');
-        const skillsData = await skillsResponse.json();
-        state.skills = skillsData.skillCategories;
+    state.projects = Array.isArray(projectsData.projects) ? projectsData.projects : [];
+    state.skills = Array.isArray(skillsData.skillCategories) ? skillsData.skillCategories : [];
     } catch (error) {
         console.error('Error loading data:', error);
     }
+}
+
+async function fetchJson(url) {
+  const response = await fetch(url, {
+    headers: {
+      Accept: 'application/json'
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error(`Request failed with status ${response.status}`);
+  }
+
+  return response.json();
+}
+
+function initializeUIActions() {
+  document.querySelectorAll('.filter-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const { filter } = button.dataset;
+      filterProjects(filter || 'all');
+    });
+  });
+
+  const downloadButton = document.querySelector('[data-action="download-cv"]');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', downloadCV);
+  }
+
+  attachImageFallbacks(document);
+}
+
+function attachImageFallbacks(root = document) {
+  root.querySelectorAll('img[data-fallback-src]').forEach((image) => {
+    if (image.dataset.fallbackBound === 'true') {
+      return;
+    }
+
+    image.dataset.fallbackBound = 'true';
+    image.addEventListener('error', handleImageFallback);
+  });
+}
+
+function handleImageFallback(event) {
+  const image = event.currentTarget;
+  const fallbackSrc = image.dataset.fallbackSrc;
+
+  if (!fallbackSrc || image.dataset.fallbackApplied === 'true') {
+    return;
+  }
+
+  image.dataset.fallbackApplied = 'true';
+  image.src = fallbackSrc;
+
+  if (image.dataset.fallbackWidth) {
+    image.style.maxWidth = image.dataset.fallbackWidth;
+  }
 }
 
 // ============================================
@@ -173,31 +257,51 @@ function renderProjects() {
         ? state.projects
         : state.projects.filter(p => p.category === state.currentFilter);
 
-    projectsContainer.innerHTML = filteredProjects.map(project => `
-    <div class="card project-card fade-in">
-      <img src="${project.image}" alt="${project.title}" class="project-image" onerror="this.src='./assets/screenshots/placeholder.png'">
-      <div class="card-content">
-        <h3 class="card-title">${project.title}</h3>
-        <p class="card-description">${project.description}</p>
-        
-        <div class="project-tags">
-          ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-        </div>
-        
-        <div class="project-links">
-          ${project.demoUrl ? `<a href="${project.demoUrl}" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
-            <i class="fas fa-external-link-alt"></i> Ver Demo
-          </a>` : ''}
-          ${project.githubUrl ? `<a href="${project.githubUrl}" class="btn btn-outline btn-sm" target="_blank" rel="noopener">
-            <i class="fab fa-github"></i> Código
-          </a>` : ''}
-        </div>
-      </div>
-    </div>
-  `).join('');
+    projectsContainer.innerHTML = filteredProjects.map(createProjectCardMarkup).join('');
+    attachImageFallbacks(projectsContainer);
+    hardenMainLinks(projectsContainer);
 
     // Re-observe new elements
     initializeScrollAnimations();
+}
+
+function createProjectCardMarkup(project) {
+    const imageSrc = safeMainUrl(project.image, './assets/screenshots/placeholder.png');
+    const title = escapeMainHtml(project.title);
+    const description = escapeMainHtml(project.description);
+    const tags = Array.isArray(project.tags)
+        ? project.tags.map((tag) => `<span class="tag">${escapeMainHtml(tag)}</span>`).join('')
+        : '';
+
+    return `
+    <div class="card project-card fade-in">
+      <img src="${imageSrc}" alt="${title}" class="project-image" data-fallback-src="./assets/screenshots/placeholder.png">
+      <div class="card-content">
+        <h3 class="card-title">${title}</h3>
+        <p class="card-description">${description}</p>
+        
+        <div class="project-tags">
+          ${tags}
+        </div>
+        
+        <div class="project-links">
+          ${createProjectLinkMarkup(project.demoUrl, 'btn btn-primary btn-sm', 'fas fa-external-link-alt', 'Ver Demo')}
+          ${createProjectLinkMarkup(project.githubUrl, 'btn btn-outline btn-sm', 'fab fa-github', 'Código')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function createProjectLinkMarkup(url, className, iconClass, label) {
+    const safeHref = safeMainUrl(url);
+    if (!url || safeHref === '#') {
+        return '';
+    }
+
+    return `<a href="${safeHref}" class="${className}" target="_blank" rel="noopener noreferrer">
+            <i class="${iconClass}"></i> ${escapeMainHtml(label)}
+          </a>`;
 }
 
 // ============================================
@@ -207,30 +311,48 @@ function renderSkills() {
     const skillsContainer = document.getElementById('skillsContainer');
     if (!skillsContainer) return;
 
-    skillsContainer.innerHTML = state.skills.map((category, index) => `
-    <div class="skill-category fade-in" style="animation-delay: ${index * 0.1}s">
-      <h3>
-        <i class="fas ${category.icon}" style="color: ${category.color}"></i>
-        ${category.name}
-      </h3>
-      <div class="skill-grid">
-        ${category.skills.map(skill => `
-          <div class="skill-item hover-lift">
-            <div class="skill-icon">
-              <i class="${skill.icon}"></i>
-            </div>
-            <div class="skill-name">${skill.name}</div>
-            <div class="skill-level" style="font-size: 0.75rem; color: var(--color-text-muted);">
-              ${skill.years} ${skill.years === 1 ? 'año' : 'años'}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
+    skillsContainer.innerHTML = state.skills.map(createSkillCategoryMarkup).join('');
 
     // Re-observe new elements
     initializeScrollAnimations();
+}
+
+function createSkillCategoryMarkup(category, index) {
+    const categoryIcon = safeMainClasses(category.icon);
+    const categoryColor = safeMainColor(category.color, 'currentColor');
+    const categoryName = escapeMainHtml(category.name);
+    const categorySkills = Array.isArray(category.skills) ? category.skills.map(createSkillItemMarkup).join('') : '';
+
+    return `
+    <div class="skill-category fade-in" style="animation-delay: ${index * 0.1}s">
+      <h3>
+        <i class="fas ${categoryIcon}" style="color: ${categoryColor}"></i>
+        ${categoryName}
+      </h3>
+      <div class="skill-grid">
+        ${categorySkills}
+      </div>
+    </div>
+  `;
+}
+
+function createSkillItemMarkup(skill) {
+    const iconClass = safeMainClasses(skill.icon);
+    const skillName = escapeMainHtml(skill.name);
+    const years = Number(skill.years);
+    const yearsText = Number.isFinite(years) ? `${years} ${years === 1 ? 'año' : 'años'}` : '0 años';
+
+    return `
+          <div class="skill-item hover-lift">
+            <div class="skill-icon">
+              <i class="${iconClass}"></i>
+            </div>
+            <div class="skill-name">${skillName}</div>
+            <div class="skill-level" style="font-size: 0.75rem; color: var(--color-text-muted);">
+              ${escapeMainHtml(yearsText)}
+            </div>
+          </div>
+        `;
 }
 
 // ============================================
@@ -297,10 +419,14 @@ function initializeContactForm() {
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-    <span>${message}</span>
-  `;
+
+    const icon = document.createElement('i');
+    icon.className = `fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}`;
+
+    const text = document.createElement('span');
+    text.textContent = message;
+
+    notification.append(icon, text);
 
     notification.style.cssText = `
     position: fixed;
@@ -355,11 +481,18 @@ function initializeScrollToTop() {
 // DOWNLOAD CV
 // ============================================
 function downloadCV() {
-    // Create a link to download CV
+  const cvUrl = safeMainUrl('./assets/cv/CV_FULLSTACK_JUAN_SUAREZ_ES.pdf');
+  if (cvUrl === '#') {
+    showNotification('No se pudo localizar el CV.', 'error');
+    return;
+  }
+
     const link = document.createElement('a');
-    link.href = './assets/cv/CV_FULLSTACK_JUAN_SUAREZ_ES.pdf';
+  link.href = cvUrl;
     link.download = 'CV_FULLSTACK_JUAN_SUAREZ_ES.pdf';
+  document.body.appendChild(link);
     link.click();
+  link.remove();
 
     showNotification('Descargando CV...', 'success');
 }
@@ -436,9 +569,3 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
-
-// ============================================
-// EXPORT FUNCTIONS FOR GLOBAL USE
-// ============================================
-window.filterProjects = filterProjects;
-window.downloadCV = downloadCV;

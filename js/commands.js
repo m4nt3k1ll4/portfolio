@@ -10,6 +10,59 @@ function getCmdT(key) {
   return t(key) || key;
 }
 
+function safeCmdText(value) {
+  return escapeText(value);
+}
+
+function safeCmdLink(url, fallback = '#') {
+  return sanitizeLink(url, fallback);
+}
+
+function safeCmdClassList(value) {
+  return sanitizeCssClassList(value);
+}
+
+function safeCmdLevel(value) {
+  return sanitizePercent(value);
+}
+
+function createProjectLinksMarkup(links) {
+  return Object.entries(links || {})
+    .map(([key, url]) => {
+      const safeHref = safeCmdLink(url);
+
+      if (safeHref === '#') {
+        return '';
+      }
+
+      const iconClass = key.includes('github') ? 'fab fa-github' : 'fas fa-external-link-alt';
+      return `
+    <a href="${safeHref}" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+      <i class="${iconClass}"></i> ${safeCmdText(key)}
+    </a>`;
+    })
+    .join('');
+}
+
+function createSkillCards(skills) {
+  return (skills || []).map((skill) => {
+    const iconClass = safeCmdClassList(skill.icon);
+    const level = safeCmdLevel(skill.level);
+    const skillName = safeCmdText(skill.name);
+
+    return `  <div class="skill-card">
+    <div class="skill-header">
+      <i class="${iconClass} colored"></i>
+      <span class="skill-name">${skillName}</span>
+    </div>
+    <div class="skill-bar-container">
+      <div class="skill-bar-fill" style="width: ${level}%"></div>
+    </div>
+    <span class="skill-percentage">${level}%</span>
+  </div>`;
+  }).join('\n');
+}
+
 // ============================================
 // Contact Form Handler
 // ============================================
@@ -40,20 +93,20 @@ function createContactFormContainer() {
   container.id = 'contact-form-container';
   container.innerHTML = `
     <div style="display: flex; flex-direction: column; gap: 12px; padding: 15px; background: rgba(0,255,0,0.05); border-left: 3px solid #00ff00; border-radius: 4px; pointer-events: auto;">
-      <div style="font-weight: bold; margin-bottom: 10px; pointer-events: auto;">${getCmdT('cmd.sendContact.prompt')}</div>
+      <div style="font-weight: bold; margin-bottom: 10px; pointer-events: auto;">${safeCmdText(getCmdT('cmd.sendContact.prompt'))}</div>
       
       <div style="pointer-events: auto;">
-        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.name')}</label>
+        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${safeCmdText(getCmdT('cmd.sendContact.name'))}</label>
         <input type="text" id="contact-name" placeholder="e.g., John Doe" style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; pointer-events: auto; cursor: text;">
       </div>
       
       <div style="pointer-events: auto;">
-        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.email')}</label>
+        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${safeCmdText(getCmdT('cmd.sendContact.email'))}</label>
         <input type="email" id="contact-email" placeholder="e.g., john@example.com" style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; pointer-events: auto; cursor: text;">
       </div>
       
       <div style="pointer-events: auto;">
-        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${getCmdT('cmd.sendContact.message')}</label>
+        <label style="display: block; margin-bottom: 5px; color: #00ff00; pointer-events: auto;">${safeCmdText(getCmdT('cmd.sendContact.message'))}</label>
         <textarea id="contact-message" placeholder="Your message here..." style="width: 100%; padding: 8px; background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00; border-radius: 3px; font-family: 'Courier New', monospace; min-height: 80px; resize: vertical; pointer-events: auto; cursor: text;"></textarea>
       </div>
       
@@ -114,17 +167,17 @@ async function handleContactSubmit(elements) {
   
   const validation = validateContactForm(formData);
   if (!validation.valid) {
-    statusDiv.innerHTML = `<span style="color: #ff6b6b;">${validation.errors[0]}</span>`;
+    statusDiv.innerHTML = `<span style="color: #ff6b6b;">${safeCmdText(validation.errors[0])}</span>`;
     return;
   }
   
-  statusDiv.innerHTML = `<span style="color: #ffff00;">⏳ ${getCmdT('cmd.sendContact.sending')}</span>`;
+  statusDiv.innerHTML = `<span style="color: #ffff00;">⏳ ${safeCmdText(getCmdT('cmd.sendContact.sending'))}</span>`;
   disableContactForm(true, { nameInput, emailInput, messageInput, sendBtn, cancelBtn });
   
   try {
     await sendToGoogleForms(formData);
     
-    statusDiv.innerHTML = `<span style="color: #00ff00;">${getCmdT('cmd.sendContact.success')}</span>`;
+    statusDiv.innerHTML = `<span style="color: #00ff00;">${safeCmdText(getCmdT('cmd.sendContact.success'))}</span>`;
     
     setTimeout(() => {
       container.style.opacity = '0.5';
@@ -132,7 +185,8 @@ async function handleContactSubmit(elements) {
     }, 2000);
     
   } catch (error) {
-    statusDiv.innerHTML = `<span style="color: #ff6b6b;">${getCmdT('cmd.sendContact.error')} ${error.message}</span>`;
+    const errorMessage = error && error.message ? ` ${safeCmdText(error.message)}` : '';
+    statusDiv.innerHTML = `<span style="color: #ff6b6b;">${safeCmdText(getCmdT('cmd.sendContact.error'))}${errorMessage}</span>`;
     disableContactForm(false, { nameInput, emailInput, messageInput, sendBtn, cancelBtn });
   }
 }
@@ -143,7 +197,7 @@ async function handleContactSubmit(elements) {
  * @param {HTMLElement} statusDiv - Status div
  */
 function handleContactCancel(container, statusDiv) {
-  statusDiv.innerHTML = `<span style="color: #888;">${getCmdT('cmd.sendContact.cancel')}</span>`;
+  statusDiv.innerHTML = `<span style="color: #888;">${safeCmdText(getCmdT('cmd.sendContact.cancel'))}</span>`;
   setTimeout(() => container.remove(), 500);
 }
 
@@ -390,32 +444,38 @@ const commands = {
 
   // About/whoami - Modern profile card
   whoami: () => {
+    const personalName = safeCmdText(typeof t === 'function' ? t('personal.name') : portfolioData.personal.name);
+    const personalTitle = safeCmdText(typeof t === 'function' ? t('personal.title') : portfolioData.personal.title);
+    const personalUsername = safeCmdText(typeof t === 'function' ? t('personal.username') : portfolioData.personal.username);
+    const githubUrl = safeCmdLink(portfolioData.personal.github);
+    const linkedinUrl = safeCmdLink(portfolioData.personal.linkedin);
+    const cvUrl = safeCmdLink(portfolioData.personal.cv, './assets/cv/CV_FULLSTACK_JUAN_SUAREZ_ES.pdf');
     let output = `<div class="profile-card">
   <div class="profile-header">
     <div class="avatar-container">
-      <img src="./assets/media/juan-min.png" alt="${typeof t === 'function' ? t('personal.name') : portfolioData.personal.name}">
+      <img src="./assets/media/juan-min.png" alt="${personalName}">
     </div>
     <div class="profile-info">
-      <h2>${typeof t === 'function' ? t('personal.name') : portfolioData.personal.name}</h2>
-      <p class="title">${typeof t === 'function' ? t('personal.title') : portfolioData.personal.title}</p>
-      <p style="color: var(--color-success); margin-top: 8px;"><i class="fas fa-user"></i> ${typeof t === 'function' ? t('personal.username') : portfolioData.personal.username}</p>
+      <h2>${personalName}</h2>
+      <p class="title">${personalTitle}</p>
+      <p style="color: var(--color-success); margin-top: 8px;"><i class="fas fa-user"></i> ${personalUsername}</p>
     </div>
   </div>
   
   <div class="social-links">
-    <a href="${portfolioData.personal.github}" target="_blank">
-      <i class="fab fa-github"></i> ${getCmdT('cmd.whoami.header')}
+    <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github"></i> ${safeCmdText(getCmdT('cmd.whoami.header'))}
     </a>
-    <a href="${portfolioData.personal.linkedin}" target="_blank">
-      <i class="fab fa-linkedin"></i> ${getCmdT('cmd.whoami.linkedin')}
+    <a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin"></i> ${safeCmdText(getCmdT('cmd.whoami.linkedin'))}
     </a>
-    <a href="${portfolioData.personal.cv}" download>
-      <i class="fas fa-file-pdf"></i> ${getCmdT('cmd.whoami.downloadCV')}
+    <a href="${cvUrl}" download>
+      <i class="fas fa-file-pdf"></i> ${safeCmdText(getCmdT('cmd.whoami.downloadCV'))}
     </a>
   </div>
 </div>
 
-<span class="muted">${getCmdT('cmd.whoami.bio')}</span>`;
+<span class="muted">${safeCmdText(getCmdT('cmd.whoami.bio'))}</span>`;
 
     return {
       type: "info",
@@ -431,42 +491,37 @@ const commands = {
   projects: () => {
     let output = `<div class="section-header">
   <i class="fas fa-folder-open"></i>
-  <h2>${getCmdT('cmd.projects.header')}</h2>
+  <h2>${safeCmdText(getCmdT('cmd.projects.header'))}</h2>
 </div>\n`;
 
     portfolioData.projects.forEach((project) => {
+      const projectName = safeCmdText(project.name);
+      const projectType = safeCmdText(project.type);
+      const projectDescription = safeCmdText(typeof t === 'function' ? t(`project.${project.id}.desc`) : project.description);
       output += `<div class="project-card-modern">
   <div class="project-header">
     <i class="fas fa-rocket"></i>
-    <h3>${project.name}</h3>
-    <span class="badge">${project.type}</span>
+    <h3>${projectName}</h3>
+    <span class="badge">${projectType}</span>
   </div>
-  <p class="project-description">${typeof t === 'function' ? t(`project.${project.id}.desc`) : project.description}</p>
+  <p class="project-description">${projectDescription}</p>
   
   <div class="tech-stack-visual">`;
 
       // Add tech icons
       project.tech.forEach(tech => {
-        const icon = getTechIcon(tech);
-        output += `\n    <i class="${icon} colored" title="${tech}"></i>`;
+        const icon = safeCmdClassList(getTechIcon(tech));
+        output += `\n    <i class="${icon} colored" title="${safeCmdText(tech)}"></i>`;
       });
 
       output += `\n  </div>
   
-  <div class="project-links">`;
-
-      Object.entries(project.links).forEach(([key, url]) => {
-        const iconClass = key.includes('github') ? 'fab fa-github' : 'fas fa-external-link-alt';
-        output += `\n    <a href="${url}" target="_blank" class="project-link-btn">
-      <i class="${iconClass}"></i> ${key}
-    </a>`;
-      });
-
-      output += `\n  </div>
+  <div class="project-links">${createProjectLinksMarkup(project.links)}
+  </div>
 </div>\n`;
     });
 
-    output += `\n<span class="muted">${getCmdT('cmd.projects.navTip')}</span>`;
+    output += `\n<span class="muted">${safeCmdText(getCmdT('cmd.projects.navTip'))}</span>`;
 
     return {
       type: "success",
@@ -478,86 +533,42 @@ const commands = {
   skills: () => {
     let output = `<div class="section-header">
   <i class="fas fa-code"></i>
-  <h2>${getCmdT('cmd.skills.header')}</h2>
+  <h2>${safeCmdText(getCmdT('cmd.skills.header'))}</h2>
 </div>\n`;
 
     // Frontend
     output += `<div class="skill-category-section">
-  <h3><i class="fas fa-laptop-code"></i> ${getCmdT('cmd.skills.frontend')}</h3>\n`;
+  <h3><i class="fas fa-laptop-code"></i> ${safeCmdText(getCmdT('cmd.skills.frontend'))}</h3>\n`;
 
-    portfolioData.skills.frontend.forEach(skill => {
-      output += `  <div class="skill-card">
-    <div class="skill-header">
-      <i class="${skill.icon} colored"></i>
-      <span class="skill-name">${skill.name}</span>
-    </div>
-    <div class="skill-bar-container">
-      <div class="skill-bar-fill" style="width: ${skill.level}%"></div>
-    </div>
-    <span class="skill-percentage">${skill.level}%</span>
-  </div>\n`;
-    });
+    output += `${createSkillCards(portfolioData.skills.frontend)}\n`;
 
     output += `</div>\n`;
 
     // Backend
     output += `<div class="skill-category-section">
-  <h3><i class="fas fa-server"></i> ${getCmdT('cmd.skills.backend')}</h3>\n`;
+  <h3><i class="fas fa-server"></i> ${safeCmdText(getCmdT('cmd.skills.backend'))}</h3>\n`;
 
-    portfolioData.skills.backend.forEach(skill => {
-      output += `  <div class="skill-card">
-    <div class="skill-header">
-      <i class="${skill.icon} colored"></i>
-      <span class="skill-name">${skill.name}</span>
-    </div>
-    <div class="skill-bar-container">
-      <div class="skill-bar-fill" style="width: ${skill.level}%"></div>
-    </div>
-    <span class="skill-percentage">${skill.level}%</span>
-  </div>\n`;
-    });
+    output += `${createSkillCards(portfolioData.skills.backend)}\n`;
 
     output += `</div>\n`;
 
     // Database
     output += `<div class="skill-category-section">
-  <h3><i class="fas fa-database"></i> ${getCmdT('cmd.skills.database')}</h3>\n`;
+  <h3><i class="fas fa-database"></i> ${safeCmdText(getCmdT('cmd.skills.database'))}</h3>\n`;
 
-    portfolioData.skills.database.forEach(skill => {
-      output += `  <div class="skill-card">
-    <div class="skill-header">
-      <i class="${skill.icon} colored"></i>
-      <span class="skill-name">${skill.name}</span>
-    </div>
-    <div class="skill-bar-container">
-      <div class="skill-bar-fill" style="width: ${skill.level}%"></div>
-    </div>
-    <span class="skill-percentage">${skill.level}%</span>
-  </div>\n`;
-    });
+    output += `${createSkillCards(portfolioData.skills.database)}\n`;
 
     output += `</div>\n`;
 
     // Tools
     output += `<div class="skill-category-section">
-  <h3><i class="fas fa-tools"></i> ${getCmdT('cmd.skills.tools')}</h3>\n`;
+  <h3><i class="fas fa-tools"></i> ${safeCmdText(getCmdT('cmd.skills.tools'))}</h3>\n`;
 
-    portfolioData.skills.tools.forEach(skill => {
-      output += `  <div class="skill-card">
-    <div class="skill-header">
-      <i class="${skill.icon} colored"></i>
-      <span class="skill-name">${skill.name}</span>
-    </div>
-    <div class="skill-bar-container">
-      <div class="skill-bar-fill" style="width: ${skill.level}%"></div>
-    </div>
-    <span class="skill-percentage">${skill.level}%</span>
-  </div>\n`;
-    });
+    output += `${createSkillCards(portfolioData.skills.tools)}\n`;
 
     output += `</div>\n`;
 
-    output += `\n<span class="muted">${getCmdT('cmd.skills.navTip')}</span>`;
+    output += `\n<span class="muted">${safeCmdText(getCmdT('cmd.skills.navTip'))}</span>`;
 
     return {
       type: "success",
@@ -567,20 +578,28 @@ const commands = {
 
   // Contact
   contact: () => {
+    const personalName = safeCmdText(typeof t === 'function' ? t('personal.name') : portfolioData.personal.name);
+    const personalUsername = safeCmdText(typeof t === 'function' ? t('personal.username') : portfolioData.personal.username);
+    const personalTitle = safeCmdText(typeof t === 'function' ? t('personal.title') : portfolioData.personal.title);
+    const personalEmail = safeCmdText(typeof t === 'function' ? t('personal.email') : portfolioData.personal.email);
+    const githubUrl = safeCmdLink(portfolioData.personal.github);
+    const linkedinUrl = safeCmdLink(portfolioData.personal.linkedin);
+    const githubText = safeCmdText(portfolioData.personal.github);
+    const linkedinText = safeCmdText(portfolioData.personal.linkedin);
     return {
       type: "info",
-      content: `<span class="highlight">${getCmdT('cmd.contact.header')}</span>
+      content: `<span class="highlight">${safeCmdText(getCmdT('cmd.contact.header'))}</span>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-<span class="success">${getCmdT('cmd.contact.name')}</span>     ${typeof t === 'function' ? t('personal.name') : portfolioData.personal.name}
-<span class="success">${getCmdT('cmd.contact.username')}</span> ${typeof t === 'function' ? t('personal.username') : portfolioData.personal.username}
-<span class="success">${getCmdT('cmd.contact.title')}</span>    ${typeof t === 'function' ? t('personal.title') : portfolioData.personal.title}
-<span class="success">Email:</span>         ${typeof t === 'function' ? t('personal.email') : portfolioData.personal.email}
+<span class="success">${safeCmdText(getCmdT('cmd.contact.name'))}</span>     ${personalName}
+<span class="success">${safeCmdText(getCmdT('cmd.contact.username'))}</span> ${personalUsername}
+<span class="success">${safeCmdText(getCmdT('cmd.contact.title'))}</span>    ${personalTitle}
+<span class="success">Email:</span>         ${personalEmail}
 
-<span class="info">${getCmdT('cmd.contact.github')}</span>   <a href="${portfolioData.personal.github}" target="_blank" class="project-link">${portfolioData.personal.github}</a>
-<span class="info">${getCmdT('cmd.contact.linkedin')}</span> <a href="${portfolioData.personal.linkedin}" target="_blank" class="project-link">${portfolioData.personal.linkedin}</a>
+<span class="info">${safeCmdText(getCmdT('cmd.contact.github'))}</span>   <a href="${githubUrl}" target="_blank" rel="noopener noreferrer" class="project-link">${githubText}</a>
+<span class="info">${safeCmdText(getCmdT('cmd.contact.linkedin'))}</span> <a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" class="project-link">${linkedinText}</a>
 
-<span class="muted">${getCmdT('cmd.contact.more')}</span>`
+<span class="muted">${safeCmdText(getCmdT('cmd.contact.more'))}</span>`
     };
   },
 

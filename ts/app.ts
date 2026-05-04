@@ -1,4 +1,13 @@
 
+function renderFormResult(formResult: HTMLDivElement, type: 'success' | 'error', message: string): void {
+    formResult.textContent = '';
+
+    const statusMessage = document.createElement('div');
+    statusMessage.className = type === 'success' ? 'success-message' : 'error-message';
+    statusMessage.textContent = message;
+    formResult.appendChild(statusMessage);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
@@ -27,15 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
             body: dataToPost,
         })
             .then(() => {
-                formResult.innerHTML = '<div class="success-message">¡Gracias! Tu mensaje ha sido enviado correctamente.</div>';
+                renderFormResult(formResult, 'success', '¡Gracias! Tu mensaje ha sido enviado correctamente.');
                 contactForm.reset();
             })
             .catch((error: Error) => {
-                formResult.innerHTML = `<div class="error-message">Hubo un error de red al enviar el formulario. Error: ${error.message}</div>`;
+                renderFormResult(formResult, 'error', `Hubo un error de red al enviar el formulario. Error: ${error.message}`);
             })
             .finally(() => {
                 setTimeout(() => {
-                    formResult.innerHTML = '';
+                    formResult.textContent = '';
                 }, 5000);
             });
     });

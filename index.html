@@ -15,6 +15,9 @@
     content="Full-Stack Developer, Angular, Laravel, TypeScript, PHP, JavaScript, Web Development, Frontend, Backend, Portfolio, Developer" />
   <meta name="author" content="Juan Lorenzo Suárez Jiménez" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://docs.google.com https://docs.googleusercontent.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://docs.google.com;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <!-- Canonical & Alternate URLs -->
   <link rel="canonical" href="https://m4nt3k1lla.com" />
@@ -154,7 +157,7 @@
           <a href="#contact" class="btn btn-secondary">
             <i class="fas fa-envelope"></i> Contactar
           </a>
-          <button onclick="downloadCV()" class="btn btn-outline">
+          <button type="button" class="btn btn-outline" data-action="download-cv">
             <i class="fas fa-download"></i> Descargar CV
           </button>
         </div>
@@ -176,7 +179,7 @@
           <div class="about-image-container" style="text-align: center;">
             <img src="./assets/images/profile.jpg" alt="Juan Lorenzo Suárez"
               style="max-width: 400px; width: 100%; border-radius: var(--border-radius-md); border: 2px solid var(--glass-border);"
-              onerror="this.src='./assets/media/favicon.ico'; this.style.maxWidth='200px';">
+              data-fallback-src="./assets/media/favicon.ico" data-fallback-width="200px">
           </div>
         </div>
 
@@ -254,16 +257,16 @@
 
       <!-- Project Filters -->
       <div class="text-center mb-lg">
-        <button class="btn btn-outline filter-btn active" data-filter="all" onclick="filterProjects('all')">
+        <button type="button" class="btn btn-outline filter-btn active" data-filter="all">
           Todos
         </button>
-        <button class="btn btn-outline filter-btn" data-filter="Frontend" onclick="filterProjects('Frontend')">
+        <button type="button" class="btn btn-outline filter-btn" data-filter="Frontend">
           Frontend
         </button>
-        <button class="btn btn-outline filter-btn" data-filter="Full-Stack" onclick="filterProjects('Full-Stack')">
+        <button type="button" class="btn btn-outline filter-btn" data-filter="Full-Stack">
           Full-Stack
         </button>
-        <button class="btn btn-outline filter-btn" data-filter="Backend" onclick="filterProjects('Backend')">
+        <button type="button" class="btn btn-outline filter-btn" data-filter="Backend">
           Backend
         </button>
       </div>
@@ -396,7 +399,7 @@
             <i class="fab fa-github contact-icon"></i>
             <div>
               <h4>GitHub</h4>
-              <a href="https://github.com/m4nt3k1ll4" target="_blank" rel="noopener">github.com/m4nt3k1ll4</a>
+              <a href="https://github.com/m4nt3k1ll4" target="_blank" rel="noopener noreferrer">github.com/m4nt3k1ll4</a>
             </div>
           </div>
 
@@ -404,7 +407,7 @@
             <i class="fab fa-linkedin contact-icon"></i>
             <div>
               <h4>LinkedIn</h4>
-              <a href="https://linkedin.com/in/m4nt3k1ll4" target="_blank" rel="noopener">linkedin.com/in/m4nt3k1ll4</a>
+              <a href="https://linkedin.com/in/m4nt3k1ll4" target="_blank" rel="noopener noreferrer">linkedin.com/in/m4nt3k1ll4</a>
             </div>
           </div>
         </div>
@@ -451,10 +454,10 @@
   <footer class="footer">
     <div class="container">
       <div class="social-links">
-        <a href="https://github.com/m4nt3k1ll4" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+        <a href="https://github.com/m4nt3k1ll4" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://linkedin.com/in/m4nt3k1ll4" class="social-link" target="_blank" rel="noopener"
+        <a href="https://linkedin.com/in/m4nt3k1ll4" class="social-link" target="_blank" rel="noopener noreferrer"
           aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
@@ -478,6 +481,7 @@
   </button>
 
   <!-- Scripts -->
+  <script src="./js/security.js"></script>
   <script src="./js/main.js"></script>
 </body>
 

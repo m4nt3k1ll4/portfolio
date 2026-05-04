@@ -648,6 +648,9 @@ function retranslateAllCommands(allLines) {
                 const newOutput = document.createElement("div");
                 newOutput.className = `output-line ${result.type}`;
                 newOutput.innerHTML = result.content;
+                if (window.PortfolioSecurity && typeof window.PortfolioSecurity.hardenExternalLinks === 'function') {
+                    window.PortfolioSecurity.hardenExternalLinks(newOutput);
+                }
                 
                 // Insert immediately after the command element
                 const nextSibling = cmd.cmdElement.nextSibling;

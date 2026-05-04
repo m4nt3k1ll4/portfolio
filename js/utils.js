@@ -28,6 +28,45 @@ function getTrans(key, fallback = '') {
 }
 
 // ============================================
+// Security Helpers
+// ============================================
+
+const portfolioSecurity = window.PortfolioSecurity || {};
+
+function escapeText(value) {
+  return typeof portfolioSecurity.escapeHtml === 'function'
+    ? portfolioSecurity.escapeHtml(value)
+    : String(value ?? '');
+}
+
+function sanitizeLink(value, fallback = '#') {
+  return typeof portfolioSecurity.sanitizeUrl === 'function'
+    ? portfolioSecurity.sanitizeUrl(value, fallback)
+    : (value || fallback);
+}
+
+function sanitizeCssClassList(value) {
+  return typeof portfolioSecurity.sanitizeClassList === 'function'
+    ? portfolioSecurity.sanitizeClassList(value)
+    : String(value ?? '');
+}
+
+function sanitizeColorValue(value, fallback = 'currentColor') {
+  return typeof portfolioSecurity.sanitizeCssColor === 'function'
+    ? portfolioSecurity.sanitizeCssColor(value, fallback)
+    : (value || fallback);
+}
+
+function sanitizePercent(value, fallback = 0) {
+  if (typeof portfolioSecurity.sanitizePercent === 'function') {
+    return portfolioSecurity.sanitizePercent(value, fallback);
+  }
+
+  const numericValue = Number(value);
+  return Number.isFinite(numericValue) ? Math.min(100, Math.max(0, numericValue)) : fallback;
+}
+
+// ============================================
 // Validation Helpers
 // ============================================
 

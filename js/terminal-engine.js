@@ -275,6 +275,9 @@ function printOutput(content, type = "info", animate = false) {
         applyTypewriter(line, content);
     } else {
         line.innerHTML = content;
+        if (window.PortfolioSecurity && typeof window.PortfolioSecurity.hardenExternalLinks === 'function') {
+            window.PortfolioSecurity.hardenExternalLinks(line);
+        }
         terminalOutput.appendChild(line);
     }
 }
