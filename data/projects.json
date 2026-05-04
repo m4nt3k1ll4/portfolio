@@ -1,79 +1,198 @@
 {
     "projects": [
         {
-            "id": "crosstaskmanager",
-            "title": "CrossTaskManager",
+            "id": "sintyc",
+            "title": "S!NTyC",
             "category": "Full-Stack",
-            "description": "Sistema completo de gestión de tareas con frontend y backend integrados. Permite crear, asignar y dar seguimiento a tareas de manera eficiente.",
-            "longDescription": "Aplicación full-stack desarrollada con tecnologías modernas para la gestión de tareas y proyectos. Incluye autenticación de usuarios, asignación de tareas, seguimiento de progreso y panel de administración.",
+            "description": "Sistema interno para convertir compromisos, pendientes y acuerdos de trabajo en tareas visibles y trazables.",
+            "longDescription": "Aplicación desarrollada en React y Laravel para formalizar compromisos operativos con responsables, fechas, estados y evidencia de ejecución.",
             "technologies": [
-                "Angular",
+                "React",
                 "Laravel",
-                "TypeScript",
-                "PHP",
                 "MySQL"
             ],
             "features": [
-                "Gestión completa de tareas y proyectos",
-                "Asignación de tareas a usuarios",
-                "Seguimiento de progreso en tiempo real",
-                "Panel de administración",
-                "Autenticación y autorización",
-                "API RESTful robusta"
+                "Responsables, fechas y estados de tarea",
+                "Seguimiento operativo visible",
+                "Registro de evidencia por ejecución"
             ],
-            "image": "./assets/screenshots/loginScreenCTM.png",
+            "image": "./assets/screenshots/placeholder.png",
             "demoUrl": null,
-            "githubUrl": "https://github.com/m4nt3k1ll4/crosstaskmanager",
+            "githubUrl": null,
             "tags": [
-                "Angular",
+                "React",
                 "Laravel",
-                "Full-Stack",
-                "TypeScript",
-                "PHP",
-                "MySQL"
+                "Cybertec"
             ],
             "featured": true,
-            "year": "2024"
+            "year": "2026"
         },
         {
-            "id": "quiroga-abogados",
-            "title": "Quiroga Abogados Asociados",
+            "id": "chronology",
+            "title": "Chronology",
+            "category": "Full-Stack",
+            "description": "Sistema para convertir datos de reloj biométrico en control real de asistencia y tiempo laboral.",
+            "longDescription": "Aplicación en React y Laravel para gestionar asistencia, retardos, ausencias, jornadas incompletas, turnos, excepciones y horas extra a partir de registros biométricos.",
+            "technologies": [
+                "React",
+                "Laravel",
+                "MySQL"
+            ],
+            "features": [
+                "Control de asistencia y tiempo laboral",
+                "Gestión de retardos y ausencias",
+                "Lectura operativa de datos biométricos"
+            ],
+            "image": "./assets/screenshots/placeholder.png",
+            "demoUrl": null,
+            "githubUrl": null,
+            "tags": [
+                "React",
+                "Laravel",
+                "Cybertec"
+            ],
+            "featured": true,
+            "year": "2026"
+        },
+        {
+            "id": "cybertec-online",
+            "title": "Cybertec Online",
             "category": "Frontend",
-            "description": "Sitio web profesional para firma de abogados con diseño elegante y moderno. Incluye información de servicios, equipo legal y formulario de contacto.",
-            "longDescription": "Desarrollo completo de sitio web corporativo para firma de abogados. Diseño profesional y elegante con enfoque en UX/UI, optimización SEO, y despliegue con dominio personalizado.",
+            "description": "Landing page orientada a conversión por WhatsApp para presentar productos de software.",
+            "longDescription": "Landing desarrollada en HTML y Tailwind con foco en conversión, mensaje claro y acceso rápido a contacto comercial.",
             "technologies": [
                 "HTML5",
-                "CSS3",
+                "Tailwind",
                 "JavaScript"
             ],
             "features": [
-                "Diseño corporativo profesional",
-                "Sección de servicios legales",
-                "Presentación del equipo",
-                "Formulario de contacto",
-                "Optimización SEO",
-                "Diseño responsive",
-                "Dominio personalizado"
+                "CTA principal a WhatsApp",
+                "Presentación de productos",
+                "Estructura enfocada en conversión"
+            ],
+            "image": "./assets/screenshots/placeholder.png",
+            "demoUrl": "https://cyberteconline.com",
+            "githubUrl": null,
+            "tags": [
+                "HTML",
+                "Tailwind",
+                "Producción"
+            ],
+            "featured": true,
+            "year": "2026"
+        },
+        {
+            "id": "cybertec-corporativo",
+            "title": "Cybertec.com.co",
+            "category": "Frontend",
+            "description": "Sitio corporativo para presentar la empresa y su portafolio de servicios.",
+            "longDescription": "Web corporativa desarrollada en HTML y Tailwind para presentar servicios, propuesta de valor y acceso a contacto comercial.",
+            "technologies": [
+                "HTML5",
+                "Tailwind",
+                "JavaScript"
+            ],
+            "features": [
+                "Presentación corporativa",
+                "Portafolio de servicios",
+                "Contacto comercial"
+            ],
+            "image": "./assets/screenshots/placeholder.png",
+            "demoUrl": "https://cybertec.com.co",
+            "githubUrl": null,
+            "tags": [
+                "HTML",
+                "Tailwind",
+                "Corporativo"
+            ],
+            "featured": false,
+            "year": "2026"
+        },
+        {
+            "id": "cumpledata",
+            "title": "CumpleData",
+            "category": "Frontend",
+            "description": "Landing page orientada a conversión y contacto comercial, desarrollada según especificaciones del cliente.",
+            "longDescription": "Landing enfocada en conversión y captación comercial, construida en HTML y Tailwind con estructura clara y CTA directa.",
+            "technologies": [
+                "HTML5",
+                "Tailwind",
+                "JavaScript"
+            ],
+            "features": [
+                "Contacto comercial",
+                "Implementación según brief del cliente",
+                "Foco en conversión"
+            ],
+            "image": "./assets/screenshots/placeholder.png",
+            "demoUrl": "https://cumpledata.com",
+            "githubUrl": null,
+            "tags": [
+                "HTML",
+                "Tailwind",
+                "Producción"
+            ],
+            "featured": false,
+            "year": "2026"
+        },
+        {
+            "id": "quiroga-abogados",
+            "title": "Quiroga Abogados",
+            "category": "Frontend",
+            "description": "Sitio de presentación para la firma, con servicios y redirección a WhatsApp con mensaje precargado.",
+            "longDescription": "Sitio web de presentación para Quiroga Abogados Asociados, orientado a mostrar servicios y facilitar el contacto por WhatsApp.",
+            "technologies": [
+                "HTML5",
+                "CSS3"
+            ],
+            "features": [
+                "Presentación institucional",
+                "Servicios legales",
+                "Contacto por WhatsApp"
             ],
             "image": "./assets/screenshots/quiroga-abogados.png",
             "demoUrl": "https://www.quirogaabogadosasociados.com",
             "githubUrl": null,
             "tags": [
-                "HTML5",
-                "CSS3",
-                "JavaScript",
-                "Responsive Design",
-                "SEO"
+                "HTML",
+                "CSS",
+                "Producción"
             ],
-            "featured": true,
+            "featured": false,
             "year": "2024"
         },
         {
-            "id": "variedades-humberto",
-            "title": "Variedades Humberto SSS",
+            "id": "humberto-sss",
+            "title": "Landing Page Humberto SSS",
             "category": "Frontend",
-            "description": "Sitio web comercial para tienda de variedades. Catálogo de productos, información de contacto y ubicación.",
-            "longDescription": "Desarrollo de sitio web para negocio local de variedades. Incluye catálogo de productos, información de la tienda, ubicación y medios de contacto.",
+            "description": "Landing page orientada a conversión y contacto comercial.",
+            "longDescription": "Landing para negocio local enfocada en conversión, contacto rápido y presentación clara de la oferta comercial.",
+            "technologies": [
+                "HTML5",
+                "CSS3"
+            ],
+            "features": [
+                "Enfoque a conversión",
+                "Contacto comercial",
+                "Versión responsive"
+            ],
+            "image": "./assets/screenshots/variedadeshumbertosss.jpeg",
+            "demoUrl": "https://humbertosss.com",
+            "githubUrl": null,
+            "tags": [
+                "HTML",
+                "CSS",
+                "Producción"
+            ],
+            "featured": false,
+            "year": "2024"
+        },
+        {
+            "id": "ofmedical",
+            "title": "OfMedicalSAS",
+            "category": "Frontend",
+            "description": "Sitio web con catálogo y carrito de cotización integrado a WhatsApp para atención personalizada.",
+            "longDescription": "Sitio con catálogo de productos y carrito de cotización conectado a WhatsApp para atención comercial personalizada.",
             "technologies": [
                 "HTML5",
                 "CSS3",
@@ -81,191 +200,47 @@
             ],
             "features": [
                 "Catálogo de productos",
-                "Información de la tienda",
-                "Ubicación con mapa",
-                "Formulario de contacto",
-                "Diseño responsive",
-                "Optimización para móviles"
+                "Carrito de cotización",
+                "Integración con WhatsApp"
             ],
-            "image": "./assets/screenshots/variedades-humberto.png",
-            "demoUrl": "https://humbertosss.com",
-            "githubUrl": null,
-            "tags": [
-                "HTML5",
-                "CSS3",
-                "JavaScript",
-                "Responsive Design"
-            ],
-            "featured": true,
-            "year": "2024"
-        },
-        {
-            "id": "ofmedical",
-            "title": "OF Medical SAS",
-            "category": "Frontend",
-            "description": "Sitio web corporativo para empresa del sector salud. Información de servicios médicos, equipo profesional y contacto.",
-            "longDescription": "Desarrollo de sitio web profesional para empresa del sector salud. Diseño limpio y confiable con información de servicios, equipo médico y formularios de contacto.",
-            "technologies": [
-                "HTML5",
-                "CSS3",
-                "JavaScript"
-            ],
-            "features": [
-                "Información de servicios médicos",
-                "Presentación del equipo",
-                "Formulario de contacto",
-                "Diseño profesional y confiable",
-                "Optimización SEO",
-                "Responsive design"
-            ],
-            "image": "./assets/screenshots/ofmedical.png",
+            "image": "./assets/screenshots/ofmedicalsas.png",
             "demoUrl": "https://ofmedicalsas.com",
             "githubUrl": null,
             "tags": [
-                "HTML5",
-                "CSS3",
+                "HTML",
                 "JavaScript",
-                "Healthcare",
-                "SEO"
-            ],
-            "featured": true,
-            "year": "2024"
-        },
-        {
-            "id": "terminal-portfolio",
-            "title": "Interactive Terminal Portfolio",
-            "category": "Frontend",
-            "description": "Portfolio interactivo con interfaz de terminal que simula una experiencia de línea de comandos. Incluye sistema de archivos virtual, comandos personalizados y múltiples temas.",
-            "longDescription": "Proyecto creativo que demuestra habilidades avanzadas de JavaScript vanilla. Incluye sistema de archivos virtual, comandos Unix-like, autocompletado, múltiples temas visuales e internacionalización.",
-            "technologies": [
-                "JavaScript",
-                "HTML5",
-                "CSS3",
-                "TypeScript"
-            ],
-            "features": [
-                "Sistema de archivos virtual",
-                "Comandos Unix-like (ls, cd, cat, tree)",
-                "Múltiples temas visuales",
-                "Soporte multiidioma (ES/EN)",
-                "Autocompletado inteligente",
-                "Animaciones y efectos",
-                "Diseño responsive"
-            ],
-            "image": "./assets/screenshots/terminal-portfolio.png",
-            "demoUrl": "./projects/terminal-portfolio/",
-            "githubUrl": "https://github.com/m4nt3k1ll4/portfolio",
-            "tags": [
-                "JavaScript",
-                "TypeScript",
-                "CSS3",
-                "Interactive UI"
+                "Producción"
             ],
             "featured": false,
             "year": "2024"
         },
         {
-            "id": "api-crosstaskmanager",
-            "title": "API CrossTaskManager",
-            "category": "Backend",
-            "description": "API RESTful para el sistema de gestión de tareas CrossTaskManager. Backend robusto con autenticación JWT y control de acceso basado en roles.",
-            "longDescription": "API desarrollada con Laravel siguiendo mejores prácticas. Incluye autenticación JWT, sistema de roles y permisos, validación de datos y documentación completa.",
+            "id": "crosstaskmanager",
+            "title": "CrossTaskManager",
+            "category": "Full-Stack",
+            "description": "SaaS de gestión de tareas con backend en Laravel y frontend en Angular.",
+            "longDescription": "Proyecto full-stack con API RESTful en Laravel y frontend en Angular para gestión de usuarios, tareas y estados sobre base de datos MySQL.",
             "technologies": [
+                "Angular",
                 "Laravel",
-                "PHP",
-                "MySQL",
-                "JWT"
+                "TypeScript",
+                "MySQL"
             ],
             "features": [
-                "Autenticación JWT",
-                "Sistema de roles y permisos",
-                "CRUD completo de tareas",
-                "Validación de datos",
-                "Manejo de errores robusto",
-                "API RESTful bien estructurada"
+                "Gestión de usuarios, tareas y estados",
+                "API RESTful en Laravel",
+                "Persistencia en MySQL"
             ],
-            "image": "./assets/screenshots/api-placeholder.png",
+            "image": "./assets/screenshots/loginScreenCTM.png",
             "demoUrl": null,
-            "githubUrl": "https://github.com/m4nt3k1ll4/CrossTaskManager_backend",
+            "githubUrl": "https://github.com/m4nt3k1ll4/crosstaskmanager",
             "tags": [
+                "Angular",
                 "Laravel",
-                "PHP",
-                "REST API",
-                "JWT",
                 "MySQL"
             ],
             "featured": false,
-            "year": "2024"
-        },
-        {
-            "id": "api-escuela-idiomas",
-            "title": "API Gestión Escuela de Idiomas",
-            "category": "Backend",
-            "description": "API para gestión de escuela de idiomas con autenticación JWT, Passport y control de acceso basado en roles.",
-            "longDescription": "Sistema backend completo para gestión de escuela de idiomas. Incluye autenticación con JWT y Passport, sistema de roles (estudiantes, profesores, administradores), gestión de cursos y matrículas.",
-            "technologies": [
-                "Laravel",
-                "PHP",
-                "MySQL",
-                "JWT",
-                "Passport"
-            ],
-            "features": [
-                "Autenticación JWT con Passport",
-                "Role-based access control",
-                "Gestión de estudiantes y profesores",
-                "Administración de cursos",
-                "Sistema de matrículas",
-                "API RESTful documentada"
-            ],
-            "image": "./assets/screenshots/api-placeholder.png",
-            "demoUrl": null,
-            "githubUrl": "https://github.com/m4nt3k1ll4/Escuela_de_Idiomas_Backend",
-            "tags": [
-                "Laravel",
-                "PHP",
-                "JWT",
-                "Passport",
-                "Role-based Access"
-            ],
-            "featured": false,
-            "year": "2024"
-        },
-        {
-            "id": "serverless-daitech",
-            "title": "Serverless Functions - DaitechSAS",
-            "category": "Backend",
-            "description": "Funciones serverless desarrolladas para DaitechSAS. Arquitectura sin servidor para procesamiento eficiente y escalable.",
-            "longDescription": "Implementación de funciones serverless para optimizar procesos empresariales. Arquitectura escalable y eficiente en costos utilizando tecnologías cloud modernas.",
-            "technologies": [
-
-                "TypeScript",
-                "Node.js",
-                "Serverless",
-                "Cloudflare - workers",
-                "Cloud Functions",
-                "Supabase"
-            ],
-            "features": [
-                "Arquitectura serverless",
-                "Procesamiento eficiente",
-                "Escalabilidad automática",
-                "Optimización de costos",
-                "Integración con servicios cloud"
-            ],
-            "image": "./assets/screenshots/worrker.png",
-            "demoUrl": null,
-            "githubUrl": null,
-            "tags": [
-                "Serverless",
-                "Node.js",
-                "TypeScript",
-                "Cloudflare - workers",
-                "Supabase",
-                "Cloud"
-            ],
-            "featured": false,
-            "year": "2024"
+            "year": "2025"
         }
     ]
 }

@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   initializeUIActions();
     initializeScrollAnimations();
     initializeContactForm();
+    renderImpactStats();
+    renderFeaturedProjects();
     renderProjects();
     renderSkills();
     initializeMobileMenu();
@@ -128,6 +130,108 @@ function handleImageFallback(event) {
   if (image.dataset.fallbackWidth) {
     image.style.maxWidth = image.dataset.fallbackWidth;
   }
+}
+
+function getPortfolioStats() {
+  const liveProjects = state.projects.filter((project) => Boolean(project.demoUrl)).length;
+
+  return [
+    {
+      value: '2 años',
+      label: 'experiencia en producción',
+      detail: 'desarrollo y mantenimiento de aplicaciones web'
+    },
+    {
+      value: `${state.projects.length}`,
+      label: 'proyectos seleccionados',
+      detail: 'sistemas internos, sitios y landings publicadas'
+    },
+    {
+      value: `${liveProjects}`,
+      label: 'sitios en producción',
+      detail: 'proyectos con salida pública y objetivo comercial'
+    },
+    {
+      value: '3',
+      label: 'etapas recientes',
+      detail: 'Cybertec, Daitech y trabajo freelance'
+    }
+  ];
+}
+
+function renderImpactStats() {
+  const statsContainer = document.getElementById('impactStatsContainer');
+  if (!statsContainer) return;
+
+  statsContainer.innerHTML = getPortfolioStats().map((stat, index) => `
+    <article class="hero-stat fade-in" style="animation-delay: ${index * 0.08}s">
+      <strong>${escapeMainHtml(stat.value)}</strong>
+      <span>${escapeMainHtml(stat.label)}</span>
+      <small>${escapeMainHtml(stat.detail)}</small>
+    </article>
+  `).join('');
+}
+
+function getFeaturedProjects() {
+  const featuredProjects = state.projects.filter((project) => project.featured);
+  const sourceProjects = featuredProjects.length ? featuredProjects : state.projects;
+  return sourceProjects.slice(0, 3);
+}
+
+function renderFeaturedProjects() {
+  const featuredProjectsContainer = document.getElementById('featuredProjectsContainer');
+  if (!featuredProjectsContainer) return;
+
+  featuredProjectsContainer.innerHTML = getFeaturedProjects().map(createFeaturedProjectMarkup).join('');
+  attachImageFallbacks(featuredProjectsContainer);
+  hardenMainLinks(featuredProjectsContainer);
+
+  // Re-observe featured cards after injection.
+  initializeScrollAnimations();
+}
+
+function createFeaturedProjectMarkup(project, index) {
+  const imageSrc = safeMainUrl(project.image, './assets/screenshots/placeholder.png');
+  const title = escapeMainHtml(project.title);
+  const category = escapeMainHtml(project.category || 'Proyecto');
+  const year = escapeMainHtml(project.year || 'Actual');
+  const caseLabel = index === 0 ? 'Caso principal' : 'Caso destacado';
+  const description = escapeMainHtml(project.longDescription || project.description);
+  const technologies = Array.isArray(project.technologies) ? project.technologies.slice(0, 4) : [];
+  const tagsMarkup = technologies.map((technology) => `<span class="tag">${escapeMainHtml(technology)}</span>`).join('');
+  const highlightsMarkup = Array.isArray(project.features)
+    ? project.features.slice(0, 3).map((feature) => `<li>${escapeMainHtml(feature)}</li>`).join('')
+    : '';
+  const projectLinks = [
+    createProjectLinkMarkup(project.demoUrl, 'btn btn-primary btn-sm', 'fas fa-external-link-alt', 'Abrir caso'),
+    createProjectLinkMarkup(project.githubUrl, 'btn btn-outline btn-sm', 'fab fa-github', 'Revisar código')
+  ].filter(Boolean).join('');
+  const footerMarkup = projectLinks
+    ? `<div class="project-links">${projectLinks}</div>`
+    : '<p class="card-description">Proyecto con acceso privado o despliegue interno.</p>';
+
+  return `
+    <article class="card featured-case fade-in ${index === 0 ? 'featured-case-primary' : ''}">
+      <div class="featured-case-media">
+        <img src="${imageSrc}" alt="${title}" class="project-image" data-fallback-src="./assets/screenshots/placeholder.png">
+      </div>
+      <div class="featured-case-body">
+        <div class="case-meta">
+          <span>${escapeMainHtml(caseLabel)}</span>
+          <span>${category} · ${year}</span>
+        </div>
+        <h3 class="featured-case-title">${title}</h3>
+        <p class="featured-case-description">${description}</p>
+        <div class="project-tags">
+          ${tagsMarkup}
+        </div>
+        <ul class="case-highlights">
+          ${highlightsMarkup}
+        </ul>
+        ${footerMarkup}
+      </div>
+    </article>
+  `;
 }
 
 // ============================================
@@ -268,15 +372,28 @@ function renderProjects() {
 function createProjectCardMarkup(project) {
     const imageSrc = safeMainUrl(project.image, './assets/screenshots/placeholder.png');
     const title = escapeMainHtml(project.title);
+  const category = escapeMainHtml(project.category || 'Proyecto');
+  const year = escapeMainHtml(project.year || 'Actual');
     const description = escapeMainHtml(project.description);
     const tags = Array.isArray(project.tags)
-        ? project.tags.map((tag) => `<span class="tag">${escapeMainHtml(tag)}</span>`).join('')
+    ? project.tags.slice(0, 4).map((tag) => `<span class="tag">${escapeMainHtml(tag)}</span>`).join('')
         : '';
+  const projectLinks = [
+    createProjectLinkMarkup(project.demoUrl, 'btn btn-primary btn-sm', 'fas fa-external-link-alt', 'Ver Demo'),
+    createProjectLinkMarkup(project.githubUrl, 'btn btn-outline btn-sm', 'fab fa-github', 'Código')
+  ].filter(Boolean).join('');
+  const footerMarkup = projectLinks
+    ? `<div class="project-links">${projectLinks}</div>`
+    : '<p class="card-description">Proyecto con acceso privado o repositorio no público.</p>';
 
     return `
     <div class="card project-card fade-in">
       <img src="${imageSrc}" alt="${title}" class="project-image" data-fallback-src="./assets/screenshots/placeholder.png">
       <div class="card-content">
+        <div class="project-meta">
+          <span>${category}</span>
+          <span>${year}</span>
+        </div>
         <h3 class="card-title">${title}</h3>
         <p class="card-description">${description}</p>
         
@@ -284,10 +401,7 @@ function createProjectCardMarkup(project) {
           ${tags}
         </div>
         
-        <div class="project-links">
-          ${createProjectLinkMarkup(project.demoUrl, 'btn btn-primary btn-sm', 'fas fa-external-link-alt', 'Ver Demo')}
-          ${createProjectLinkMarkup(project.githubUrl, 'btn btn-outline btn-sm', 'fab fa-github', 'Código')}
-        </div>
+        ${footerMarkup}
       </div>
     </div>
   `;
@@ -339,8 +453,6 @@ function createSkillCategoryMarkup(category, index) {
 function createSkillItemMarkup(skill) {
     const iconClass = safeMainClasses(skill.icon);
     const skillName = escapeMainHtml(skill.name);
-    const years = Number(skill.years);
-    const yearsText = Number.isFinite(years) ? `${years} ${years === 1 ? 'año' : 'años'}` : '0 años';
 
     return `
           <div class="skill-item hover-lift">
@@ -348,9 +460,6 @@ function createSkillItemMarkup(skill) {
               <i class="${iconClass}"></i>
             </div>
             <div class="skill-name">${skillName}</div>
-            <div class="skill-level" style="font-size: 0.75rem; color: var(--color-text-muted);">
-              ${escapeMainHtml(yearsText)}
-            </div>
           </div>
         `;
 }
